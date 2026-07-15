@@ -72,6 +72,12 @@
     background:#fff; width:100%; max-width:100%;
   }
   input:focus,select:focus{outline:2px solid var(--hijau-muda); border-color:var(--hijau-muda);}
+  textarea{
+    font:inherit; font-size:16px; padding:8px 10px; border:1px solid #cfc9b8; border-radius:8px;
+    background:#fff; width:100%; resize:vertical; line-height:1.55;
+  }
+  textarea:focus{outline:2px solid var(--hijau-muda); border-color:var(--hijau-muda);}
+  .teks-sop{white-space:pre-wrap; line-height:1.6;}
   input[type=number]{text-align:right;}
   .input-kecil{width:90px;}
   .input-sedang{width:130px;}
@@ -320,7 +326,8 @@ function dataBawaan(){
         tkBatch:25000, overheadBatch:10000, lainBatch:0,
         markupReseller:50, markupRetail:100
       }
-    ]
+    ],
+    sop: sopBawaan()
   };
 }
 
@@ -358,7 +365,10 @@ function normalisasiData(d){
       markupReseller: angkaPositif(p.markupReseller), markupRetail: angkaPositif(p.markupRetail)
     };
   });
-  return { versi:1, produk };
+  const sop = (d && Array.isArray(d.sop) && d.sop.length)
+    ? d.sop.map(s=>({judul: teks(s && s.judul) || "Bagian SOP", isi: teks(s && s.isi)}))
+    : sopBawaan();
+  return { versi:1, produk, sop };
 }
 function muatData(){
   try{
@@ -874,161 +884,165 @@ function renderKalkulator(){
 }
 
 /* ---------- TAB SOP ---------- */
+let sopSedangEdit = null;
+
+/* Teks SOP bawaan — hanya contoh awal. Pengguna dapat mengedit/mengganti
+   seluruhnya lewat tombol "Edit Bagian Ini" di tab SOP. */
+function sopBawaan(){
+  return [
+    {judul:"SOP-01 • Perhitungan Gramasi & Penimbangan Bahan", isi:`TUJUAN
+Memastikan setiap batch diproduksi dengan takaran yang sama persis, sehingga kualitas produk konsisten.
+
+ALAT
+- Timbangan digital (ketelitian min. 1 g; untuk bahan < 50 g gunakan ketelitian 0,1 g)
+- Gelas ukur untuk cairan
+- Wadah timbang bersih & kering
+- Aplikasi ini (tab Kalkulator)
+
+LANGKAH
+1. Tentukan target produksi (jumlah unit) di tab Kalkulator.
+2. Cetak / tampilkan Daftar Timbang Bahan.
+3. Nolkan timbangan: letakkan wadah kosong, tekan tare hingga tampil 0. Cek akurasi timbangan secara berkala dengan anak timbangan standar.
+4. Timbang bahan satu per satu sesuai daftar; beri tanda centang setiap bahan selesai.
+5. Toleransi penimbangan maksimal ±2% per bahan. Lebih dari itu, ulangi.
+6. Catat nomor batch, tanggal, dan nama penimbang di kartu batch.
+7. Bahan yang sudah ditimbang diletakkan terpisah dari stok agar tidak tercampur.`},
+
+    {judul:"SOP-02 • Produksi Jamu Serbuk (RootCore, StemDrive Apex Prime Balung Wesi)", isi:`1. Pastikan semua bahan bubuk kering sempurna — bahan lembap membuat produk cepat rusak.
+2. Ayak setiap bahan dengan ayakan mesh 60-80 agar tekstur seragam.
+3. Campur bahan bertahap (pengenceran bertingkat): bahan paling sedikit dicampur dulu dengan sebagian bahan terbanyak, lalu gabungkan semua.
+4. Aduk 10-15 menit sampai warna campuran rata, tanpa gumpalan.
+5. Timbang isi per unit sesuai isi bersih (mis. 100 g/botol), toleransi ±2 g.
+6. Segel rapat, beri label: nama produk, nomor batch, tanggal produksi, tanggal kedaluwarsa.
+7. Simpan di tempat kering, sejuk, tidak kena matahari langsung.
+
+TITIK KRITIS (QC)
+- Kekeringan bahan & kehalusan ayakan
+- Kerataan campuran
+- Ketepatan gramasi isi per unit`},
+
+    {judul:"SOP-03 • Minyak Balur & Cairan Gosok (Kamlang Ndalem, Arak Gosok Sultan's Pusaka)", isi:`A. MINYAK BALUR — INFUS PANAS (Kamlang Ndalem)
+1. Gunakan rempah kering (atau keringkan/sangrai rempah segar dulu) — sisa air membuat minyak cepat tengik dan berjamur.
+2. Panaskan minyak dasar dengan api kecil (±60-70 °C, jangan sampai berasap).
+3. Masukkan rempah iris/tumbuk, aduk perlahan 30-60 menit.
+4. Matikan api, diamkan sampai hangat, saring dengan kain saring bersih 2 lapis.
+5. Tambahkan minyak atsiri (gandapura, dll.) setelah dingin agar aroma tidak menguap.
+6. Botolkan sesuai isi bersih (toleransi ±2 ml), segel, label — wajib cantumkan "HANYA UNTUK PEMAKAIAN LUAR".
+
+B. ARAK GOSOK — MASERASI DINGIN (Sultan's Pusaka)
+1. Masukkan rempah kering ke wadah kaca, tuang arak/etanol sampai semua terendam.
+2. Tutup rapat, simpan di tempat gelap 7-14 hari, kocok 1x setiap hari.
+3. Saring, botolkan, segel, label "Hanya untuk pemakaian luar".
+
+TITIK KRITIS (QC)
+- Kekeringan rempah
+- Suhu minyak (gosong = rusak)
+- Kebersihan & kekeringan botol
+- Lama rendaman arak
+- Label "pemakaian luar" di kedua produk`},
+
+    {judul:"SOP-04 • Param & Salep (Kemin Brajamusti, Dry Foot Tapak Wojo)", isi:`A. PARAM / LULUR (Kemin Brajamusti)
+1. Rendam beras 2-4 jam, tiriskan, tumbuk/giling halus bersama rempah segar.
+2. Tambahkan bahan kering dan minyak sedikit demi sedikit hingga adonan kalis dan mudah dibalurkan.
+3. Isi ke pot sesuai gramasi, padatkan, tutup rapat.
+4. Produk basah berumur pendek — beri tanggal kedaluwarsa lebih pendek dan saran penyimpanan.
+
+B. SALEP (Dry Foot Tapak Wojo)
+1. Lelehkan basis (vaselin) dengan tim/double-boiler (±50-60 °C), jangan langsung di atas api.
+2. Masukkan serbuk aktif sedikit demi sedikit sambil diaduk sampai rata.
+3. Tambahkan minyak atsiri setelah agak dingin, aduk rata.
+4. Tuang ke pot selagi cair, biarkan mengeras, baru ditutup.
+
+TITIK KRITIS (QC)
+- Kehalusan gilingan
+- Homogenitas salep (tanpa butiran)
+- Kebersihan pot
+- Gramasi isi per pot`},
+
+    {judul:"SOP-05 • Perhitungan HPP (Harga Pokok Produksi)", isi:`RUMUS BAKU (otomatis dihitung aplikasi)
+1. Harga per g/ml = harga beli ÷ isi kemasan beli.
+2. Biaya bahan = jumlah gramasi × harga per g/ml, ditambah % susut.
+3. Biaya kemasan = (botol + label + segel + dus) × jumlah unit.
+4. Tenaga kerja = upah pengerjaan per batch (walau dikerjakan sendiri, tetap dihitung).
+5. Overhead = gas + listrik + air + penyusutan alat, dibagi rata per batch.
+6. HPP batch = bahan + kemasan + tenaga kerja + overhead + lain-lain.
+7. HPP per unit = HPP batch ÷ jumlah unit jadi.
+
+ATURAN WAJIB
+- Perbarui harga bahan di aplikasi setiap kali belanja — harga rempah fluktuatif.
+- Susut/waste: minimal 5% untuk serbuk, param & salep; 8% untuk cairan/minyak.
+- Review HPP minimal 1x per bulan atau saat harga bahan naik > 10%.
+- Upah sendiri tetap masuk HPP — laba usaha bukan upah kerja.`},
+
+    {judul:"SOP-06 • Penetapan Harga Jual", isi:`1. Hitung HPP per unit (otomatis di aplikasi).
+2. Markup: reseller minimal 40-50% di atas HPP, retail minimal 80-100% di atas HPP.
+3. Bulatkan harga ke atas ke kelipatan Rp 500 (otomatis di aplikasi).
+4. Pastikan urutan sehat: HPP < harga reseller < harga retail, dengan selisih yang membuat reseller tetap untung.
+5. Bandingkan dengan harga pasar produk sejenis; jangan banting harga di bawah HPP.
+6. Harga promo tidak boleh lebih rendah dari HPP + 20%.
+7. Tinjau harga tiap kali HPP berubah > 10%.`},
+
+    {judul:"SOP-07 • Pengemasan, Label & Penyimpanan", isi:`1. Wadah harus baru, bersih, dan kering. Botol cairan dibilas sedikit alkohol lalu dikeringkan.
+2. Label wajib memuat: nama produk, komposisi umum, isi bersih, nomor batch, tanggal produksi & kedaluwarsa, cara pakai, dan peringatan ("hanya untuk hewan/pemakaian luar" bila relevan).
+3. Nomor batch: format KNJ-[kode produk]-[TTBBHH], contoh: KNJ-RC-260715.
+4. Simpan produk jadi terpisah dari bahan baku; rotasi stok FIFO.
+5. Catat setiap batch di buku produksi: tanggal, jumlah, penanggung jawab, hasil QC.`},
+
+    {judul:"SOP-08 • Pemakaian Aplikasi & Cadangan Data", isi:`1. Semua perubahan resep/harga/SOP tersimpan otomatis di perangkat (browser) ini.
+2. Data tidak ikut berpindah antarperangkat — lakukan Ekspor Data lalu kirim berkas .json ke perangkat lain dan gunakan Impor Data.
+3. Ekspor data minimal 1x per minggu dan setiap selesai mengubah resep/SOP.
+4. Tombol "Reset ke Contoh" menghapus seluruh perubahan — selalu ekspor dulu.
+5. Satu orang ditunjuk sebagai admin resep (pemegang data utama) agar tidak ada dua versi data yang berbeda.`}
+  ];
+}
+
 function renderSOP(){
+  if(!Array.isArray(state.sop) || !state.sop.length) state.sop = sopBawaan();
+  const bagian = state.sop.map((s,i)=>{
+    const buka = (sopSedangEdit===i) || (sopSedangEdit===null && i===0);
+    const isi = (sopSedangEdit===i) ? `
+      <label>Judul bagian</label>
+      <input value="${esk(s.judul)}" oninput="ubahSop(${i},'judul',this.value)">
+      <label style="margin-top:10px">Isi SOP (teks biasa — penomoran 1. 2. 3. dan tanda - tinggal diketik)</label>
+      <textarea rows="16" oninput="ubahSop(${i},'isi',this.value)">${esk(s.isi)}</textarea>
+      <div style="margin-top:6px">
+        <button class="btn btn-kecil" onclick="selesaiEditSop()">✓ Selesai Edit</button>
+        <button class="btn btn-kecil btn-sekunder" style="color:var(--merah);border-color:var(--merah)" onclick="hapusSop(${i})">🗑 Hapus Bagian</button>
+      </div>` : `
+      <div class="teks-sop">${esk(s.isi)}</div>
+      <button class="btn btn-kecil btn-sekunder catatan-noprint" style="margin-top:10px" onclick="mulaiEditSop(${i})">✏️ Edit Bagian Ini</button>`;
+    return `<details class="sop" ${buka?"open":""}><summary>${esk(s.judul)}</summary><div class="isi-sop">${isi}</div></details>`;
+  }).join("");
   return `
   <h2>📋 SOP — Standar Operasional Prosedur</h2>
-  <p style="font-size:.85rem;color:var(--abu);margin-bottom:12px;">SOP lengkap juga tersedia dalam berkas <b>SOP.md</b> di repositori (bisa dicetak &amp; ditempel di ruang produksi).</p>
+  <div class="catatan catatan-noprint">✏️ SOP di bawah <b>bisa diedit</b>: buka bagiannya, klik <b>Edit Bagian Ini</b>, lalu ganti
+  dengan SOP asli usaha Anda. Perubahan tersimpan <b>hanya di perangkat ini</b> (ikut terbawa saat Ekspor Data)
+  dan <b>tidak</b> dipublikasikan ke internet/GitHub — SOP rahasia tetap aman.</div>
+  ${bagian}
+  <button class="btn btn-emas" onclick="tambahSop()">+ Tambah Bagian SOP</button>
+  <button class="btn btn-sekunder" onclick="pulihkanSop()">↺ Kembalikan SOP Bawaan</button>`;
+}
 
-  <details class="sop" open>
-    <summary>SOP-01 • Perhitungan Gramasi &amp; Penimbangan Bahan</summary>
-    <div class="isi-sop">
-      <h4>Tujuan</h4>
-      <p>Memastikan setiap batch diproduksi dengan takaran yang sama persis, sehingga kualitas produk konsisten.</p>
-      <h4>Alat</h4>
-      <ul><li>Timbangan digital (ketelitian min. 1 g; untuk bahan &lt; 50 g gunakan ketelitian 0,1 g)</li>
-      <li>Gelas ukur untuk cairan</li><li>Wadah timbang bersih &amp; kering</li><li>Aplikasi ini (tab Kalkulator Produksi)</li></ul>
-      <h4>Langkah</h4>
-      <ol>
-        <li>Tentukan target produksi (jumlah unit) di tab <b>Kalkulator Produksi</b>.</li>
-        <li>Cetak / tampilkan <b>Daftar Timbang Bahan</b>.</li>
-        <li>Nolkan timbangan: letakkan wadah kosong, tekan <b>tare</b> hingga tampil 0.
-        Cek akurasi timbangan secara berkala (mis. tiap bulan) dengan anak timbangan/beban standar.</li>
-        <li>Timbang bahan <b>satu per satu</b> sesuai daftar; beri tanda centang setiap bahan selesai.</li>
-        <li>Toleransi penimbangan maksimal <b>±2%</b> per bahan. Lebih dari itu, ulangi.</li>
-        <li>Catat nomor batch, tanggal, dan nama penimbang di kartu batch.</li>
-        <li>Bahan yang sudah ditimbang diletakkan terpisah dari stok agar tidak tercampur.</li>
-      </ol>
-    </div>
-  </details>
-
-  <details class="sop">
-    <summary>SOP-02 • Produksi Jamu Serbuk (RootCore, StemDrive Apex Prime Balung Wesi)</summary>
-    <div class="isi-sop">
-      <ol>
-        <li>Pastikan semua bahan bubuk kering sempurna (kadar air rendah) — bahan lembap = produk cepat rusak.</li>
-        <li>Ayak setiap bahan dengan ayakan mesh 60–80 agar tekstur seragam.</li>
-        <li>Campur bahan bertahap: mulai dari bahan berjumlah paling sedikit, gunakan metode pengenceran bertingkat (campur bahan sedikit dengan sebagian bahan banyak, lalu gabungkan semua).</li>
-        <li>Aduk minimal 10–15 menit sampai warna campuran rata (tidak ada gumpalan/garis warna).</li>
-        <li>Timbang isi per unit sesuai isi bersih (mis. 100 g/botol), toleransi ±2 g.</li>
-        <li>Segel rapat, beri label: nama produk, nomor batch, tanggal produksi, tanggal kedaluwarsa.</li>
-        <li>Simpan di tempat kering, sejuk, tidak kena matahari langsung.</li>
-      </ol>
-      <h4>Titik kritis (QC)</h4>
-      <ul><li>Kekeringan bahan &amp; kehalusan ayakan</li><li>Kerataan campuran</li><li>Ketepatan gramasi isi per unit</li></ul>
-    </div>
-  </details>
-
-  <details class="sop">
-    <summary>SOP-03 • Produksi Minyak Balur &amp; Cairan Gosok (Kamlang Ndalem, Arak Gosok Sultan's Pusaka)</summary>
-    <div class="isi-sop">
-      <h4>Minyak balur (infus panas)</h4>
-      <ol>
-        <li>Gunakan rempah <b>kering</b> (atau keringkan/sangrai rempah segar lebih dulu) —
-        sisa air membuat minyak cepat tengik dan berjamur.</li>
-        <li>Panaskan minyak dasar dengan api kecil (±60–70 °C, jangan sampai berasap).</li>
-        <li>Masukkan rempah yang sudah diiris/ditumbuk, aduk perlahan 30–60 menit.</li>
-        <li>Matikan api, diamkan sampai hangat, saring dengan kain saring bersih 2 lapis.</li>
-        <li>Tambahkan minyak atsiri (gandapura, dll.) <b>setelah dingin</b> agar aroma tidak menguap.</li>
-        <li>Botolkan sesuai isi bersih, toleransi ±2 ml. Segel dan label — cantumkan
-        <b>"HANYA UNTUK PEMAKAIAN LUAR"</b> (gandapura berbahaya jika tertelan).</li>
-      </ol>
-      <h4>Arak gosok (maserasi/rendaman dingin)</h4>
-      <ol>
-        <li>Masukkan rempah kering ke wadah kaca, tuang arak/etanol sampai semua terendam.</li>
-        <li>Tutup rapat, simpan di tempat gelap 7–14 hari, kocok 1× setiap hari.</li>
-        <li>Saring, botolkan, segel, label. Beri penanda "Hanya untuk pemakaian luar".</li>
-      </ol>
-      <h4>Titik kritis (QC)</h4>
-      <ul><li>Kekeringan rempah</li><li>Suhu minyak (gosong = rusak)</li><li>Kebersihan &amp; kekeringan botol</li><li>Lama rendaman arak</li><li>Label "pemakaian luar" wajib di kedua produk</li></ul>
-    </div>
-  </details>
-
-  <details class="sop">
-    <summary>SOP-04 • Produksi Param &amp; Salep (Kemin Brajamusti, Dry Foot Tapak Wojo)</summary>
-    <div class="isi-sop">
-      <h4>Param / lulur (Kemin Brajamusti)</h4>
-      <ol>
-        <li>Rendam beras 2–4 jam, tiriskan, tumbuk/giling halus bersama rempah segar.</li>
-        <li>Tambahkan bahan kering dan minyak sedikit demi sedikit hingga adonan kalis dan mudah dibalurkan.</li>
-        <li>Isi ke pot sesuai gramasi, padatkan, tutup rapat.</li>
-        <li>Produk basah berumur pendek — cantumkan tanggal kedaluwarsa lebih pendek dan saran penyimpanan.</li>
-      </ol>
-      <h4>Salep (Dry Foot Tapak Wojo)</h4>
-      <ol>
-        <li>Lelehkan basis (vaselin) dengan cara tim/double-boiler (±50–60 °C), jangan langsung di atas api.</li>
-        <li>Masukkan serbuk aktif sedikit demi sedikit sambil diaduk sampai rata (tidak menggumpal).</li>
-        <li>Tambahkan minyak atsiri setelah agak dingin, aduk rata.</li>
-        <li>Tuang ke pot selagi masih cair, biarkan set, baru ditutup.</li>
-      </ol>
-      <h4>Titik kritis (QC)</h4>
-      <ul><li>Kehalusan gilingan</li><li>Homogenitas salep (tidak ada butiran)</li><li>Kebersihan pot</li><li>Gramasi isi per pot</li></ul>
-    </div>
-  </details>
-
-  <details class="sop">
-    <summary>SOP-05 • Perhitungan HPP (Harga Pokok Produksi)</summary>
-    <div class="isi-sop">
-      <h4>Rumus baku</h4>
-      <ol>
-        <li><b>Biaya bahan</b> = Σ (gramasi bahan × harga per g/ml) × (1 + % susut).<br>
-        Harga per g/ml = harga beli ÷ isi kemasan beli.</li>
-        <li><b>Biaya kemasan</b> = (botol + label + segel + dus) × jumlah unit.</li>
-        <li><b>Tenaga kerja</b> = upah pengerjaan per batch (walau dikerjakan sendiri, tetap dihitung!).</li>
-        <li><b>Overhead</b> = gas + listrik + air + penyusutan alat, dibagi rata per batch.</li>
-        <li><b>HPP batch</b> = bahan + kemasan + tenaga kerja + overhead + lain-lain.</li>
-        <li><b>HPP per unit</b> = HPP batch ÷ jumlah unit jadi.</li>
-      </ol>
-      <h4>Aturan wajib</h4>
-      <ul>
-        <li>Perbarui harga bahan di aplikasi <b>setiap kali belanja</b> — harga rempah fluktuatif.</li>
-        <li>Susut/waste: minimal <b>5%</b> untuk serbuk, param &amp; salep; <b>8%</b> untuk cairan/minyak
-        (tumpah, menempel di wadah, penguapan, ampas saringan).</li>
-        <li>Review HPP minimal <b>1× per bulan</b> atau saat harga bahan naik &gt; 10%.</li>
-        <li>Upah sendiri tetap masuk HPP — laba usaha ≠ upah kerja.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details class="sop">
-    <summary>SOP-06 • Penetapan Harga Jual</summary>
-    <div class="isi-sop">
-      <ol>
-        <li>Hitung HPP per unit dari SOP-05 (otomatis di aplikasi ini).</li>
-        <li>Tetapkan markup: <b>reseller minimal 40–50%</b> di atas HPP, <b>retail minimal 80–100%</b> di atas HPP.</li>
-        <li>Bulatkan harga <b>ke atas</b> ke kelipatan Rp 500 (aplikasi otomatis).</li>
-        <li>Pastikan urutan harga sehat: HPP &lt; harga reseller &lt; harga retail, dan selisih reseller→retail cukup agar reseller untung.</li>
-        <li>Bandingkan dengan harga pasar produk sejenis; jika harga pasar lebih rendah dari HPP + markup minimal, evaluasi resep/kemasan, <b>jangan</b> banting harga di bawah HPP.</li>
-        <li>Harga promo tidak boleh lebih rendah dari HPP + 20%.</li>
-        <li>Tinjau harga tiap kali HPP berubah &gt; 10%.</li>
-      </ol>
-    </div>
-  </details>
-
-  <details class="sop">
-    <summary>SOP-07 • Pengemasan, Label &amp; Penyimpanan</summary>
-    <div class="isi-sop">
-      <ol>
-        <li>Wadah harus baru, bersih, dan kering. Untuk cairan, bilas botol dengan sedikit alkohol lalu keringkan.</li>
-        <li>Label wajib memuat: nama produk, komposisi umum, isi bersih, nomor batch, tanggal produksi &amp; kedaluwarsa, cara pakai, dan peringatan ("hanya untuk hewan/pemakaian luar" bila relevan).</li>
-        <li>Nomor batch: format <b>KNJ-[kode produk]-[TTBBHH]</b>, contoh: KNJ-RC-260715.</li>
-        <li>Simpan produk jadi terpisah dari bahan baku; rotasi stok FIFO (produksi lama keluar lebih dulu).</li>
-        <li>Catat setiap batch di buku/berkas produksi: tanggal, jumlah, penanggung jawab, hasil QC.</li>
-      </ol>
-    </div>
-  </details>
-
-  <details class="sop">
-    <summary>SOP-08 • Pemakaian Aplikasi &amp; Cadangan Data</summary>
-    <div class="isi-sop">
-      <ol>
-        <li>Semua perubahan resep/harga tersimpan otomatis di perangkat (browser) ini.</li>
-        <li>Data <b>tidak</b> ikut berpindah antarperangkat — lakukan <b>Ekspor Data</b> lalu kirim berkas .json ke perangkat lain dan gunakan <b>Impor Data</b>.</li>
-        <li>Ekspor data minimal 1× per minggu dan setiap selesai mengubah resep.</li>
-        <li>Tombol <b>Reset ke Contoh</b> menghapus seluruh perubahan — selalu ekspor dulu.</li>
-        <li>Satu orang ditunjuk sebagai pemegang data utama (admin resep) agar tidak ada dua versi resep yang berbeda.</li>
-      </ol>
-    </div>
-  </details>`;
+function mulaiEditSop(i){ sopSedangEdit = i; render(); }
+function selesaiEditSop(){ sopSedangEdit = null; render(); }
+function ubahSop(i, field, nilai){
+  const s = state.sop[i]; if(!s) return;
+  s[field] = nilai; simpan();   // tanpa render() agar fokus ketik tidak hilang
+}
+function tambahSop(){
+  state.sop.push({judul:"Bagian SOP Baru", isi:""});
+  sopSedangEdit = state.sop.length - 1;
+  simpan(); render();
+}
+function hapusSop(i){
+  const s = state.sop[i]; if(!s) return;
+  if(!confirm('Hapus bagian "' + s.judul + '"?')) return;
+  state.sop.splice(i,1); sopSedangEdit = null; simpan(); render();
+}
+function pulihkanSop(){
+  if(confirm("Kembalikan seluruh SOP ke teks bawaan? SOP yang Anda tulis sendiri akan hilang.\n\nSaran: lakukan Ekspor Data dulu.")){
+    state.sop = sopBawaan(); sopSedangEdit = null; simpan(); render();
+  }
 }
 
 /* ================= MULAI ================= */
