@@ -11,11 +11,11 @@ Dokumen Standar Operasional Prosedur untuk seluruh produk perawatan ayam KNJ:
 | KB | Kemin Brajamusti | Param / lulur |
 | DF | Dry Foot Tapak Wojo | Salep kaki |
 
-> **Catatan penting:** Resep (komposisi & gramasi) yang tercantum di aplikasi
-> `index.html` adalah **resep contoh/template**. Pemilik resep wajib
-> menggantinya dengan resep asli masing-masing produk melalui tab
-> **Produk & Resep** di aplikasi. SOP ini mengatur *cara kerja*, bukan
-> komposisi rahasia.
+> **Catatan penting:** Dokumen ini dan SOP di dalam aplikasi hanyalah
+> **template awal**. Resep contoh diganti lewat tab **Produk**, dan teks SOP
+> diganti lewat tab **SOP → tombol "Edit Bagian Ini"** di aplikasi. SOP asli
+> yang Anda tulis di aplikasi tersimpan hanya di perangkat Anda (ikut saat
+> Ekspor Data) dan **tidak** terpublikasi ke repositori ini.
 
 ---
 
