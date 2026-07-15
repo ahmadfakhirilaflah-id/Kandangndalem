@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator KNJ — Gramasi, HPP &amp; Harga Jual</title>
+<style>
+  :root{
+    --hijau:#1b4332; --hijau-tua:#122e22; --hijau-muda:#2d6a4f;
+    --emas:#d4a437; --emas-muda:#f0d9a0;
+    --krem:#faf6ee; --putih:#ffffff; --abu:#6b7268; --garis:#e2dccb;
+    --merah:#b03a2e; --biru:#2c5f8a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--krem); color:#26332c; line-height:1.5; font-size:15px;
+  }
+  header{
+    background:linear-gradient(135deg,var(--hijau-tua),var(--hijau));
+    color:var(--putih); padding:14px 16px;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+  }
+  header h1{font-size:1.05rem; letter-spacing:.5px;}
+  header h1 span{color:var(--emas);}
+  header p{font-size:.75rem; opacity:.85;}
+  .aksi-header{margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;}
+  .aksi-header button{
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3);
+    color:#fff; font-size:.75rem; padding:6px 12px; border-radius:20px; cursor:pointer;
+  }
+  .aksi-header button:hover{background:rgba(255,255,255,.25);}
+  nav{
+    display:flex; background:var(--putih); border-bottom:2px solid var(--garis);
+    position:sticky; top:0; z-index:40; overflow-x:auto;
+  }
+  nav button{
+    flex:1; min-width:0; padding:12px 4px; border:none; background:none; cursor:pointer;
+    font-size:.8rem; font-weight:600; color:var(--abu); border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav button.aktif{color:var(--hijau); border-bottom-color:var(--emas);}
+  main{max-width:1000px; margin:0 auto; padding:16px 12px 80px;}
+  h2{font-size:1.15rem; color:var(--hijau); margin:18px 0 10px;}
+  h3{font-size:.98rem; color:var(--hijau-muda); margin:16px 0 8px;}
+  .kartu{
+    background:var(--putih); border:1px solid var(--garis); border-radius:12px;
+    padding:14px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,.05);
+  }
+  .kartu-produk{cursor:pointer; transition:transform .1s, box-shadow .1s;}
+  .kartu-produk:hover{transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.1);}
+  .kartu-produk h3{margin-top:0;}
+  .badge{
+    display:inline-block; font-size:.72rem; font-weight:700; padding:2px 10px;
+    border-radius:20px; background:var(--emas-muda); color:#6b4e0a; margin-bottom:6px;
+  }
+  .grid-produk{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px;}
+  .baris-angka{display:flex; justify-content:space-between; font-size:.85rem; padding:3px 0;}
+  .baris-angka b{color:var(--hijau);}
+  table{width:100%; border-collapse:collapse; font-size:.83rem;}
+  th{
+    text-align:left; background:var(--hijau); color:#fff; padding:7px 8px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.4px;
+  }
+  th:first-child{border-radius:8px 0 0 0;} th:last-child{border-radius:0 8px 0 0;}
+  td{padding:6px 8px; border-bottom:1px solid var(--garis); vertical-align:middle;}
+  tr:nth-child(even) td{background:#fbf9f3;}
+  .tabel-gulir{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  .angka{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  input,select{
+    font:inherit; font-size:16px; padding:6px 8px; border:1px solid #cfc9b8; border-radius:8px;
+    background:#fff; width:100%; max-width:100%;
+  }
+  input:focus,select:focus{outline:2px solid var(--hijau-muda); border-color:var(--hijau-muda);}
+  input[type=number]{text-align:right;}
+  .input-kecil{width:90px;}
+  .input-sedang{width:130px;}
+  .input-nama{min-width:150px;}
+  label{font-size:.78rem; font-weight:600; color:var(--abu); display:block; margin-bottom:3px;}
+  .form-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:10px;}
+  .tbl-hapus{
+    background:none; border:1px solid transparent; color:var(--merah); cursor:pointer;
+    font-size:1.05rem; padding:8px 10px; line-height:1; min-width:36px; min-height:36px;
+    border-radius:8px;
+  }
+  .tbl-hapus:hover{border-color:var(--merah); background:#fdf0ee;}
+  .btn{
+    display:inline-block; background:var(--hijau); color:#fff; border:none; cursor:pointer;
+    padding:9px 18px; border-radius:8px; font-size:.85rem; font-weight:600; margin:6px 6px 0 0;
+  }
+  .btn:hover{background:var(--hijau-muda);}
+  .btn-sekunder{background:#fff; color:var(--hijau); border:1.5px solid var(--hijau);}
+  .btn-sekunder:hover{background:var(--krem);}
+  .btn-emas{background:var(--emas); color:#3d2e05;}
+  .btn-kecil{padding:5px 12px; font-size:.76rem;}
+  .hasil-kotak{
+    background:linear-gradient(135deg,var(--hijau-tua),var(--hijau)); color:#fff;
+    border-radius:12px; padding:14px; margin:12px 0;
+  }
+  .hasil-kotak .baris-angka{border-bottom:1px dashed rgba(255,255,255,.25); padding:6px 0; font-size:.88rem;}
+  .hasil-kotak .baris-angka:last-child{border-bottom:none;}
+  .hasil-kotak b{color:var(--emas-muda); font-size:1.02rem;}
+  .hasil-utama{font-size:1.25rem !important;}
+  .catatan{
+    font-size:.76rem; color:#7a6a3d; background:#fdf6e3; border:1px solid #ead9a8;
+    border-radius:8px; padding:8px 12px; margin:10px 0;
+  }
+  details.sop{background:var(--putih); border:1px solid var(--garis); border-radius:10px; margin-bottom:10px;}
+  details.sop summary{
+    cursor:pointer; padding:12px 14px; font-weight:700; color:var(--hijau); font-size:.92rem;
+    list-style:none; display:flex; justify-content:space-between; align-items:center;
+  }
+  details.sop summary::after{content:"▾"; color:var(--emas); transition:transform .2s;}
+  details.sop[open] summary::after{transform:rotate(180deg);}
+  details.sop .isi-sop{padding:0 16px 14px; font-size:.86rem;}
+  details.sop ol, details.sop ul{padding-left:20px; margin:6px 0;}
+  details.sop li{margin-bottom:4px;}
+  details.sop h4{color:var(--hijau-muda); margin:10px 0 4px; font-size:.85rem;}
+  .kembali{background:none; border:none; color:var(--hijau); font-weight:700; cursor:pointer; font-size:.85rem; padding:6px 0; margin-bottom:4px;}
+  .lencana-harga{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:10px;}
+  .lencana-harga>div{background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:10px; padding:10px; text-align:center;}
+  .lencana-harga .lbl{font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; opacity:.85;}
+  .lencana-harga .nilai{font-size:1.05rem; font-weight:800; color:var(--emas-muda); margin-top:2px;}
+  .lencana-harga .sub{font-size:.72rem; opacity:.8; margin-top:2px;}
+  .nilai-baca{
+    padding:8px 10px; background:#f4efe0; border:1px solid var(--garis); border-radius:8px;
+    font-weight:700; color:var(--hijau); font-size:.95rem;
+  }
+  .kotak-cek{
+    display:inline-block; width:18px; height:18px; border:1.5px solid #555; border-radius:4px;
+    vertical-align:middle;
+  }
+  .info-batch{display:flex; gap:20px; flex-wrap:wrap; font-size:.88rem;}
+  .info-batch .isian{display:inline-block; min-width:120px; border-bottom:1.5px dotted #777;}
+  footer{
+    text-align:center; font-size:.72rem; color:var(--abu); padding:20px 10px 30px;
+  }
+  @media print{
+    header .aksi-header, nav, .btn, .tbl-hapus, footer, .kembali, .catatan-noprint{display:none !important;}
+    body{background:#fff;}
+    header{background:none; color:#1b4332; box-shadow:none; padding:8px 0;}
+    header h1 span{color:#1b4332;}
+    .kartu,.hasil-kotak{box-shadow:none; break-inside:avoid;}
+    .hasil-kotak{background:none; color:#000; border:1.5px solid #1b4332;}
+    .hasil-kotak b,.lencana-harga .nilai{color:#1b4332;}
+    .hasil-kotak .baris-angka{border-bottom-color:#bbb;}
+    .lencana-harga>div{border:1px solid #999;}
+    th{background:none !important; color:#000; border:1px solid #666;}
+    td{border:1px solid #bbb;}
+    tr:nth-child(even) td{background:none;}
+    input,select,.nilai-baca{border:none; background:none; padding:2px 0;}
+    main{padding-bottom:0; max-width:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>KANDANG NDALEM <span>• Kalkulator Produksi KNJ</span></h1>
+  <p>Gramasi bahan &bull; HPP &bull; Harga jual — semua produk perawatan ayam</p>
+  <div class="aksi-header">
+    <button onclick="eksporData()">⬇ Ekspor Data</button>
+    <button onclick="document.getElementById('fileImpor').click()">⬆ Impor Data</button>
+    <button onclick="window.print()">🖨 Cetak</button>
+    <button onclick="resetData()">↺ Reset ke Contoh</button>
+    <input type="file" id="fileImpor" accept=".json" style="display:none" onchange="imporData(this)">
+  </div>
+</header>
+
+<nav id="navUtama">
+  <button data-tab="ringkasan" class="aktif" onclick="gantiTab('ringkasan')">📊 Ringkasan</button>
+  <button data-tab="produk" onclick="gantiTab('produk')">🧪 Produk</button>
+  <button data-tab="kalkulator" onclick="gantiTab('kalkulator')">⚖️ Kalkulator</button>
+  <button data-tab="sop" onclick="gantiTab('sop')">📋 SOP</button>
+</nav>
+
+<main id="konten"></main>
+
+<footer>
+  Kandang Ndalem &mdash; Kalkulator Gramasi, HPP &amp; Harga Jual produk KNJ.<br>
+  Data tersimpan otomatis di perangkat ini (localStorage). Rutin lakukan <b>Ekspor Data</b> sebagai cadangan.
+</footer>
+
+<script>
+"use strict";
+
+/* ============================================================
+   DATA BAWAAN — RESEP CONTOH (WAJIB DISESUAIKAN DENGAN RESEP ASLI)
+   Semua angka gramasi & harga adalah template awal, bukan resep resmi.
+   ============================================================ */
+const KUNCI_SIMPAN = "knj-kalkulator-v1";
+
+function dataBawaan(){
+  return {
+    versi: 1,
+    produk: [
+      {
+        id:"rootcore", nama:"RootCore", kategori:"Jamu Serbuk",
+        deskripsi:"Jamu serbuk stamina & pemulihan harian ayam laga (contoh).",
+        hasilBatch:10, namaUnit:"botol 100 g", isiPerUnit:100, satuanIsi:"g",
+        susutPersen:5,
+        bahan:[
+          {nama:"Temulawak bubuk", jumlah:300, satuan:"g", hargaBeli:60000, isiBeli:1000},
+          {nama:"Jahe merah bubuk", jumlah:200, satuan:"g", hargaBeli:80000, isiBeli:1000},
+          {nama:"Kunyit bubuk", jumlah:150, satuan:"g", hargaBeli:50000, isiBeli:1000},
+          {nama:"Ginseng jawa (som jawa) bubuk", jumlah:150, satuan:"g", hargaBeli:150000, isiBeli:1000},
+          {nama:"Kencur bubuk", jumlah:100, satuan:"g", hargaBeli:60000, isiBeli:1000},
+          {nama:"Beras ketan sangrai halus", jumlah:100, satuan:"g", hargaBeli:20000, isiBeli:1000}
+        ],
+        kemasan:[
+          {nama:"Pot/botol 100 g", harga:2000},
+          {nama:"Label + stiker", harga:500},
+          {nama:"Segel & plastik", harga:200}
+        ],
+        tkBatch:30000, overheadBatch:15000, lainBatch:0,
+        markupReseller:50, markupRetail:100
+      },
+      {
+        id:"stemdrive", nama:"StemDrive Apex Prime — Balung Wesi", kategori:"Jamu Serbuk",
+        deskripsi:"Suplemen serbuk penguat tulang, sendi & struktur (contoh).",
+        hasilBatch:10, namaUnit:"pot 100 g", isiPerUnit:100, satuanIsi:"g",
+        susutPersen:5,
+        bahan:[
+          {nama:"Tepung cangkang telur (kalsium)", jumlah:300, satuan:"g", hargaBeli:30000, isiBeli:1000},
+          {nama:"Tepung tulang ikan", jumlah:200, satuan:"g", hargaBeli:50000, isiBeli:1000},
+          {nama:"Daun kelor bubuk", jumlah:200, satuan:"g", hargaBeli:70000, isiBeli:1000},
+          {nama:"Temulawak bubuk", jumlah:150, satuan:"g", hargaBeli:60000, isiBeli:1000},
+          {nama:"Jahe bubuk", jumlah:100, satuan:"g", hargaBeli:60000, isiBeli:1000},
+          {nama:"Kunyit bubuk", jumlah:50, satuan:"g", hargaBeli:50000, isiBeli:1000}
+        ],
+        kemasan:[
+          {nama:"Pot 100 g", harga:2000},
+          {nama:"Label + stiker", harga:500},
+          {nama:"Segel & plastik", harga:200}
+        ],
+        tkBatch:30000, overheadBatch:15000, lainBatch:0,
+        markupReseller:50, markupRetail:100
+      },
+      {
+        id:"kamlang", nama:"Kamlang Ndalem", kategori:"Minyak Balur",
+        deskripsi:"Minyak balur hangat untuk otot & pernapasan luar (contoh).",
+        hasilBatch:20, namaUnit:"botol 60 ml", isiPerUnit:60, satuanIsi:"ml",
+        susutPersen:8,
+        bahan:[
+          {nama:"Minyak kelapa", jumlah:1400, satuan:"ml", hargaBeli:30000, isiBeli:1000},
+          {nama:"Minyak gandapura", jumlah:100, satuan:"ml", hargaBeli:120000, isiBeli:1000},
+          {nama:"Jahe merah kering (iris)", jumlah:120, satuan:"g", hargaBeli:80000, isiBeli:1000},
+          {nama:"Serai kering", jumlah:80, satuan:"g", hargaBeli:30000, isiBeli:1000},
+          {nama:"Cengkeh", jumlah:30, satuan:"g", hargaBeli:120000, isiBeli:1000},
+          {nama:"Kayu manis", jumlah:20, satuan:"g", hargaBeli:100000, isiBeli:1000}
+        ],
+        kemasan:[
+          {nama:"Botol 60 ml + tutup", harga:2500},
+          {nama:"Label", harga:500},
+          {nama:"Dus/box kecil", harga:700}
+        ],
+        tkBatch:40000, overheadBatch:20000, lainBatch:0,
+        markupReseller:50, markupRetail:100
+      },
+      {
+        id:"arakgosok", nama:"Arak Gosok Sultan's Pusaka", kategori:"Cairan Gosok",
+        deskripsi:"Cairan gosok/urut rendaman rempah untuk perawatan luar (contoh).",
+        hasilBatch:15, namaUnit:"botol 100 ml", isiPerUnit:100, satuanIsi:"ml",
+        susutPersen:8,
+        bahan:[
+          {nama:"Arak / etanol 70%", jumlah:1900, satuan:"ml", hargaBeli:45000, isiBeli:1000},
+          {nama:"Jahe merah (iris kering)", jumlah:150, satuan:"g", hargaBeli:80000, isiBeli:1000},
+          {nama:"Cabai jawa", jumlah:50, satuan:"g", hargaBeli:150000, isiBeli:1000},
+          {nama:"Kayu manis", jumlah:30, satuan:"g", hargaBeli:100000, isiBeli:1000},
+          {nama:"Cengkeh", jumlah:30, satuan:"g", hargaBeli:120000, isiBeli:1000},
+          {nama:"Kapulaga", jumlah:20, satuan:"g", hargaBeli:180000, isiBeli:1000}
+        ],
+        kemasan:[
+          {nama:"Botol 100 ml + tutup", harga:3000},
+          {nama:"Label", harga:500},
+          {nama:"Segel", harga:200}
+        ],
+        tkBatch:35000, overheadBatch:15000, lainBatch:0,
+        markupReseller:50, markupRetail:100
+      },
+      {
+        id:"kemin", nama:"Kemin Brajamusti", kategori:"Param / Lulur",
+        deskripsi:"Param balur otot pukul & kaki, adonan rempah tumbuk (contoh).",
+        hasilBatch:15, namaUnit:"pot 80 g", isiPerUnit:80, satuanIsi:"g",
+        susutPersen:5,
+        bahan:[
+          {nama:"Kencur", jumlah:350, satuan:"g", hargaBeli:60000, isiBeli:1000},
+          {nama:"Beras (rendam, tumbuk)", jumlah:300, satuan:"g", hargaBeli:15000, isiBeli:1000},
+          {nama:"Jahe merah", jumlah:200, satuan:"g", hargaBeli:40000, isiBeli:1000},
+          {nama:"Kunyit", jumlah:150, satuan:"g", hargaBeli:25000, isiBeli:1000},
+          {nama:"Kemiri sangrai", jumlah:100, satuan:"g", hargaBeli:90000, isiBeli:1000},
+          {nama:"Cabai jawa", jumlah:50, satuan:"g", hargaBeli:150000, isiBeli:1000},
+          {nama:"Minyak kayu putih", jumlah:50, satuan:"ml", hargaBeli:200000, isiBeli:1000}
+        ],
+        kemasan:[
+          {nama:"Pot 80 g", harga:1800},
+          {nama:"Label", harga:500},
+          {nama:"Segel & plastik", harga:200}
+        ],
+        tkBatch:35000, overheadBatch:15000, lainBatch:0,
+        markupReseller:50, markupRetail:100
+      },
+      {
+        id:"dryfoot", nama:"Dry Foot Tapak Wojo", kategori:"Salep Kaki",
+        deskripsi:"Salep perawatan kaki, sisik & telapak (contoh).",
+        hasilBatch:20, namaUnit:"pot 30 g", isiPerUnit:30, satuanIsi:"g",
+        susutPersen:5,
+        bahan:[
+          {nama:"Vaselin / petroleum jelly", jumlah:420, satuan:"g", hargaBeli:60000, isiBeli:1000},
+          {nama:"Minyak zaitun", jumlah:100, satuan:"ml", hargaBeli:100000, isiBeli:1000},
+          {nama:"Belerang (sulfur) halus", jumlah:50, satuan:"g", hargaBeli:40000, isiBeli:1000},
+          {nama:"Serbuk daun sirih", jumlah:30, satuan:"g", hargaBeli:80000, isiBeli:1000},
+          {nama:"Minyak serai", jumlah:20, satuan:"ml", hargaBeli:150000, isiBeli:1000}
+        ],
+        kemasan:[
+          {nama:"Pot 30 g", harga:1500},
+          {nama:"Label", harga:500},
+          {nama:"Segel & plastik", harga:200}
+        ],
+        tkBatch:25000, overheadBatch:10000, lainBatch:0,
+        markupReseller:50, markupRetail:100
+      }
+    ]
+  };
+}
+
+/* ================= PENYIMPANAN ================= */
+let state;
+let simpanGagalDiberitahu = false;
+
+/* Baku-kan struktur data (dari localStorage maupun impor) supaya data
+   rusak/tidak lengkap tidak membuat aplikasi macet atau salah hitung. */
+function amanId(v){ return String(v==null?"":v).replace(/[^a-zA-Z0-9_-]/g,"").slice(0,60); }
+function normalisasiData(d){
+  const teks = v => String(v==null ? "" : v);
+  const dipakai = new Set();
+  const daftar = (d && Array.isArray(d.produk)) ? d.produk : [];
+  const produk = daftar.map((p,idx)=>{
+    if(!p || typeof p !== "object") p = {};
+    let id = amanId(p.id) || ("produk-" + (idx+1));
+    while(dipakai.has(id)) id += "x";
+    dipakai.add(id);
+    const bahan = (Array.isArray(p.bahan) ? p.bahan : []).map(b=>({
+      nama: teks(b && b.nama), jumlah: angkaPositif(b && b.jumlah),
+      satuan: (b && (b.satuan==="ml" || b.satuan==="pcs")) ? b.satuan : "g",
+      hargaBeli: angkaPositif(b && b.hargaBeli), isiBeli: angkaPositif(b && b.isiBeli)
+    }));
+    const kemasan = (Array.isArray(p.kemasan) ? p.kemasan : []).map(k=>({
+      nama: teks(k && k.nama), harga: angkaPositif(k && k.harga)
+    }));
+    return {
+      id, nama: teks(p.nama) || "Produk", kategori: teks(p.kategori), deskripsi: teks(p.deskripsi),
+      hasilBatch: angkaPositif(p.hasilBatch), namaUnit: teks(p.namaUnit) || "unit",
+      isiPerUnit: angkaPositif(p.isiPerUnit), satuanIsi: p.satuanIsi==="ml" ? "ml" : "g",
+      susutPersen: angkaPositif(p.susutPersen), bahan, kemasan,
+      tkBatch: angkaPositif(p.tkBatch), overheadBatch: angkaPositif(p.overheadBatch),
+      lainBatch: angkaPositif(p.lainBatch),
+      markupReseller: angkaPositif(p.markupReseller), markupRetail: angkaPositif(p.markupRetail)
+    };
+  });
+  return { versi:1, produk };
+}
+function muatData(){
+  try{
+    const mentah = localStorage.getItem(KUNCI_SIMPAN);
+    if(mentah){
+      const d = JSON.parse(mentah);
+      if(d && Array.isArray(d.produk)) return normalisasiData(d);
+    }
+  }catch(e){ console.warn("Gagal memuat data tersimpan:", e); }
+  return dataBawaan();
+}
+function simpan(){
+  try{ localStorage.setItem(KUNCI_SIMPAN, JSON.stringify(state)); }
+  catch(e){
+    console.warn("Gagal menyimpan:", e);
+    if(!simpanGagalDiberitahu){
+      simpanGagalDiberitahu = true;
+      alert("⚠️ Data GAGAL tersimpan otomatis (penyimpanan browser penuh atau terblokir).\nPerubahan bisa hilang saat halaman ditutup — segera lakukan Ekspor Data.");
+    }
+  }
+}
+function resetData(){
+  if(confirm("Kembalikan SEMUA data ke resep contoh bawaan? Perubahan Anda akan hilang.\n\nSaran: lakukan Ekspor Data dulu sebagai cadangan.")){
+    state = dataBawaan(); simpan(); render();
+  }
+}
+function eksporData(){
+  const isi = JSON.stringify(state, null, 2);
+  const blob = new Blob([isi], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  const t = new Date();
+  a.download = "knj-kalkulator-" + t.getFullYear() + String(t.getMonth()+1).padStart(2,"0") + String(t.getDate()).padStart(2,"0") + ".json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+function imporData(inp){
+  const f = inp.files && inp.files[0];
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = function(){
+    try{
+      const d = JSON.parse(r.result);
+      if(!d || !Array.isArray(d.produk)) throw new Error("Format tidak dikenal");
+      state = normalisasiData(d); simpan(); render();
+      alert("Data berhasil diimpor: " + state.produk.length + " produk.");
+    }catch(e){ alert("File tidak valid: " + e.message); }
+  };
+  r.readAsText(f);
+  inp.value = "";
+}
+
+/* ================= UTILITAS ================= */
+const fmtRp = n => "Rp " + (isFinite(n) ? Math.round(n).toLocaleString("id-ID") : "—");
+const fmtAngka = n => isFinite(n) ? (Math.round(n*100)/100).toLocaleString("id-ID") : "—";
+const bulatkanKeAtas = (n, kelipatan) => {
+  if(!isFinite(n)) return NaN;   // data belum lengkap → tampil "—", bukan Rp 0
+  if(n<=0) return 0;
+  const k = kelipatan || 500;
+  return Math.ceil(n/k)*k;
+};
+function esk(s){
+  return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+const angka = v => { const n = parseFloat(v); return isFinite(n) ? n : 0; };
+const angkaPositif = v => Math.max(0, angka(v));
+
+/* ================= PERHITUNGAN INTI =================
+   hargaSatuan  = hargaBeli / isiBeli           (Rp per g / ml / pcs)
+   biayaBahan   = Σ (jumlah × hargaSatuan) × (1 + susut%)
+   kemasanBatch = Σ harga kemasan per unit × hasilBatch
+   HPP batch    = biayaBahan + kemasanBatch + TK + overhead + lain-lain
+   HPP unit     = HPP batch ÷ hasilBatch
+   Harga jual   = HPP unit × (1 + markup%) → dibulatkan ke atas kelipatan Rp500
+*/
+function hargaSatuanBahan(b){
+  const isi = angka(b.isiBeli);
+  // isi beli belum diisi → NaN, supaya HPP tampil "—" dan tidak diam-diam terlalu murah
+  return isi > 0 ? angka(b.hargaBeli)/isi : NaN;
+}
+function hitungProduk(p){
+  const biayaBahanMurni = p.bahan.reduce((t,b)=> t + angka(b.jumlah)*hargaSatuanBahan(b), 0);
+  const faktorSusut = 1 + angka(p.susutPersen)/100;
+  const biayaBahan = biayaBahanMurni * faktorSusut;
+  const kemasanPerUnit = p.kemasan.reduce((t,k)=> t + angka(k.harga), 0);
+  const hasil = Math.max(angka(p.hasilBatch), 0);
+  const kemasanBatch = kemasanPerUnit * hasil;
+  const tk = angka(p.tkBatch), ov = angka(p.overheadBatch), lain = angka(p.lainBatch);
+  const hppBatch = biayaBahan + kemasanBatch + tk + ov + lain;
+  const hppUnit = hasil > 0 ? hppBatch/hasil : NaN;
+
+  const hargaReseller = bulatkanKeAtas(hppUnit*(1+angka(p.markupReseller)/100));
+  const hargaRetail   = bulatkanKeAtas(hppUnit*(1+angka(p.markupRetail)/100));
+
+  const totalGramasi = p.bahan.reduce((t,b)=> (b.satuan==="g"||b.satuan==="ml") ? t+angka(b.jumlah) : t, 0);
+  const gramasiPerUnit = hasil > 0 ? totalGramasi/hasil : NaN;
+
+  return {
+    biayaBahanMurni, biayaBahan, kemasanPerUnit, kemasanBatch, tk, ov, lain,
+    hppBatch, hppUnit, hargaReseller, hargaRetail,
+    labaReseller: hargaReseller - hppUnit,
+    labaRetail: hargaRetail - hppUnit,
+    totalGramasi, gramasiPerUnit, hasil
+  };
+}
+
+/* ================= NAVIGASI & RENDER ================= */
+let tabAktif = "ringkasan";
+let produkAktif = null;   // id produk yang sedang dibuka di tab Produk
+let kalkulatorPilih = null;
+let kalkulatorTarget = null;
+
+function gantiTab(tab){
+  tabAktif = tab;
+  document.querySelectorAll("#navUtama button").forEach(b=>{
+    b.classList.toggle("aktif", b.dataset.tab===tab);
+  });
+  render();
+  window.scrollTo({top:0});
+}
+
+function render(){
+  const el = document.getElementById("konten");
+  if(tabAktif==="ringkasan") el.innerHTML = renderRingkasan();
+  else if(tabAktif==="produk") el.innerHTML = produkAktif ? renderDetailProduk(produkAktif) : renderDaftarProduk();
+  else if(tabAktif==="kalkulator") el.innerHTML = renderKalkulator();
+  else el.innerHTML = renderSOP();
+}
+
+/* ---------- TAB RINGKASAN ---------- */
+function renderRingkasan(){
+  let baris = "";
+  state.produk.forEach(p=>{
+    const h = hitungProduk(p);
+    baris += `<tr>
+      <td><b>${esk(p.nama)}</b><br><span style="font-size:.72rem;color:var(--abu)">${esk(p.kategori)} • ${esk(p.namaUnit)}</span></td>
+      <td class="angka">${fmtAngka(h.hasil)}</td>
+      <td class="angka">${fmtRp(h.hppBatch)}</td>
+      <td class="angka"><b>${fmtRp(h.hppUnit)}</b></td>
+      <td class="angka">${fmtRp(h.hargaReseller)}</td>
+      <td class="angka"><b style="color:var(--hijau)">${fmtRp(h.hargaRetail)}</b></td>
+      <td class="angka">${fmtRp(h.labaRetail)}</td>
+    </tr>`;
+  });
+  return `
+    <h2>📊 Ringkasan Semua Produk KNJ</h2>
+    <div class="catatan catatan-noprint">⚠️ Angka di bawah mengikuti resep & harga bahan yang tersimpan.
+    Resep bawaan hanyalah <b>contoh</b> — buka tab <b>Produk &amp; Resep</b> untuk menyesuaikan dengan resep dan harga belanja asli Anda.</div>
+    <div class="kartu tabel-gulir">
+      <table>
+        <thead><tr>
+          <th>Produk</th><th class="angka">Hasil / Batch</th><th class="angka">HPP Batch</th>
+          <th class="angka">HPP / Unit</th><th class="angka">Hrg Reseller</th><th class="angka">Hrg Retail</th><th class="angka">Laba Retail / Unit</th>
+        </tr></thead>
+        <tbody>${baris}</tbody>
+      </table>
+    </div>`;
+}
+
+/* ---------- TAB PRODUK: DAFTAR ---------- */
+function renderDaftarProduk(){
+  let kartu = "";
+  state.produk.forEach(p=>{
+    const h = hitungProduk(p);
+    kartu += `
+    <div class="kartu kartu-produk" onclick="bukaProduk('${esk(p.id)}')">
+      <span class="badge">${esk(p.kategori)}</span>
+      <h3>${esk(p.nama)}</h3>
+      <p style="font-size:.78rem;color:var(--abu);margin-bottom:8px;">${esk(p.deskripsi)}</p>
+      <div class="baris-angka"><span>Hasil per batch</span><b>${fmtAngka(h.hasil)} ${esk(p.namaUnit)}</b></div>
+      <div class="baris-angka"><span>HPP per unit</span><b>${fmtRp(h.hppUnit)}</b></div>
+      <div class="baris-angka"><span>Harga retail</span><b>${fmtRp(h.hargaRetail)}</b></div>
+      <button class="btn btn-kecil" style="margin-top:8px">Buka &amp; Edit Resep →</button>
+    </div>`;
+  });
+  return `
+    <h2>🧪 Produk &amp; Resep</h2>
+    <p style="font-size:.85rem;color:var(--abu);margin-bottom:12px;">
+      Klik produk untuk mengatur gramasi bahan, harga belanja, kemasan, biaya produksi, dan markup.
+      Semua perubahan tersimpan otomatis.</p>
+    <div class="grid-produk">${kartu}</div>
+    <button class="btn btn-emas" onclick="tambahProduk()">+ Tambah Produk Baru</button>`;
+}
+function bukaProduk(id){ produkAktif = id; render(); window.scrollTo({top:0}); }
+function tutupProduk(){ produkAktif = null; render(); }
+function tambahProduk(){
+  let id = "produk-" + Date.now();
+  while(cariProduk(id)) id += "x";
+  state.produk.push({
+    id, nama:"Produk Baru", kategori:"Kategori", deskripsi:"",
+    hasilBatch:10, namaUnit:"unit", isiPerUnit:100, satuanIsi:"g", susutPersen:5,
+    bahan:[{nama:"Bahan 1", jumlah:100, satuan:"g", hargaBeli:50000, isiBeli:1000}],
+    kemasan:[{nama:"Kemasan", harga:1000}],
+    tkBatch:0, overheadBatch:0, lainBatch:0, markupReseller:50, markupRetail:100
+  });
+  simpan(); produkAktif = id; render();
+}
+function hapusProduk(id){
+  const p = cariProduk(id);
+  if(p && confirm('Hapus produk "'+p.nama+'" beserta resepnya?')){
+    state.produk = state.produk.filter(x=>x.id!==id);
+    produkAktif = null;
+    if(kalkulatorPilih===id){ kalkulatorPilih = null; kalkulatorTarget = null; }
+    simpan(); render();
+  }
+}
+function cariProduk(id){ return state.produk.find(p=>p.id===id); }
+
+/* ---------- TAB PRODUK: DETAIL / EDITOR ---------- */
+function infoTotalBahan(h){
+  return `<b>Total gramasi resep: ${fmtAngka(h.totalGramasi)} g/ml &nbsp;•&nbsp; Biaya bahan (sebelum susut):</b>`;
+}
+function catatanCekGramasi(p,h){
+  return `💡 <b>Harga Beli</b> = harga saat belanja; <b>Isi Kemasan Beli</b> = isi kemasan belanjanya
+      (contoh: beli temulawak bubuk Rp 60.000 per 1.000 g → harga/satuan otomatis Rp 60/g).
+      Cek gramasi: total resep ${fmtAngka(h.totalGramasi)} g/ml ÷ ${fmtAngka(h.hasil)} unit = <b>${fmtAngka(h.gramasiPerUnit)} g/ml per unit</b>
+      (target isi bersih: ${fmtAngka(p.isiPerUnit)} ${esk(p.satuanIsi)}). Untuk produk yang disaring (minyak/arak),
+      wajar bila angka ini lebih besar daripada isi bersih karena ampas dibuang saat produksi.`;
+}
+function isiKotakHasil(p,h){
+  return `
+      <div class="baris-angka"><span>Biaya bahan + susut ${fmtAngka(p.susutPersen)}%</span><b>${fmtRp(h.biayaBahan)}</b></div>
+      <div class="baris-angka"><span>Kemasan (${fmtRp(h.kemasanPerUnit)} × ${fmtAngka(h.hasil)} unit)</span><b>${fmtRp(h.kemasanBatch)}</b></div>
+      <div class="baris-angka"><span>Tenaga kerja</span><b>${fmtRp(h.tk)}</b></div>
+      <div class="baris-angka"><span>Overhead</span><b>${fmtRp(h.ov)}</b></div>
+      <div class="baris-angka"><span>Lain-lain</span><b>${fmtRp(h.lain)}</b></div>
+      <div class="baris-angka"><span><b>HPP per BATCH</b></span><b>${fmtRp(h.hppBatch)}</b></div>
+      <div class="baris-angka"><span><b>HPP per UNIT</b> (÷ ${fmtAngka(h.hasil)})</span><b class="hasil-utama">${fmtRp(h.hppUnit)}</b></div>
+      <div class="lencana-harga">
+        <div><div class="lbl">Harga Reseller</div><div class="nilai">${fmtRp(h.hargaReseller)}</div><div class="sub">laba ${fmtRp(h.labaReseller)}/unit</div></div>
+        <div><div class="lbl">Harga Retail</div><div class="nilai">${fmtRp(h.hargaRetail)}</div><div class="sub">laba ${fmtRp(h.labaRetail)}/unit</div></div>
+        <div><div class="lbl">Laba Batch (retail)</div><div class="nilai">${fmtRp(h.labaRetail*h.hasil)}</div><div class="sub">jika semua terjual retail</div></div>
+      </div>`;
+}
+function renderDetailProduk(id){
+  const p = cariProduk(id);
+  if(!p){ produkAktif=null; return renderDaftarProduk(); }
+  const h = hitungProduk(p);
+
+  let barisBahan = "";
+  p.bahan.forEach((b,i)=>{
+    const hs = hargaSatuanBahan(b);
+    barisBahan += `<tr>
+      <td><input class="input-nama" value="${esk(b.nama)}" oninput="ubahBahan('${esk(id)}',${i},'nama',this.value)"></td>
+      <td class="angka"><input class="input-kecil" type="number" inputmode="decimal" min="0" step="any" value="${b.jumlah}" oninput="ubahBahan('${esk(id)}',${i},'jumlah',this.value)"></td>
+      <td>
+        <select onchange="ubahBahan('${esk(id)}',${i},'satuan',this.value)">
+          <option value="g" ${b.satuan==="g"?"selected":""}>g</option>
+          <option value="ml" ${b.satuan==="ml"?"selected":""}>ml</option>
+          <option value="pcs" ${b.satuan==="pcs"?"selected":""}>pcs</option>
+        </select>
+      </td>
+      <td class="angka"><input class="input-sedang" type="number" inputmode="decimal" min="0" step="any" value="${b.hargaBeli}" oninput="ubahBahan('${esk(id)}',${i},'hargaBeli',this.value)"></td>
+      <td class="angka"><input class="input-kecil" type="number" inputmode="decimal" min="0" step="any" value="${b.isiBeli}" oninput="ubahBahan('${esk(id)}',${i},'isiBeli',this.value)"></td>
+      <td class="angka" data-kolom="hargasatuan-${i}">${fmtRp(hs)}/${esk(b.satuan)}</td>
+      <td class="angka" data-kolom="subtotal-${i}"><b>${fmtRp(angka(b.jumlah)*hs)}</b></td>
+      <td><button class="tbl-hapus" title="Hapus bahan" onclick="hapusBahan('${esk(id)}',${i})">✕</button></td>
+    </tr>`;
+  });
+
+  let barisKemasan = "";
+  p.kemasan.forEach((k,i)=>{
+    barisKemasan += `<tr>
+      <td><input class="input-nama" value="${esk(k.nama)}" oninput="ubahKemasan('${esk(id)}',${i},'nama',this.value)"></td>
+      <td class="angka"><input class="input-sedang" type="number" inputmode="decimal" min="0" step="any" value="${k.harga}" oninput="ubahKemasan('${esk(id)}',${i},'harga',this.value)"></td>
+      <td><button class="tbl-hapus" title="Hapus" onclick="hapusKemasan('${esk(id)}',${i})">✕</button></td>
+    </tr>`;
+  });
+
+  return `
+    <button class="kembali" onclick="tutupProduk()">← Kembali ke daftar produk</button>
+    <span class="badge">${esk(p.kategori)}</span>
+    <h2 style="margin-top:2px" data-kolom="judul-produk">${esk(p.nama)}</h2>
+
+    <div class="kartu">
+      <h3 style="margin-top:0">Identitas Produk</h3>
+      <div class="form-grid">
+        <div><label>Nama produk</label><input value="${esk(p.nama)}" oninput="ubahProduk('${esk(id)}','nama',this.value)"></div>
+        <div><label>Kategori</label><input value="${esk(p.kategori)}" oninput="ubahProduk('${esk(id)}','kategori',this.value)"></div>
+        <div><label>Deskripsi singkat</label><input value="${esk(p.deskripsi)}" oninput="ubahProduk('${esk(id)}','deskripsi',this.value)"></div>
+      </div>
+      <div class="form-grid">
+        <div><label>Hasil per batch (jumlah unit jual)</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.hasilBatch}" oninput="ubahProduk('${esk(id)}','hasilBatch',this.value)"></div>
+        <div><label>Nama unit jual (mis. botol 100 g)</label><input value="${esk(p.namaUnit)}" oninput="ubahProduk('${esk(id)}','namaUnit',this.value)"></div>
+        <div><label>Isi bersih per unit</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.isiPerUnit}" oninput="ubahProduk('${esk(id)}','isiPerUnit',this.value)"></div>
+        <div><label>Satuan isi</label>
+          <select onchange="ubahProduk('${esk(id)}','satuanIsi',this.value)">
+            <option value="g" ${p.satuanIsi==="g"?"selected":""}>gram (g)</option>
+            <option value="ml" ${p.satuanIsi==="ml"?"selected":""}>mililiter (ml)</option>
+          </select></div>
+      </div>
+    </div>
+
+    <div class="kartu">
+      <h3 style="margin-top:0">1️⃣ Gramasi Bahan per Batch <span style="font-weight:400;font-size:.75rem;color:var(--abu)">(resep dasar — 1 batch = ${fmtAngka(h.hasil)} ${esk(p.namaUnit)})</span></h3>
+      <div class="tabel-gulir">
+        <table>
+          <thead><tr>
+            <th>Bahan</th><th class="angka">Jumlah</th><th>Satuan</th>
+            <th class="angka">Harga Beli (Rp)</th><th class="angka">Isi Kemasan Beli</th>
+            <th class="angka">Harga / Satuan</th><th class="angka">Subtotal</th><th></th>
+          </tr></thead>
+          <tbody>${barisBahan}</tbody>
+          <tfoot><tr>
+            <td colspan="6" style="text-align:right" data-kolom="info-total-bahan">${infoTotalBahan(h)}</td>
+            <td class="angka" data-kolom="total-bahan"><b>${fmtRp(h.biayaBahanMurni)}</b></td><td></td>
+          </tr></tfoot>
+        </table>
+      </div>
+      <button class="btn btn-kecil btn-sekunder" onclick="tambahBahan('${esk(id)}')">+ Tambah Bahan</button>
+      <p class="catatan" style="margin-bottom:0" data-kolom="cek-gramasi">${catatanCekGramasi(p,h)}</p>
+    </div>
+
+    <div class="kartu">
+      <h3 style="margin-top:0">2️⃣ Kemasan per Unit Jual</h3>
+      <div class="tabel-gulir">
+        <table>
+          <thead><tr><th>Komponen Kemasan</th><th class="angka">Harga per Unit (Rp)</th><th></th></tr></thead>
+          <tbody>${barisKemasan}</tbody>
+          <tfoot><tr><td style="text-align:right"><b>Total kemasan / unit:</b></td>
+            <td class="angka" data-kolom="total-kemasan"><b>${fmtRp(h.kemasanPerUnit)}</b></td><td></td></tr></tfoot>
+        </table>
+      </div>
+      <button class="btn btn-kecil btn-sekunder" onclick="tambahKemasan('${esk(id)}')">+ Tambah Komponen</button>
+    </div>
+
+    <div class="kartu">
+      <h3 style="margin-top:0">3️⃣ Biaya Produksi per Batch</h3>
+      <div class="form-grid">
+        <div><label>Tenaga kerja / batch (Rp)</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.tkBatch}" oninput="ubahProduk('${esk(id)}','tkBatch',this.value)"></div>
+        <div><label>Overhead / batch (gas, listrik, air, penyusutan alat) (Rp)</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.overheadBatch}" oninput="ubahProduk('${esk(id)}','overheadBatch',this.value)"></div>
+        <div><label>Biaya lain-lain / batch (Rp)</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.lainBatch}" oninput="ubahProduk('${esk(id)}','lainBatch',this.value)"></div>
+        <div><label>Susut / waste bahan (%)</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.susutPersen}" oninput="ubahProduk('${esk(id)}','susutPersen',this.value)"></div>
+      </div>
+    </div>
+
+    <div class="kartu">
+      <h3 style="margin-top:0">4️⃣ Markup &amp; Harga Jual</h3>
+      <div class="form-grid">
+        <div><label>Markup harga reseller (%)</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.markupReseller}" oninput="ubahProduk('${esk(id)}','markupReseller',this.value)"></div>
+        <div><label>Markup harga retail (%)</label><input type="number" inputmode="decimal" min="0" step="any" value="${p.markupRetail}" oninput="ubahProduk('${esk(id)}','markupRetail',this.value)"></div>
+      </div>
+      <p class="catatan" style="margin-bottom:0">Harga jual dihitung dari HPP/unit × (1 + markup%), lalu dibulatkan <b>ke atas</b> ke kelipatan Rp 500.</p>
+    </div>
+
+    <div class="hasil-kotak" id="kotakHasil">${isiKotakHasil(p,h)}</div>
+
+    <button class="btn" onclick="bukaKalkulatorProduk('${esk(id)}')">⚖️ Hitung Produksi Skala Lain</button>
+    <button class="btn btn-sekunder" onclick="window.print()">🖨 Cetak Kartu Resep</button>
+    <button class="btn btn-sekunder" style="color:var(--merah);border-color:var(--merah)" onclick="hapusProduk('${esk(id)}')">🗑 Hapus Produk</button>
+  `;
+}
+
+/* ----- mutasi data produk (dipanggil dari input) ----- */
+const FIELD_ANGKA_PRODUK = ["hasilBatch","isiPerUnit","susutPersen","tkBatch","overheadBatch","lainBatch","markupReseller","markupRetail"];
+function ubahProduk(id, field, nilai){
+  const p = cariProduk(id); if(!p) return;
+  p[field] = FIELD_ANGKA_PRODUK.includes(field) ? angkaPositif(nilai) : nilai;
+  simpan(); perbaruiHitungan(id);
+}
+function ubahBahan(id, i, field, nilai){
+  const p = cariProduk(id); if(!p || !p.bahan[i]) return;
+  p.bahan[i][field] = (field==="nama"||field==="satuan") ? nilai : angkaPositif(nilai);
+  simpan(); perbaruiHitungan(id);
+}
+function ubahKemasan(id, i, field, nilai){
+  const p = cariProduk(id); if(!p || !p.kemasan[i]) return;
+  p.kemasan[i][field] = field==="nama" ? nilai : angkaPositif(nilai);
+  simpan(); perbaruiHitungan(id);
+}
+function tambahBahan(id){
+  const p = cariProduk(id); if(!p) return;
+  p.bahan.push({nama:"Bahan baru", jumlah:0, satuan:"g", hargaBeli:0, isiBeli:1000});
+  simpan(); render();
+}
+function hapusBahan(id,i){
+  const p = cariProduk(id); if(!p || !p.bahan[i]) return;
+  if(!confirm('Hapus bahan "' + (p.bahan[i].nama || "tanpa nama") + '"?')) return;
+  p.bahan.splice(i,1); simpan(); render();
+}
+function tambahKemasan(id){
+  const p = cariProduk(id); if(!p) return;
+  p.kemasan.push({nama:"Komponen baru", harga:0});
+  simpan(); render();
+}
+function hapusKemasan(id,i){
+  const p = cariProduk(id); if(!p || !p.kemasan[i]) return;
+  if(!confirm('Hapus komponen kemasan "' + (p.kemasan[i].nama || "tanpa nama") + '"?')) return;
+  p.kemasan.splice(i,1); simpan(); render();
+}
+/* Render ulang penuh saat mengetik akan mematikan fokus keyboard,
+   jadi angka-angka hasil hitung diperbarui langsung di tempatnya. */
+function aturKolom(nama, html){
+  const el = document.querySelector('[data-kolom="' + nama + '"]');
+  if(el) el.innerHTML = html;
+}
+function perbaruiHitungan(id){
+  if(tabAktif !== "produk" || produkAktif !== id) return;
+  const p = cariProduk(id); if(!p) return;
+  const h = hitungProduk(p);
+  p.bahan.forEach((b,i)=>{
+    const hs = hargaSatuanBahan(b);
+    aturKolom("hargasatuan-" + i, fmtRp(hs) + "/" + esk(b.satuan));
+    aturKolom("subtotal-" + i, "<b>" + fmtRp(angka(b.jumlah)*hs) + "</b>");
+  });
+  aturKolom("info-total-bahan", infoTotalBahan(h));
+  aturKolom("total-bahan", "<b>" + fmtRp(h.biayaBahanMurni) + "</b>");
+  aturKolom("total-kemasan", "<b>" + fmtRp(h.kemasanPerUnit) + "</b>");
+  aturKolom("cek-gramasi", catatanCekGramasi(p,h));
+  aturKolom("judul-produk", esk(p.nama));
+  const kotak = document.getElementById("kotakHasil");
+  if(kotak) kotak.innerHTML = isiKotakHasil(p,h);
+}
+
+/* ---------- TAB KALKULATOR PRODUKSI ---------- */
+function pilihKalkulator(id){
+  if(id !== kalkulatorPilih) kalkulatorTarget = null;  // produk beda → target lama tidak relevan
+  kalkulatorPilih = id; render();
+}
+function bukaKalkulatorProduk(id){ if(id !== kalkulatorPilih) kalkulatorTarget = null; kalkulatorPilih = id; gantiTab('kalkulator'); }
+function aturTargetKalkulator(v){ kalkulatorTarget = angkaPositif(v); render(); }
+
+function renderKalkulator(){
+  if(!cariProduk(kalkulatorPilih)) kalkulatorPilih = state.produk.length ? state.produk[0].id : null;
+  const p = cariProduk(kalkulatorPilih);
+  let opsi = state.produk.map(x=>`<option value="${esk(x.id)}" ${x.id===kalkulatorPilih?"selected":""}>${esk(x.nama)}</option>`).join("");
+
+  let isi = "";
+  if(!p){
+    isi = `<div class="kartu">Belum ada produk. Tambahkan dulu di tab Produk.</div>`;
+  } else {
+    const h = hitungProduk(p);
+    if(h.hasil <= 0){
+      isi = `<div class="catatan" style="font-size:.9rem">⚠️ Produk <b>${esk(p.nama)}</b> belum punya nilai
+      <b>Hasil per batch</b>, jadi resepnya belum bisa diskalakan.
+      Isi dulu kolom "Hasil per batch" di tab <b>Produk</b>.</div>`;
+    } else {
+      const target = (kalkulatorTarget && kalkulatorTarget>0) ? kalkulatorTarget : h.hasil;
+      const faktor = target/h.hasil;
+
+      let barisSkala = "";
+      p.bahan.forEach(b=>{
+        const jml = angka(b.jumlah)*faktor;
+        const hs = hargaSatuanBahan(b);
+        barisSkala += `<tr>
+          <td style="text-align:center"><span class="kotak-cek"></span></td>
+          <td>${esk(b.nama)}</td>
+          <td class="angka"><b>${fmtAngka(jml)}</b> ${esk(b.satuan)}</td>
+          <td class="angka">${fmtAngka(angka(b.jumlah))} ${esk(b.satuan)}</td>
+          <td class="angka">${fmtRp(jml*hs)}</td>
+        </tr>`;
+      });
+      const biayaBahanSkala = h.biayaBahan*faktor;
+      const kemasanSkala = h.kemasanPerUnit*target;
+      const biayaTetapSkala = (h.tk+h.ov+h.lain)*faktor;
+      const totalSkala = biayaBahanSkala + kemasanSkala + biayaTetapSkala;
+
+      isi = `
+    <div class="kartu">
+      <div class="form-grid">
+        <div><label>Target produksi (jumlah ${esk(p.namaUnit)})</label>
+          <input type="number" inputmode="decimal" min="0" step="any" value="${target}" onchange="aturTargetKalkulator(this.value)"></div>
+        <div><label>Setara batch</label><div class="nilai-baca">${fmtAngka(faktor)} batch</div></div>
+        <div><label>Total adonan (resep)</label><div class="nilai-baca">${fmtAngka(h.totalGramasi*faktor)} g/ml</div></div>
+      </div>
+      <p class="catatan" style="margin-bottom:0">Resep dasar: 1 batch = ${fmtAngka(h.hasil)} ${esk(p.namaUnit)}.
+      Semua gramasi di bawah otomatis dikalikan faktor <b>×${fmtAngka(faktor)}</b>; tenaga kerja &amp; overhead
+      ikut diskalakan proporsional. Biaya bahan sudah termasuk cadangan susut ${fmtAngka(p.susutPersen)}% —
+      gramasi timbang tetap sesuai resep.</p>
+    </div>
+
+    <div class="kartu">
+      <h3 style="margin-top:0">Kartu Batch <span style="font-weight:400;font-size:.75rem;color:var(--abu)">(diisi tangan setelah dicetak — SOP-01 &amp; SOP-07)</span></h3>
+      <div class="info-batch">
+        <div>No. batch: <span class="isian">&nbsp;</span></div>
+        <div>Tanggal: <span class="isian">&nbsp;</span></div>
+        <div>Penimbang: <span class="isian">&nbsp;</span></div>
+        <div>QC: <span class="isian">&nbsp;</span></div>
+      </div>
+    </div>
+
+    <div class="kartu tabel-gulir">
+      <h3 style="margin-top:0">Daftar Timbang Bahan — ${esk(p.nama)} (${fmtAngka(target)} ${esk(p.namaUnit)})</h3>
+      <table>
+        <thead><tr><th style="width:42px">✔</th><th>Bahan</th><th class="angka">Timbang Sekarang</th><th class="angka">Resep 1 Batch</th><th class="angka">Biaya</th></tr></thead>
+        <tbody>${barisSkala}</tbody>
+      </table>
+    </div>
+
+    <div class="hasil-kotak">
+      <div class="baris-angka"><span>Biaya bahan (+ susut)</span><b>${fmtRp(biayaBahanSkala)}</b></div>
+      <div class="baris-angka"><span>Kemasan × ${fmtAngka(target)} unit</span><b>${fmtRp(kemasanSkala)}</b></div>
+      <div class="baris-angka"><span>Tenaga kerja + overhead + lain-lain</span><b>${fmtRp(biayaTetapSkala)}</b></div>
+      <div class="baris-angka"><span><b>Total biaya produksi</b></span><b class="hasil-utama">${fmtRp(totalSkala)}</b></div>
+      <div class="baris-angka"><span><b>HPP per unit</b></span><b>${fmtRp(totalSkala/target)}</b></div>
+      <div class="lencana-harga">
+        <div><div class="lbl">Harga Reseller</div><div class="nilai">${fmtRp(h.hargaReseller)}</div><div class="sub">omzet ${fmtRp(h.hargaReseller*target)}</div></div>
+        <div><div class="lbl">Harga Retail</div><div class="nilai">${fmtRp(h.hargaRetail)}</div><div class="sub">omzet ${fmtRp(h.hargaRetail*target)}</div></div>
+        <div><div class="lbl">Potensi Laba (retail)</div><div class="nilai">${fmtRp(h.hargaRetail*target - totalSkala)}</div><div class="sub">omzet − total biaya</div></div>
+      </div>
+    </div>
+    <button class="btn btn-sekunder" onclick="window.print()">🖨 Cetak Daftar Timbang</button>`;
+    }
+  }
+
+  return `
+    <h2>⚖️ Kalkulator Produksi (Skala Gramasi)</h2>
+    <div class="kartu">
+      <label>Pilih produk</label>
+      <select onchange="pilihKalkulator(this.value)">${opsi}</select>
+    </div>
+    ${isi}`;
+}
+
+/* ---------- TAB SOP ---------- */
+function renderSOP(){
+  return `
+  <h2>📋 SOP — Standar Operasional Prosedur</h2>
+  <p style="font-size:.85rem;color:var(--abu);margin-bottom:12px;">SOP lengkap juga tersedia dalam berkas <b>SOP.md</b> di repositori (bisa dicetak &amp; ditempel di ruang produksi).</p>
+
+  <details class="sop" open>
+    <summary>SOP-01 • Perhitungan Gramasi &amp; Penimbangan Bahan</summary>
+    <div class="isi-sop">
+      <h4>Tujuan</h4>
+      <p>Memastikan setiap batch diproduksi dengan takaran yang sama persis, sehingga kualitas produk konsisten.</p>
+      <h4>Alat</h4>
+      <ul><li>Timbangan digital (ketelitian min. 1 g; untuk bahan &lt; 50 g gunakan ketelitian 0,1 g)</li>
+      <li>Gelas ukur untuk cairan</li><li>Wadah timbang bersih &amp; kering</li><li>Aplikasi ini (tab Kalkulator Produksi)</li></ul>
+      <h4>Langkah</h4>
+      <ol>
+        <li>Tentukan target produksi (jumlah unit) di tab <b>Kalkulator Produksi</b>.</li>
+        <li>Cetak / tampilkan <b>Daftar Timbang Bahan</b>.</li>
+        <li>Nolkan timbangan: letakkan wadah kosong, tekan <b>tare</b> hingga tampil 0.
+        Cek akurasi timbangan secara berkala (mis. tiap bulan) dengan anak timbangan/beban standar.</li>
+        <li>Timbang bahan <b>satu per satu</b> sesuai daftar; beri tanda centang setiap bahan selesai.</li>
+        <li>Toleransi penimbangan maksimal <b>±2%</b> per bahan. Lebih dari itu, ulangi.</li>
+        <li>Catat nomor batch, tanggal, dan nama penimbang di kartu batch.</li>
+        <li>Bahan yang sudah ditimbang diletakkan terpisah dari stok agar tidak tercampur.</li>
+      </ol>
+    </div>
+  </details>
+
+  <details class="sop">
+    <summary>SOP-02 • Produksi Jamu Serbuk (RootCore, StemDrive Apex Prime Balung Wesi)</summary>
+    <div class="isi-sop">
+      <ol>
+        <li>Pastikan semua bahan bubuk kering sempurna (kadar air rendah) — bahan lembap = produk cepat rusak.</li>
+        <li>Ayak setiap bahan dengan ayakan mesh 60–80 agar tekstur seragam.</li>
+        <li>Campur bahan bertahap: mulai dari bahan berjumlah paling sedikit, gunakan metode pengenceran bertingkat (campur bahan sedikit dengan sebagian bahan banyak, lalu gabungkan semua).</li>
+        <li>Aduk minimal 10–15 menit sampai warna campuran rata (tidak ada gumpalan/garis warna).</li>
+        <li>Timbang isi per unit sesuai isi bersih (mis. 100 g/botol), toleransi ±2 g.</li>
+        <li>Segel rapat, beri label: nama produk, nomor batch, tanggal produksi, tanggal kedaluwarsa.</li>
+        <li>Simpan di tempat kering, sejuk, tidak kena matahari langsung.</li>
+      </ol>
+      <h4>Titik kritis (QC)</h4>
+      <ul><li>Kekeringan bahan &amp; kehalusan ayakan</li><li>Kerataan campuran</li><li>Ketepatan gramasi isi per unit</li></ul>
+    </div>
+  </details>
+
+  <details class="sop">
+    <summary>SOP-03 • Produksi Minyak Balur &amp; Cairan Gosok (Kamlang Ndalem, Arak Gosok Sultan's Pusaka)</summary>
+    <div class="isi-sop">
+      <h4>Minyak balur (infus panas)</h4>
+      <ol>
+        <li>Gunakan rempah <b>kering</b> (atau keringkan/sangrai rempah segar lebih dulu) —
+        sisa air membuat minyak cepat tengik dan berjamur.</li>
+        <li>Panaskan minyak dasar dengan api kecil (±60–70 °C, jangan sampai berasap).</li>
+        <li>Masukkan rempah yang sudah diiris/ditumbuk, aduk perlahan 30–60 menit.</li>
+        <li>Matikan api, diamkan sampai hangat, saring dengan kain saring bersih 2 lapis.</li>
+        <li>Tambahkan minyak atsiri (gandapura, dll.) <b>setelah dingin</b> agar aroma tidak menguap.</li>
+        <li>Botolkan sesuai isi bersih, toleransi ±2 ml. Segel dan label — cantumkan
+        <b>"HANYA UNTUK PEMAKAIAN LUAR"</b> (gandapura berbahaya jika tertelan).</li>
+      </ol>
+      <h4>Arak gosok (maserasi/rendaman dingin)</h4>
+      <ol>
+        <li>Masukkan rempah kering ke wadah kaca, tuang arak/etanol sampai semua terendam.</li>
+        <li>Tutup rapat, simpan di tempat gelap 7–14 hari, kocok 1× setiap hari.</li>
+        <li>Saring, botolkan, segel, label. Beri penanda "Hanya untuk pemakaian luar".</li>
+      </ol>
+      <h4>Titik kritis (QC)</h4>
+      <ul><li>Kekeringan rempah</li><li>Suhu minyak (gosong = rusak)</li><li>Kebersihan &amp; kekeringan botol</li><li>Lama rendaman arak</li><li>Label "pemakaian luar" wajib di kedua produk</li></ul>
+    </div>
+  </details>
+
+  <details class="sop">
+    <summary>SOP-04 • Produksi Param &amp; Salep (Kemin Brajamusti, Dry Foot Tapak Wojo)</summary>
+    <div class="isi-sop">
+      <h4>Param / lulur (Kemin Brajamusti)</h4>
+      <ol>
+        <li>Rendam beras 2–4 jam, tiriskan, tumbuk/giling halus bersama rempah segar.</li>
+        <li>Tambahkan bahan kering dan minyak sedikit demi sedikit hingga adonan kalis dan mudah dibalurkan.</li>
+        <li>Isi ke pot sesuai gramasi, padatkan, tutup rapat.</li>
+        <li>Produk basah berumur pendek — cantumkan tanggal kedaluwarsa lebih pendek dan saran penyimpanan.</li>
+      </ol>
+      <h4>Salep (Dry Foot Tapak Wojo)</h4>
+      <ol>
+        <li>Lelehkan basis (vaselin) dengan cara tim/double-boiler (±50–60 °C), jangan langsung di atas api.</li>
+        <li>Masukkan serbuk aktif sedikit demi sedikit sambil diaduk sampai rata (tidak menggumpal).</li>
+        <li>Tambahkan minyak atsiri setelah agak dingin, aduk rata.</li>
+        <li>Tuang ke pot selagi masih cair, biarkan set, baru ditutup.</li>
+      </ol>
+      <h4>Titik kritis (QC)</h4>
+      <ul><li>Kehalusan gilingan</li><li>Homogenitas salep (tidak ada butiran)</li><li>Kebersihan pot</li><li>Gramasi isi per pot</li></ul>
+    </div>
+  </details>
+
+  <details class="sop">
+    <summary>SOP-05 • Perhitungan HPP (Harga Pokok Produksi)</summary>
+    <div class="isi-sop">
+      <h4>Rumus baku</h4>
+      <ol>
+        <li><b>Biaya bahan</b> = Σ (gramasi bahan × harga per g/ml) × (1 + % susut).<br>
+        Harga per g/ml = harga beli ÷ isi kemasan beli.</li>
+        <li><b>Biaya kemasan</b> = (botol + label + segel + dus) × jumlah unit.</li>
+        <li><b>Tenaga kerja</b> = upah pengerjaan per batch (walau dikerjakan sendiri, tetap dihitung!).</li>
+        <li><b>Overhead</b> = gas + listrik + air + penyusutan alat, dibagi rata per batch.</li>
+        <li><b>HPP batch</b> = bahan + kemasan + tenaga kerja + overhead + lain-lain.</li>
+        <li><b>HPP per unit</b> = HPP batch ÷ jumlah unit jadi.</li>
+      </ol>
+      <h4>Aturan wajib</h4>
+      <ul>
+        <li>Perbarui harga bahan di aplikasi <b>setiap kali belanja</b> — harga rempah fluktuatif.</li>
+        <li>Susut/waste: minimal <b>5%</b> untuk serbuk, param &amp; salep; <b>8%</b> untuk cairan/minyak
+        (tumpah, menempel di wadah, penguapan, ampas saringan).</li>
+        <li>Review HPP minimal <b>1× per bulan</b> atau saat harga bahan naik &gt; 10%.</li>
+        <li>Upah sendiri tetap masuk HPP — laba usaha ≠ upah kerja.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="sop">
+    <summary>SOP-06 • Penetapan Harga Jual</summary>
+    <div class="isi-sop">
+      <ol>
+        <li>Hitung HPP per unit dari SOP-05 (otomatis di aplikasi ini).</li>
+        <li>Tetapkan markup: <b>reseller minimal 40–50%</b> di atas HPP, <b>retail minimal 80–100%</b> di atas HPP.</li>
+        <li>Bulatkan harga <b>ke atas</b> ke kelipatan Rp 500 (aplikasi otomatis).</li>
+        <li>Pastikan urutan harga sehat: HPP &lt; harga reseller &lt; harga retail, dan selisih reseller→retail cukup agar reseller untung.</li>
+        <li>Bandingkan dengan harga pasar produk sejenis; jika harga pasar lebih rendah dari HPP + markup minimal, evaluasi resep/kemasan, <b>jangan</b> banting harga di bawah HPP.</li>
+        <li>Harga promo tidak boleh lebih rendah dari HPP + 20%.</li>
+        <li>Tinjau harga tiap kali HPP berubah &gt; 10%.</li>
+      </ol>
+    </div>
+  </details>
+
+  <details class="sop">
+    <summary>SOP-07 • Pengemasan, Label &amp; Penyimpanan</summary>
+    <div class="isi-sop">
+      <ol>
+        <li>Wadah harus baru, bersih, dan kering. Untuk cairan, bilas botol dengan sedikit alkohol lalu keringkan.</li>
+        <li>Label wajib memuat: nama produk, komposisi umum, isi bersih, nomor batch, tanggal produksi &amp; kedaluwarsa, cara pakai, dan peringatan ("hanya untuk hewan/pemakaian luar" bila relevan).</li>
+        <li>Nomor batch: format <b>KNJ-[kode produk]-[TTBBHH]</b>, contoh: KNJ-RC-260715.</li>
+        <li>Simpan produk jadi terpisah dari bahan baku; rotasi stok FIFO (produksi lama keluar lebih dulu).</li>
+        <li>Catat setiap batch di buku/berkas produksi: tanggal, jumlah, penanggung jawab, hasil QC.</li>
+      </ol>
+    </div>
+  </details>
+
+  <details class="sop">
+    <summary>SOP-08 • Pemakaian Aplikasi &amp; Cadangan Data</summary>
+    <div class="isi-sop">
+      <ol>
+        <li>Semua perubahan resep/harga tersimpan otomatis di perangkat (browser) ini.</li>
+        <li>Data <b>tidak</b> ikut berpindah antarperangkat — lakukan <b>Ekspor Data</b> lalu kirim berkas .json ke perangkat lain dan gunakan <b>Impor Data</b>.</li>
+        <li>Ekspor data minimal 1× per minggu dan setiap selesai mengubah resep.</li>
+        <li>Tombol <b>Reset ke Contoh</b> menghapus seluruh perubahan — selalu ekspor dulu.</li>
+        <li>Satu orang ditunjuk sebagai pemegang data utama (admin resep) agar tidak ada dua versi resep yang berbeda.</li>
+      </ol>
+    </div>
+  </details>`;
+}
+
+/* ================= MULAI ================= */
+state = muatData();
+render();
+</script>
+</body>
+</html>
