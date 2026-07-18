@@ -427,9 +427,9 @@ const TEKS = {
     catatan: "Tulis apa saja yang jujur malam ini. Jawaban itu akan berubah seiring jalanmu — dan memang harus berubah.",
   },
   selami: {
-    ajakan: "Tulis satu kata yang hendak kau selami — makrifat, fana, hijab, suwung, ingsun…",
+    ajakan: "Selami satu kata — makrifat, fana, suwung… — atau satu penunjuk jalan: rumi, kalijaga, ali, gautama…",
     kosong: "Belum ada yang cocok. Coba kata lain, atau buka Peta Suluk untuk melihat seluruh khazanah.",
-    sambutan: "Bismillah. Ketik satu istilah, dan ia akan dibedah empat lapis — dari kulit sampai sumsum — lalu dipulangkan ke bahasa sehari-hari. Ketik /godmode bila ingin seluruh lapisan tersingkap sekaligus.",
+    sambutan: "Bismillah. Ketik satu istilah atau nama seorang penunjuk jalan, dan ia akan dibedah empat lapis — dari kulit sampai sumsum — lalu dipulangkan ke bahasa sehari-hari. Ketik /godmode bila ingin seluruh lapisan tersingkap sekaligus.",
   },
   godmodeAktif: "Mode Paripurna tersingkap: seluruh lapisan dibuka sekaligus, dari syariat sampai inti dari inti.",
   godmodeMati: "Mode Paripurna ditutup kembali. Lapisan dibuka satu demi satu — sebagaimana adab membuka tirai.",
