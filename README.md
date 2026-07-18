@@ -43,3 +43,12 @@ antarperangkat.
 ### Dokumen
 
 - [`SOP.md`](SOP.md) — SOP lengkap produksi & perhitungan harga (siap cetak)
+
+## Kandang Ndalem — Kelas Makrifat
+
+Ruang dalam yang terpisah dari urusan dagang: [`makrifat/index.html`](makrifat/index.html).
+Aplikasi mandiri (satu folder, tanpa internet, tanpa server) berisi khazanah
+tasawuf & kejawen yang dibedah empat lapis — syariat → tarekat → hakikat →
+makrifat — lalu dipulangkan ke bahasa sehari-hari. Tulis satu istilah, ia
+langsung dibedah; ketik `/godmode` untuk menyingkap seluruh lapisan sekaligus.
+Seluruh catatan tinggal di perangkat sendiri, tidak dikirim ke mana pun.
