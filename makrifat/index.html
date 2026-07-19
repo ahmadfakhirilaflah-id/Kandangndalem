@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Kandang Ndalem — Kelas Makrifat</title>
+<style>
+  :root {
+    --malam: #0a0d14;
+    --malam2: #10141f;
+    --kartu: #141927;
+    --garis: #232a3d;
+    --emas: #c9a227;
+    --emas-redup: #8a7326;
+    --kertas: #e8e0cd;
+    --kertas-redup: #a49a82;
+    --hijau: #4e7a5a;
+    --merah-bata: #a4552f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: radial-gradient(ellipse 120% 80% at 50% -10%, #1a2133 0%, var(--malam) 55%);
+    min-height: 100vh;
+    color: var(--kertas);
+    font-family: Georgia, 'Times New Roman', 'Noto Serif', serif;
+    line-height: 1.75;
+  }
+  .wadah { max-width: 780px; margin: 0 auto; padding: 0 1.1rem 4rem; }
+
+  /* ---------- Gerbang ---------- */
+  #gerbang {
+    position: fixed; inset: 0; z-index: 50;
+    background: radial-gradient(ellipse 120% 90% at 50% 0%, #151b2b 0%, #070a10 60%);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem; text-align: center;
+    transition: opacity 1.2s ease;
+  }
+  #gerbang.sirna { opacity: 0; pointer-events: none; }
+  .gerbang-isi { max-width: 560px; }
+  .gerbang-isi .aksara {
+    font-size: 2.6rem; color: var(--emas); letter-spacing: .35em;
+    margin-bottom: 1.4rem; text-shadow: 0 0 30px rgba(201,162,39,.35);
+  }
+  .gerbang-isi h1 { font-weight: normal; font-size: 1.5rem; letter-spacing: .05em; margin-bottom: 1rem; }
+  .gerbang-isi p { color: var(--kertas-redup); font-size: .95rem; margin-bottom: 1.1rem; }
+  .gerbang-isi .pitakon { color: var(--kertas); font-style: italic; font-size: 1.15rem; margin: 1.4rem 0 .9rem; }
+  #jawaban-gerbang {
+    width: 100%; background: rgba(255,255,255,.04); border: 1px solid var(--garis);
+    border-radius: 10px; color: var(--kertas); font-family: inherit; font-size: 1rem;
+    padding: .8rem 1rem; text-align: center; outline: none; margin-bottom: 1rem;
+  }
+  #jawaban-gerbang:focus { border-color: var(--emas-redup); }
+  .tombol-emas {
+    background: linear-gradient(180deg, #d8b336, #a5841e);
+    color: #191307; border: none; border-radius: 999px;
+    font-family: inherit; font-size: 1rem; letter-spacing: .06em;
+    padding: .7rem 2.2rem; cursor: pointer;
+  }
+  .tombol-emas:disabled { opacity: .35; cursor: default; }
+  .gerbang-isi .kecil { font-size: .8rem; color: var(--kertas-redup); opacity: .8; }
+
+  /* ---------- Kepala & Navigasi ---------- */
+  header { text-align: center; padding: 2.4rem 0 1.2rem; }
+  header .aksara { font-size: 1.6rem; color: var(--emas); letter-spacing: .3em; }
+  header h1 { font-weight: normal; font-size: 1.35rem; letter-spacing: .12em; margin-top: .4rem; }
+  header .sub { color: var(--kertas-redup); font-size: .85rem; font-style: italic; }
+  nav {
+    display: flex; gap: .4rem; justify-content: center; flex-wrap: wrap;
+    position: sticky; top: 0; z-index: 10; padding: .7rem 0;
+    background: linear-gradient(180deg, rgba(10,13,20,.96), rgba(10,13,20,.88));
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--garis);
+    margin-bottom: 1.4rem;
+  }
+  nav button {
+    background: none; border: 1px solid transparent; border-radius: 999px;
+    color: var(--kertas-redup); font-family: inherit; font-size: .92rem;
+    padding: .35rem 1rem; cursor: pointer; letter-spacing: .04em;
+  }
+  nav button.aktif { color: var(--emas); border-color: var(--emas-redup); }
+  nav button:hover { color: var(--kertas); }
+
+  main section { display: none; }
+  main section.tampil { display: block; animation: muncul .5s ease; }
+  @keyframes muncul { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* ---------- Selami ---------- */
+  .kotak-selami { position: relative; margin-bottom: 1.2rem; }
+  #input-selami {
+    width: 100%; background: var(--kartu); border: 1px solid var(--garis);
+    border-radius: 14px; color: var(--kertas); font-family: inherit;
+    font-size: 1.1rem; padding: 1rem 1.2rem; outline: none;
+  }
+  #input-selami:focus { border-color: var(--emas-redup); box-shadow: 0 0 24px rgba(201,162,39,.08); }
+  .lencana-godmode {
+    display: none; margin: 0 0 1rem; padding: .55rem 1rem;
+    border: 1px solid var(--emas-redup); border-radius: 10px;
+    color: var(--emas); font-size: .85rem; letter-spacing: .05em;
+    background: rgba(201,162,39,.06);
+  }
+  body.godmode .lencana-godmode { display: block; }
+  .pesan-sistem {
+    color: var(--kertas-redup); font-style: italic; font-size: .95rem;
+    padding: .4rem .2rem 1rem;
+  }
+  .chip-baris { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.2rem; }
+  .chip {
+    background: none; border: 1px solid var(--garis); border-radius: 999px;
+    color: var(--kertas-redup); font-family: inherit; font-size: .82rem;
+    padding: .25rem .85rem; cursor: pointer;
+  }
+  .chip:hover { border-color: var(--emas-redup); color: var(--emas); }
+
+  /* ---------- Kartu entri ---------- */
+  .kartu {
+    background: var(--kartu); border: 1px solid var(--garis); border-radius: 16px;
+    padding: 1.6rem 1.5rem; margin-bottom: 1.4rem;
+  }
+  .kartu .kategori-label {
+    font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--emas-redup); margin-bottom: .3rem;
+  }
+  .kartu h2 { font-weight: normal; font-size: 1.45rem; color: var(--emas); }
+  .kartu .asal { color: var(--kertas-redup); font-style: italic; font-size: .9rem; margin-bottom: .8rem; }
+  .kartu .ringkas {
+    border-left: 3px solid var(--emas-redup); padding: .2rem 0 .2rem .9rem;
+    font-style: italic; color: var(--kertas); margin-bottom: 1.2rem;
+  }
+  .tab-lapis { display: flex; gap: .35rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .tab-lapis button {
+    background: none; border: 1px solid var(--garis); border-radius: 8px;
+    color: var(--kertas-redup); font-family: inherit; font-size: .82rem;
+    padding: .3rem .8rem; cursor: pointer; letter-spacing: .03em;
+  }
+  .tab-lapis button.aktif { border-color: var(--emas); color: var(--emas); }
+  .lapis { margin-bottom: 1.1rem; }
+  .lapis h3 {
+    font-weight: normal; font-size: .78rem; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--emas-redup); margin-bottom: .35rem;
+  }
+  .lapis p { color: var(--kertas); font-size: .98rem; }
+  .lapis.inti p { color: #f2ead2; }
+  .lapis.inti { border: 1px solid rgba(201,162,39,.35); border-radius: 12px; padding: .9rem 1rem; background: rgba(201,162,39,.05); }
+  .seharihari {
+    margin-top: 1.2rem; border-top: 1px dashed var(--garis); padding-top: 1rem;
+  }
+  .seharihari h3 {
+    font-weight: normal; font-size: .78rem; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--hijau); margin-bottom: .35rem;
+  }
+  .seharihari p { color: #d5e0d0; font-size: .98rem; }
+  .peringatan {
+    margin-top: 1rem; border: 1px solid rgba(164,85,47,.5); border-radius: 10px;
+    padding: .8rem 1rem; font-size: .88rem; color: #e0b9a4; background: rgba(164,85,47,.08);
+  }
+  .rujukan { margin-top: 1rem; font-size: .8rem; color: var(--kertas-redup); }
+  .rujukan span { display: inline-block; margin-right: .8rem; }
+  .penutup-jibril {
+    text-align: center; font-style: italic; color: var(--kertas-redup);
+    font-size: .85rem; max-width: 480px; margin: 2.2rem auto 0; opacity: .8;
+  }
+
+  /* ---------- Peta ---------- */
+  .kelompok { margin-bottom: 2rem; }
+  .kelompok h2 {
+    font-weight: normal; font-size: .85rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--emas-redup); border-bottom: 1px solid var(--garis);
+    padding-bottom: .4rem; margin-bottom: .8rem;
+  }
+  .baris-peta {
+    width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+    font-family: inherit; color: var(--kertas); padding: .55rem .3rem;
+    border-radius: 8px; display: block;
+  }
+  .baris-peta:hover { background: rgba(255,255,255,.03); }
+  .baris-peta .judul { color: var(--kertas); font-size: 1rem; }
+  .baris-peta .isi { color: var(--kertas-redup); font-size: .84rem; font-style: italic; }
+
+  /* ---------- Catatan ---------- */
+  #teks-catatan {
+    width: 100%; min-height: 130px; background: var(--kartu); border: 1px solid var(--garis);
+    border-radius: 14px; color: var(--kertas); font-family: inherit; font-size: 1rem;
+    padding: 1rem 1.1rem; outline: none; resize: vertical; margin-bottom: .7rem;
+  }
+  #teks-catatan:focus { border-color: var(--emas-redup); }
+  .baris-tombol { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+  .tombol-garis {
+    background: none; border: 1px solid var(--garis); border-radius: 999px;
+    color: var(--kertas-redup); font-family: inherit; font-size: .85rem;
+    padding: .4rem 1.1rem; cursor: pointer;
+  }
+  .tombol-garis:hover { color: var(--emas); border-color: var(--emas-redup); }
+  .catatan-item {
+    background: var(--kartu); border: 1px solid var(--garis); border-radius: 12px;
+    padding: 1rem 1.1rem; margin-bottom: .8rem;
+  }
+  .catatan-item .waktu { font-size: .75rem; color: var(--kertas-redup); margin-bottom: .3rem; }
+  .catatan-item p { white-space: pre-wrap; font-size: .95rem; }
+  .catatan-item .hapus {
+    background: none; border: none; color: var(--merah-bata); font-family: inherit;
+    font-size: .75rem; cursor: pointer; padding: 0; margin-top: .5rem;
+  }
+  .privasi { font-size: .8rem; color: var(--kertas-redup); font-style: italic; margin-bottom: 1rem; }
+
+  /* ---------- Adab ---------- */
+  .adab-blok { margin-bottom: 1.6rem; }
+  .adab-blok h2 { font-weight: normal; font-size: 1.1rem; color: var(--emas); margin-bottom: .4rem; }
+  .adab-blok p { color: var(--kertas); font-size: .95rem; margin-bottom: .6rem; }
+  .kutip {
+    border-left: 3px solid var(--emas-redup); padding-left: .9rem;
+    font-style: italic; color: var(--kertas-redup); margin: .8rem 0;
+  }
+
+  footer { text-align: center; color: #4d5468; font-size: .75rem; margin-top: 3rem; letter-spacing: .05em; }
+  @media (max-width: 520px) {
+    .kartu { padding: 1.2rem 1rem; }
+    header .aksara { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ GERBANG ============ -->
+<div id="gerbang">
+  <div class="gerbang-isi">
+    <div class="aksara">﴾ ۞ ﴿</div>
+    <h1 id="g-salam"></h1>
+    <p id="g-pambuka"></p>
+    <p class="pitakon" id="g-pitakon"></p>
+    <input id="jawaban-gerbang" type="text" autocomplete="off" spellcheck="false"
+           placeholder="tuliskan jawabanmu malam ini…">
+    <div><button class="tombol-emas" id="tombol-gerbang" disabled></button></div>
+    <p class="kecil" style="margin-top:1rem" id="g-catatan"></p>
+  </div>
+</div>
+
+<div class="wadah">
+  <header>
+    <div class="aksara">۞</div>
+    <h1>KANDANG NDALEM</h1>
+    <div class="sub">kelas makrifat — ruang dalam, bukan ruang pamer</div>
+  </header>
+
+  <nav>
+    <button data-bagian="selami" class="aktif">Selami</button>
+    <button data-bagian="peta">Peta Suluk</button>
+    <button data-bagian="catatan">Catatan Suluk</button>
+    <button data-bagian="adab">Adab</button>
+  </nav>
+
+  <main>
+    <!-- ============ SELAMI ============ -->
+    <section id="bagian-selami" class="tampil">
+      <div class="lencana-godmode">۞ Mode Paripurna — seluruh lapisan tersingkap sekaligus. Ketik <em>/tutup</em> untuk kembali bertirai.</div>
+      <div class="kotak-selami">
+        <input id="input-selami" type="text" autocomplete="off" spellcheck="false" placeholder="">
+      </div>
+      <div id="hasil-selami"></div>
+      <p class="penutup-jibril" id="penutup-jibril"></p>
+    </section>
+
+    <!-- ============ PETA ============ -->
+    <section id="bagian-peta">
+      <div id="isi-peta"></div>
+    </section>
+
+    <!-- ============ CATATAN ============ -->
+    <section id="bagian-catatan">
+      <p class="privasi">Catatan suluk ini tersimpan hanya di perangkat ini (localStorage) — tidak dikirim ke mana pun. Gunakan Ekspor untuk mencadangkannya sendiri.</p>
+      <textarea id="teks-catatan" placeholder="Apa yang tersingkap hari ini? Tulis untuk dirimu sendiri…"></textarea>
+      <div class="baris-tombol">
+        <button class="tombol-garis" id="simpan-catatan">Simpan Catatan</button>
+        <button class="tombol-garis" id="ekspor-catatan">Ekspor</button>
+        <button class="tombol-garis" id="impor-catatan">Impor</button>
+        <input type="file" id="berkas-impor" accept="application/json" style="display:none">
+      </div>
+      <div id="daftar-catatan"></div>
+    </section>
+
+    <!-- ============ ADAB ============ -->
+    <section id="bagian-adab">
+      <div class="adab-blok">
+        <h2>Susu murni & perut yang siap</h2>
+        <p>Isi kelas ini diambil dari khazanah yang oleh para wali sendiri disimpan rapat — bukan karena pelit, melainkan karena sayang. Susu murni menyehatkan yang siap dan menyakiti perut yang belum. Karena itu ruang ini dibuat sunyi: tanpa server, tanpa pamer, tanpa panggung.</p>
+        <div class="kutip">“Hakikat tanpa syariat batal; syariat tanpa hakikat kosong.” — kaidah yang dinisbatkan kepada Imam Malik &amp; dihidupkan al-Ghazali</div>
+      </div>
+      <div class="adab-blok">
+        <h2>Aplikasi ini bukan mursyid</h2>
+        <p>Ia kendaraan — buraq kecil dari kata-kata — dan penunjuk arah sejauh peta yang tercatat. Semua penulis kitab yang dikutip di sini menempuh jalan dengan guru yang hidup, yang bisa melihat penyakit hati murid yang tak terlihat oleh murid sendiri. Peta bukan wilayah; alamat bukan rumah.</p>
+      </div>
+      <div class="adab-blok">
+        <h2>Ujian setiap maqam</h2>
+        <p>Satu-satunya timbangan yang tak bisa dipalsukan: buahnya di dapur kehidupan. Setiap kedalaman yang sejati berbuah makin rendah hati, makin jujur di timbangan, makin sabar kepada tetangga, makin ringan menolong. Bila sebuah “pencapaian ruhani” berbuah merasa lebih tinggi dari orang lain — ia bukan pencapaian; ia ego yang berganti jubah.</p>
+      </div>
+      <div class="adab-blok">
+        <h2>Batas kendaraan ini</h2>
+        <p id="adab-jibril"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>kandang ndalem · seluruh data tinggal di perangkatmu · tan kena kinaya ngapa</footer>
+</div>
+
+<script src="data.js"></script>
+<script src="tokoh.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var URUTAN_LAPIS = ["syariat", "tarekat", "hakikat", "makrifat"];
+  var NAMA_LAPIS = { syariat: "Syariat — Kulit", tarekat: "Tarekat — Jalan", hakikat: "Hakikat — Inti", makrifat: "Makrifat — Inti dari Inti" };
+
+  var elGerbang = document.getElementById("gerbang");
+  var elInput = document.getElementById("input-selami");
+  var elHasil = document.getElementById("hasil-selami");
+
+  // ---------- alat ----------
+  function el(id) { return document.getElementById(id); }
+  function norm(s) {
+    return (s || "").toLowerCase()
+      .normalize("NFD").replace(/[̀-ͯ]/g, "")
+      .replace(/['’`ʻ\-_.]/g, "").replace(/\s+/g, " ").trim();
+  }
+  function esc(s) {
+    return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  // ---------- gerbang ----------
+  el("g-salam").textContent = TEKS.gerbang.salam;
+  el("g-pambuka").textContent = TEKS.gerbang.pambuka;
+  el("g-pitakon").textContent = TEKS.gerbang.pitakon;
+  el("g-catatan").textContent = TEKS.gerbang.catatan;
+  el("tombol-gerbang").textContent = TEKS.gerbang.tombol;
+  el("adab-jibril").textContent = TEKS.jibril;
+  el("penutup-jibril").textContent = TEKS.jibril;
+  elInput.placeholder = TEKS.selami.ajakan;
+
+  var jwb = el("jawaban-gerbang");
+  var tombolGerbang = el("tombol-gerbang");
+  jwb.addEventListener("input", function () {
+    tombolGerbang.disabled = norm(jwb.value).length === 0;
+  });
+  function bukaGerbang() {
+    elGerbang.classList.add("sirna");
+    try { sessionStorage.setItem("kn_masuk", "1"); } catch (e) {}
+    setTimeout(function () { elInput.focus(); }, 900);
+  }
+  tombolGerbang.addEventListener("click", bukaGerbang);
+  jwb.addEventListener("keydown", function (ev) {
+    if (ev.key === "Enter" && !tombolGerbang.disabled) bukaGerbang();
+  });
+  try {
+    if (sessionStorage.getItem("kn_masuk") === "1") elGerbang.classList.add("sirna");
+  } catch (e) {}
+
+  // ---------- navigasi ----------
+  var tombolNav = document.querySelectorAll("nav button");
+  tombolNav.forEach(function (b) {
+    b.addEventListener("click", function () { pindah(b.dataset.bagian); });
+  });
+  function pindah(nama) {
+    tombolNav.forEach(function (b) { b.classList.toggle("aktif", b.dataset.bagian === nama); });
+    document.querySelectorAll("main section").forEach(function (s) {
+      s.classList.toggle("tampil", s.id === "bagian-" + nama);
+    });
+    if (nama === "catatan") gambarCatatan();
+    window.scrollTo({ top: 0 });
+  }
+
+  // ---------- mode paripurna (/godmode) ----------
+  function setGodmode(nyala, diam) {
+    document.body.classList.toggle("godmode", nyala);
+    try { localStorage.setItem("kn_godmode", nyala ? "1" : "0"); } catch (e) {}
+    if (!diam) pesan(nyala ? TEKS.godmodeAktif : TEKS.godmodeMati);
+  }
+  var godmodeAwal = false;
+  try { godmodeAwal = localStorage.getItem("kn_godmode") === "1"; } catch (e) {}
+  setGodmode(godmodeAwal, true);
+  function godmodeAktif() { return document.body.classList.contains("godmode"); }
+
+  // ---------- pencarian ----------
+  function skorEntri(entri, q) {
+    var n = norm(q);
+    if (!n) return 0;
+    var ist = norm(entri.istilah);
+    var skor = 0;
+    if (ist === n) return 100;
+    if (ist.indexOf(n) === 0) skor = Math.max(skor, 82);
+    if (ist.indexOf(n) !== -1) skor = Math.max(skor, 70);
+    (entri.alias || []).forEach(function (a) {
+      var na = norm(a);
+      if (na === n) skor = Math.max(skor, 95);
+      else if (na.indexOf(n) === 0) skor = Math.max(skor, 78);
+      else if (na.indexOf(n) !== -1 && n.length >= 3) skor = Math.max(skor, 60);
+    });
+    (entri.kunci || []).forEach(function (k) {
+      if (norm(k).indexOf(n) !== -1 && n.length >= 3) skor = Math.max(skor, 50);
+    });
+    if (n.length >= 4) {
+      if (norm(entri.ringkas).indexOf(n) !== -1) skor = Math.max(skor, 30);
+      var badan = norm(URUTAN_LAPIS.map(function (l) { return entri.tingkat[l]; }).join(" ") + " " + entri.seharihari);
+      if (badan.indexOf(n) !== -1) skor = Math.max(skor, 18);
+    }
+    return skor;
+  }
+
+  function cari(q) {
+    return DATA.map(function (e) { return { e: e, s: skorEntri(e, q) }; })
+      .filter(function (x) { return x.s > 0; })
+      .sort(function (a, b) { return b.s - a.s; });
+  }
+
+  function pesan(t) {
+    elHasil.innerHTML = '<p class="pesan-sistem">' + esc(t) + "</p>";
+  }
+
+  // ---------- render entri ----------
+  function htmlLapis(entri, lapisTerpilih) {
+    var semua = godmodeAktif();
+    var html = "";
+    if (!semua) {
+      html += '<div class="tab-lapis">' + URUTAN_LAPIS.map(function (l) {
+        return '<button data-lapis="' + l + '"' + (l === lapisTerpilih ? ' class="aktif"' : "") + ">" +
+          esc(l.charAt(0).toUpperCase() + l.slice(1)) + "</button>";
+      }).join("") + "</div>";
+    }
+    URUTAN_LAPIS.forEach(function (l) {
+      if (!semua && l !== lapisTerpilih) return;
+      var inti = l === "makrifat" ? " inti" : "";
+      html += '<div class="lapis' + inti + '"><h3>' + esc(NAMA_LAPIS[l]) + "</h3><p>" + esc(entri.tingkat[l]) + "</p></div>";
+    });
+    return html;
+  }
+
+  function gambarEntri(entri, lapisTerpilih) {
+    var kartu = document.createElement("div");
+    kartu.className = "kartu";
+    kartu.innerHTML =
+      '<div class="kategori-label">' + esc(KATEGORI[entri.kategori] || "") + "</div>" +
+      "<h2>" + esc(entri.istilah) + "</h2>" +
+      '<div class="asal">' + esc(entri.asal) + "</div>" +
+      '<div class="ringkas">' + esc(entri.ringkas) + "</div>" +
+      '<div class="isi-lapis">' + htmlLapis(entri, lapisTerpilih) + "</div>" +
+      '<div class="seharihari"><h3>Bahasa Sehari-hari</h3><p>' + esc(entri.seharihari) + "</p></div>" +
+      (entri.peringatan ? '<div class="peringatan">⚠ ' + esc(entri.peringatan) + "</div>" : "") +
+      '<div class="rujukan">' + (entri.rujukan || []).map(function (r) { return "<span>📜 " + esc(r) + "</span>"; }).join("") + "</div>";
+
+    kartu.querySelectorAll(".tab-lapis button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        kartu.querySelector(".isi-lapis").innerHTML = htmlLapis(entri, b.dataset.lapis);
+        sambungTab(kartu, entri);
+      });
+    });
+    return kartu;
+  }
+  function sambungTab(kartu, entri) {
+    kartu.querySelectorAll(".tab-lapis button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        kartu.querySelector(".isi-lapis").innerHTML = htmlLapis(entri, b.dataset.lapis);
+        sambungTab(kartu, entri);
+      });
+    });
+  }
+
+  function tampilkanHasil(q) {
+    var hasil = cari(q);
+    elHasil.innerHTML = "";
+    if (!hasil.length) { pesan(TEKS.selami.kosong); return; }
+    elHasil.appendChild(gambarEntri(hasil[0].e, "makrifat"));
+    if (hasil.length > 1) {
+      var baris = document.createElement("div");
+      baris.className = "chip-baris";
+      hasil.slice(1, 7).forEach(function (x) {
+        var c = document.createElement("button");
+        c.className = "chip";
+        c.textContent = x.e.istilah;
+        c.addEventListener("click", function () {
+          elHasil.innerHTML = "";
+          elHasil.appendChild(gambarEntri(x.e, "makrifat"));
+          elHasil.appendChild(baris);
+        });
+        baris.appendChild(c);
+      });
+      elHasil.appendChild(baris);
+    }
+  }
+
+  var tundaan = null;
+  elInput.addEventListener("input", function () {
+    var q = elInput.value.trim();
+    if (tundaan) clearTimeout(tundaan);
+    if (norm(q) === norm("/godmode") || norm(q) === "godmode") {
+      setGodmode(true); elInput.value = ""; return;
+    }
+    if (norm(q) === norm("/tutup")) {
+      setGodmode(false); elInput.value = ""; return;
+    }
+    if (!q) { pesan(TEKS.selami.sambutan); return; }
+    tundaan = setTimeout(function () { tampilkanHasil(q); }, 160);
+  });
+  pesan(TEKS.selami.sambutan);
+
+  // ---------- peta ----------
+  (function gambarPeta() {
+    var wadah = el("isi-peta");
+    Object.keys(KATEGORI).forEach(function (kat) {
+      var entri = DATA.filter(function (e) { return e.kategori === kat; });
+      if (!entri.length) return;
+      var blok = document.createElement("div");
+      blok.className = "kelompok";
+      blok.innerHTML = "<h2>" + esc(KATEGORI[kat]) + "</h2>";
+      entri.forEach(function (e) {
+        var b = document.createElement("button");
+        b.className = "baris-peta";
+        b.innerHTML = '<span class="judul">' + esc(e.istilah) + '</span><br><span class="isi">' + esc(e.ringkas) + "</span>";
+        b.addEventListener("click", function () {
+          pindah("selami");
+          elInput.value = e.istilah;
+          elHasil.innerHTML = "";
+          elHasil.appendChild(gambarEntri(e, "makrifat"));
+        });
+        blok.appendChild(b);
+      });
+      wadah.appendChild(blok);
+    });
+  })();
+
+  // ---------- catatan suluk ----------
+  function ambilCatatan() {
+    try { return JSON.parse(localStorage.getItem("kn_catatan") || "[]"); } catch (e) { return []; }
+  }
+  function simpanSemua(daftar) {
+    try { localStorage.setItem("kn_catatan", JSON.stringify(daftar)); } catch (e) {}
+  }
+  function gambarCatatan() {
+    var wadah = el("daftar-catatan");
+    var daftar = ambilCatatan();
+    wadah.innerHTML = "";
+    if (!daftar.length) {
+      wadah.innerHTML = '<p class="pesan-sistem">Belum ada catatan. Yang ditulis tangan sendiri lebih lekat daripada seribu yang dibaca.</p>';
+      return;
+    }
+    daftar.slice().reverse().forEach(function (c) {
+      var item = document.createElement("div");
+      item.className = "catatan-item";
+      var waktu = new Date(c.t);
+      item.innerHTML = '<div class="waktu">' + esc(waktu.toLocaleString("id-ID")) + "</div><p>" + esc(c.isi) + "</p>";
+      var hapus = document.createElement("button");
+      hapus.className = "hapus";
+      hapus.textContent = "hapus";
+      hapus.addEventListener("click", function () {
+        if (!confirm("Hapus catatan ini? Tidak bisa dikembalikan.")) return;
+        simpanSemua(ambilCatatan().filter(function (x) { return x.t !== c.t; }));
+        gambarCatatan();
+      });
+      item.appendChild(hapus);
+      wadah.appendChild(item);
+    });
+  }
+  el("simpan-catatan").addEventListener("click", function () {
+    var teks = el("teks-catatan").value.trim();
+    if (!teks) return;
+    var daftar = ambilCatatan();
+    daftar.push({ t: Date.now(), isi: teks });
+    simpanSemua(daftar);
+    el("teks-catatan").value = "";
+    gambarCatatan();
+  });
+  el("ekspor-catatan").addEventListener("click", function () {
+    var data = JSON.stringify(ambilCatatan(), null, 2);
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([data], { type: "application/json" }));
+    a.download = "catatan-suluk.json";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+  el("impor-catatan").addEventListener("click", function () { el("berkas-impor").click(); });
+  el("berkas-impor").addEventListener("change", function () {
+    var f = this.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      try {
+        var masuk = JSON.parse(r.result);
+        if (!Array.isArray(masuk)) throw new Error("format");
+        var ada = ambilCatatan();
+        var waktuAda = {};
+        ada.forEach(function (c) { waktuAda[c.t] = true; });
+        masuk.forEach(function (c) {
+          if (c && typeof c.t === "number" && typeof c.isi === "string" && !waktuAda[c.t]) ada.push(c);
+        });
+        ada.sort(function (a, b) { return a.t - b.t; });
+        simpanSemua(ada);
+        gambarCatatan();
+      } catch (e) { alert("Berkas tidak dikenali. Gunakan hasil Ekspor dari aplikasi ini."); }
+    };
+    r.readAsText(f);
+    this.value = "";
+  });
+})();
+</script>
+</body>
+</html>
