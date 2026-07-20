@@ -155,6 +155,27 @@
     margin-top: 1rem; border: 1px solid rgba(164,85,47,.5); border-radius: 10px;
     padding: .8rem 1rem; font-size: .88rem; color: #e0b9a4; background: rgba(164,85,47,.08);
   }
+  details.lebih {
+    margin-top: .8rem; border: 1px solid var(--garis); border-radius: 12px;
+    padding: .65rem 1rem; background: rgba(255,255,255,.02);
+  }
+  details.lebih[open] { padding-bottom: 1rem; }
+  details.lebih summary {
+    cursor: pointer; color: var(--emas-redup); font-size: .8rem;
+    letter-spacing: .2em; text-transform: uppercase; list-style: none;
+  }
+  details.lebih summary::before { content: "◈ "; }
+  details.lebih[open] summary { color: var(--emas); margin-bottom: .6rem; }
+  details.lebih p { font-size: .95rem; color: var(--kertas); margin-bottom: .7rem; }
+  details.lebih p:last-child { margin-bottom: 0; }
+  details.lebih ul { margin: 0 0 .5rem 1.1rem; }
+  details.lebih li { font-size: .93rem; color: var(--kertas); margin-bottom: .45rem; }
+  .ajaran-judul { color: var(--emas); font-style: normal; }
+  .kutip-tokoh {
+    border-left: 3px solid var(--emas-redup); padding: .15rem 0 .15rem .9rem;
+    margin-bottom: .35rem; font-style: italic; color: #f2ead2; font-size: .95rem;
+  }
+  .kutip-ket { font-size: .82rem; color: var(--kertas-redup); margin: 0 0 .9rem .95rem; }
   .rujukan { margin-top: 1rem; font-size: .8rem; color: var(--kertas-redup); }
   .rujukan span { display: inline-block; margin-right: .8rem; }
   .penutup-jibril {
@@ -435,6 +456,24 @@
     return html;
   }
 
+  function par(t) {
+    return (t || "").split(/\n\n+/).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
+  }
+  function htmlLengkap(L) {
+    if (!L) return "";
+    var buka = godmodeAktif() ? " open" : "";
+    var h = "";
+    if (L.riwayat) h += '<details class="lebih"' + buka + "><summary>Riwayat Perjalanan</summary>" + par(L.riwayat) + "</details>";
+    if (L.karya && L.karya.length) h += '<details class="lebih"' + buka + "><summary>Karya &amp; Kitab</summary><ul>" +
+      L.karya.map(function (k) { return "<li>" + esc(k) + "</li>"; }).join("") + "</ul></details>";
+    if (L.ajaran && L.ajaran.length) h += '<details class="lebih"' + buka + "><summary>Pokok-Pokok Ajaran</summary>" +
+      L.ajaran.map(function (a) { return '<p><span class="ajaran-judul">' + esc(a.j) + ".</span> " + esc(a.i) + "</p>"; }).join("") + "</details>";
+    if (L.kalimat && L.kalimat.length) h += '<details class="lebih"' + buka + "><summary>Kalimat yang Diwariskan</summary>" +
+      L.kalimat.map(function (q) { return '<p class="kutip-tokoh">' + esc(q.t) + '</p><p class="kutip-ket">' + esc(q.k) + "</p>"; }).join("") + "</details>";
+    if (L.warisan) h += '<details class="lebih"' + buka + "><summary>Warisan &amp; Sanad</summary>" + par(L.warisan) + "</details>";
+    return h;
+  }
+
   function gambarEntri(entri, lapisTerpilih) {
     var kartu = document.createElement("div");
     kartu.className = "kartu";
@@ -445,6 +484,7 @@
       '<div class="ringkas">' + esc(entri.ringkas) + "</div>" +
       '<div class="isi-lapis">' + htmlLapis(entri, lapisTerpilih) + "</div>" +
       '<div class="seharihari"><h3>Bahasa Sehari-hari</h3><p>' + esc(entri.seharihari) + "</p></div>" +
+      htmlLengkap(entri.lengkap) +
       (entri.peringatan ? '<div class="peringatan">⚠ ' + esc(entri.peringatan) + "</div>" : "") +
       '<div class="rujukan">' + (entri.rujukan || []).map(function (r) { return "<span>📜 " + esc(r) + "</span>"; }).join("") + "</div>";
 
