@@ -264,7 +264,7 @@ const DATA = [
     istilah: "Manunggaling Kawula Gusti",
     asal: "Jawa: menyatunya hamba dan Tuhan",
     kategori: "puncak",
-    alias: ["manunggal", "kawula gusti", "jumbuhing kawula gusti", "pamoring kawula gusti", "siti jenar", "syekh siti jenar", "curiga manjing warangka"],
+    alias: ["manunggal", "kawula gusti", "jumbuhing kawula gusti", "pamoring kawula gusti", "curiga manjing warangka"],
     kunci: ["menyatu", "persatuan", "hamba dan tuhan", "keris dan sarung"],
     ringkas: "Keris masuk ke sarungnya: dua nama, satu kenyataan. Ajaran yang membuat Siti Jenar dihukum — dan tetap hidup lima abad kemudian.",
     tingkat: {
@@ -282,7 +282,7 @@ const DATA = [
     istilah: "Ana al-Haqq & Syathahat",
     asal: "ana al-haqq — أنا الحق (Akulah Yang Maha Benar)",
     kategori: "puncak",
-    alias: ["ana al haq", "al hallaj", "hallaj", "syathahat", "syatahat", "shathiyat", "inani ana allah", "ucapan ekstase", "subhani"],
+    alias: ["ana al haq", "al hallaj", "syathahat", "syatahat", "shathiyat", "inani ana allah", "ucapan ekstase", "subhani"],
     kunci: ["hallaj", "mabuk", "ekstase", "ucapan puncak", "aku kebenaran"],
     ringkas: "Ucapan yang meluap saat 'aku' sedang tenggelam — dipahami para arif, diperkarakan pasar, dibayar al-Hallaj dengan nyawa.",
     tingkat: {
