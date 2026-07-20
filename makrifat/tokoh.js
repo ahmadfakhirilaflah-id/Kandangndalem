@@ -5,6 +5,7 @@
 // ============================================================
 
 KATEGORI.nabi = "Kafilah Para Nabi";
+KATEGORI.jawa = "Khazanah Jawa & Nusantara";
 KATEGORI.sahabat = "Pintu Para Sahabat";
 KATEGORI.arif = "Para Arif & Kitab-kitabnya";
 KATEGORI.timur = "Cahaya dari Timur";
@@ -55,7 +56,7 @@ const TOKOH = [
     istilah: "Musa — Kalimullah",
     asal: "Kalimullah — yang diajak bicara Allah",
     kategori: "nabi",
-    alias: ["nabi musa", "moses", "kalimullah", "taurat", "thursina", "khidir", "nabi khidir"],
+    alias: ["nabi musa", "moses", "kalimullah", "taurat", "thursina"],
     kunci: ["gunung", "tongkat", "laut", "semak api", "sandal", "ladunni"],
     ringkas: "Nabi yang bicara langsung dengan Allah, meminta melihat-Nya, dan dikirim berguru pada hamba misterius di pertemuan dua lautan.",
     tingkat: {
@@ -205,6 +206,44 @@ const TOKOH = [
       warisan: "Warisan kafilah ini bukan monumen melainkan peta: setiap keadaan batin manusia sudah pernah dipetakan oleh salah satu dari mereka — jatuh (Adam), bertahan lama tanpa hasil (Nuh), dibuang keluarga (Yusuf), kehilangan segalanya (Ayyub), gelap dan tenggelam (Yunus), berhadapan dengan kekuasaan zalim (Musa), difitnah (Maryam dan putranya). Membaca kisah mereka dengan niat bercermin adalah tarekat tersendiri; dan para ulama yang mengamalkan ilmunya disebut Nabi ﷺ sebagai pewaris para nabi — bukan mewarisi dinar, melainkan mewarisi tugas: menjadi penyeru pulang di zamannya masing-masing.",
     },
     rujukan: ["QS al-Anbiya 25, 87; Fathir 24; al-Baqarah 285; Yusuf 92", "Kisah para nabi: QS Hud, Yusuf, al-Anbiya, ash-Shaffat"],
+  },
+
+  {
+    id: "khidir",
+    istilah: "Khidir — Guru di Pertemuan Dua Lautan",
+    asal: "al-Khadhir — الخضر, 'Yang Hijau'; hamba saleh QS al-Kahfi",
+    kategori: "nabi",
+    alias: ["khidir", "khidr", "nabi khidir", "hamba saleh", "ilmu ladunni", "ladunni", "guru misterius", "pertemuan dua lautan"],
+    kunci: ["hijau", "ladunni", "perahu", "dinding", "sabar", "uwaisi"],
+    ringkas: "Hamba yang diberi ilmu dari sisi-Nya — yang kepadanya Musa pun diperintah berguru, dan yang kabarnya menemui para pencari jujur di setiap zaman.",
+    tingkat: {
+      syariat: "Al-Qur'an tidak menyebut namanya — hanya 'seorang hamba di antara hamba-hamba Kami yang Kami beri rahmat dari sisi Kami dan Kami ajari ilmu dari sisi Kami' (QS 18:65); nama Khidir datang dari hadits sahih: dinamai demikian karena ia duduk di tanah tandus lalu tanah itu bergoyang menghijau (HR Bukhari). Ulama berbeda pendapat tentang statusnya — nabi atau wali — dan tentang masih hidup atau sudah wafatnya; kelas ini mencatat perbedaan itu apa adanya dan tidak melampaui yang diriwayatkan.",
+      tarekat: "Kisahnya adalah kurikulum adab murid: Musa diperintah menempuh perjalanan, membawa bekal, bertanya dengan santun — 'bolehkah aku mengikutimu agar kau ajarkan sebagian ilmu yang benar yang diajarkan kepadamu?' (QS 18:66) — lalu diuji satu syarat saja: sabar, jangan bertanya sebelum diterangkan. Tiga kali gagal, dan perpisahan pun tiba. Pelajarannya pedih dan jelas: ilmu batin tidak diberikan kepada yang tergesa menghakimi, sepandai apa pun ia di ilmu lahir.",
+      hakikat: "Tiga perbuatannya adalah tiga wajah takdir yang tersamar: perahu dilubangi — musibah kecil yang menyelamatkan dari perampasan besar; peristiwa sang anak — kehilangan yang di baliknya penjagaan iman; dinding ditegakkan tanpa upah — kebaikan yang buahnya disimpan untuk anak yatim bertahun kemudian. Lalu kalimat kuncinya: 'aku tidak melakukannya atas kemauanku sendiri' (QS 18:82). Ilmu ladunni bukan kesaktian; ia penglihatan atas rahmat yang bersembunyi di balik kejadian yang tampak buruk.",
+      makrifat: "Bagi para arif, Khidir bukan hanya sosok melainkan maqam: kesegaran ilmu yang langsung dari Sumber — hijau abadi yang tak ikut kering bersama musim kitab-kitab. Pertemuan dua lautan tempat ia dijumpai dibaca ke dalam: majma'ul bahrain di dadamu, tempat lautan syariat dan lautan hakikat bertemu (selami: Musa). Dan pagarnya tetap: Khidir tidak membatalkan Musa — yang menjadikan kisah ini alasan membuang ilmu lahir justru gagal memahami keduanya; ikan yang hidup kembali hanya di titik temu, bukan di salah satu tepi.",
+    },
+    seharihari: "Pernahkah kau ditolong orang tak dikenal tepat pada waktunya, lalu ia hilang tanpa sempat kau ucapkan terima kasih? Atau ditimpa 'kerugian' yang bertahun kemudian ternyata menyelamatkanmu? Orang-orang tua menyebutnya disapa Khidir. Intinya bukan memburu sosok berjubah hijau — intinya belajar membaca: banyak lubang di perahumu ternyata dibuat oleh Tangan yang sedang menyelamatkanmu dari raja yang merampas.",
+    lengkap: {
+      riwayat: "Riwayat sahihnya satu poros: perjalanan bersama Musa dalam QS 18:60–82, yang latarnya dituturkan hadits Bukhari — Musa ditanya siapa manusia paling berilmu, menjawab 'aku', lalu ditegur Allah: ada hamba di pertemuan dua lautan yang lebih tahu darimu. Musa berangkat membawa ikan dalam wadah; di batu tempat ikan itu hidup kembali dan melompat ke laut, di situlah sang hamba ditemukan. Di atas perahu, seekor burung mematuk setetes air laut — dan Khidir berkata: ilmuku dan ilmumu dibanding ilmu Allah hanyalah seperti yang diambil burung ini dari lautan.\n\nDi luar poros itu, tradisi tumbuh lebat dan harus ditakar: kisah mata air kehidupan bersama Dzulqarnain adalah legenda israiliyat yang masyhur namun tak bersandar pada nash sahih; perjumpaan para wali dengannya memenuhi kitab-kitab manaqib — dari para sufi Baghdad hingga Suluk Linglung yang menuturkan Sunan Kalijaga diajar Khidir di tengah lakunya (selami: Sunan Kalijaga). Kaum tarekat menyebut jalur bimbingan tanpa tatap muka fisik sebagai jalur uwaisi — dan Khidir dianggap gurunya para murid yang tak menemukan guru, dengan syarat yang tak bisa ditawar: kejujuran total sang pencari.",
+      karya: [
+        "Tidak meninggalkan kitab — 'karyanya' adalah tiga perbuatan dalam QS 18 yang menjadi kurikulum abadi tentang takdir",
+        "Jalur uwaisi dalam tradisi tarekat — bimbingan ruhani lintas ruang-waktu yang dinisbatkan kepadanya",
+        "Jejaknya dalam sastra suluk — dari kisah para sufi awal hingga Suluk Linglung Jawa",
+      ],
+      ajaran: [
+        { j: "Ilmu ladunni — dari sisi-Nya", i: "Ada ilmu yang tidak naik dari halaman buku melainkan turun ke hati yang siap: 'Kami ajari ia ilmu dari sisi Kami.' Ia tidak menggantikan ilmu kitab — ia menerangi sudut-sudut yang kitab tak menjangkaunya: makna kejadian, rahasia takdir, waktu yang tepat." },
+        { j: "Sabar adalah biaya ilmu batin", i: "Satu-satunya syarat yang diminta dari Musa: jangan bertanya sebelum waktunya. Penghakiman yang tergesa menutup pintu pemahaman; murid yang tak tahan melihat gurunya 'salah' menurut ukurannya sendiri akan berpisah sebelum rahasia dibuka." },
+        { j: "Membaca rahmat yang menyamar", i: "Tiga perbuatan itu mengajarkan satu keterampilan: melihat kebaikan Allah yang berpakaian musibah. Yang lulus pelajaran ini berhenti buru-buru menyebut kejadian 'buruk' — ia menunggu babak berikutnya dengan sangka baik." },
+        { j: "Hijau — kesegaran yang tak layu", i: "Namanya sendiri ajaran: ke mana pun ia duduk, tanah menghijau. Ilmu sejati menghidupkan tempat yang disinggahinya; bila 'ilmu'-mu justru membuat sekitarmu layu — kering, takut, saling curiga — periksalah sumbernya." },
+      ],
+      kalimat: [
+        { t: "Sesungguhnya engkau tidak akan sanggup bersabar bersamaku.", k: "QS 18:67 — kalimat pertamanya kepada Musa: bukan penolakan, melainkan diagnosis jujur; guru sejati menakar murid sebelum menerima." },
+        { t: "Aku tidak melakukannya atas kemauanku sendiri.", k: "QS 18:82 — kunci seluruh kisah: tangan yang bergerak bukan atas selera pribadi; itulah beda ilmu ladunni dari kesaktian." },
+        { t: "Ilmuku dan ilmumu dibanding ilmu Allah hanyalah seperti setetes yang diambil burung ini dari lautan.", k: "HR Bukhari — diucapkan di atas perahu; dua nabi besar ditimbang terhadap samudra: pelajaran tawadhu bagi setiap pemilik ilmu." },
+      ],
+      warisan: "Setiap tradisi ruhani mengenal 'penolong misterius' — tapi Khidir memberi arketipe itu sanad Qur'ani. Warisannya bekerja di dua arah: bagi para pencari tanpa guru, ia harapan bahwa kejujuran akan dijemput; bagi para pemilik ilmu, ia teguran bahwa di atas setiap yang tahu ada Yang Maha Tahu. Kaum tarekat mewarisinya sebagai jalur uwaisi, sastra Jawa mewarisinya lewat Suluk Linglung, dan setiap orang yang belajar menunda penghakiman atas takdirnya sedang mengamalkan kurikulum tiga perbuatannya — itulah madrasah Khidir yang tak pernah tutup.",
+    },
+    rujukan: ["QS al-Kahfi 60–82", "HR Bukhari — kisah Musa & Khidir; asal nama al-Khadhir", "Suluk Linglung Sunan Kalijaga (perjumpaan Khidir dalam khazanah Jawa)"],
   },
 
   // ---------------------------------------------------------- SAHABAT
@@ -686,6 +725,201 @@ const TOKOH = [
     rujukan: ["Ibn 'Atha'illah, al-Hikam; at-Tanwir fi Isqath at-Tadbir; Latha'iful Minan", "Syarah al-Hikam: Ibn 'Abbad ar-Rundi; syarah-syarah pesantren Nusantara"],
   },
 
+  {
+    id: "uwais",
+    istilah: "Uwais al-Qarani — Yang Terkenal di Langit",
+    asal: "Uwais bin 'Amir al-Qarani, Yaman; tabi'in terbaik",
+    kategori: "arif",
+    alias: ["uwais", "uwais al qarani", "uwais al qarni", "owais", "wais", "berbakti pada ibu", "tak dikenal"],
+    kunci: ["ibu", "bakti", "tersembunyi", "doa", "tabiin", "khumul"],
+    ringkas: "Tak pernah bertemu Nabi karena merawat ibunya — dan justru itu membuat Nabi berpesan kepada 'Umar: bila kau jumpai dia, mintalah ia memohonkan ampun untukmu.",
+    tingkat: {
+      syariat: "Hidup sezaman dengan Nabi ﷺ, beriman, namun tak pernah berjumpa — bukan karena lalai, melainkan karena merawat ibunya yang sepuh di Yaman. Ia tabi'in, dan tentang dirinya ada nash yang mengejutkan: Nabi bersabda kepada 'Umar, 'Sebaik-baik tabi'in adalah seorang bernama Uwais…' (HR Muslim) — orang yang belum pernah dilihatnya disebut namanya dari atas mimbar wahyu.",
+      tarekat: "Jalannya dua laku yang tampak sederhana: birrul walidain — bakti kepada ibu sebagai tarekat penuh — dan khumul: menyembunyikan diri dari sorot. Ketika akhirnya 'Umar menemukannya di tengah jamaah haji dan menawarkan menuliskan rekomendasi kepada gubernur, Uwais menolak: ia lebih suka berada di tengah orang banyak tanpa dikenal, hidup dari upah menggembala, sedekah bila lebih.",
+      hakikat: "Kisahnya membalik seluruh ukuran dunia: yang tak pernah melihat wajah Nabi ternyata disebut-sebut Nabi; yang tak dikenal di bumi ternyata — kata para arif — terkenal di langit. Kedekatan ruhani tidak diukur jarak badan; cinta yang jujur menembus tanpa bertatap. Dan pintunya justru amal yang paling membumi: kaki ibunya adalah mihrabnya.",
+      makrifat: "Uwais adalah dalil maqam khumul: kewalian yang disembunyikan Allah dari mata manusia — 'banyak orang kusut berdebu, ditolak di pintu-pintu, yang bila bersumpah atas nama Allah niscaya Allah penuhi' (HR Muslim). Ia juga akar istilah uwaisi: tersambung kepada guru tanpa jumpa fisik, sebagaimana ia tersambung kepada Nabi. Rahasianya sederhana dan mahal: ia tidak pernah meminta menjadi istimewa — ia hanya menunaikan yang paling wajib dengan cinta paling penuh; keistimewaan mengejarnya justru karena ia lari darinya.",
+    },
+    seharihari: "Ada orang yang batal merantau, batal mondok, batal 'berkarier ruhani' — demi menunggui ibunya yang sakit. Dunia menyebutnya tertinggal. Kisah Uwais berkata sebaliknya: bisa jadi dialah yang paling dulu sampai. Sebelum mencari amalan langka, periksa dulu: masih hidupkah ibumu? Di telapak kakinya ada jalan tol yang orang lain cari bertahun-tahun di gunung-gunung.",
+    lengkap: {
+      riwayat: "Asalnya dari Qaran, Yaman — penggembala miskin berpenyakit belang (barash) yang sembuh atas doanya sendiri kecuali sebesar keping dirham, disisakan sebagai pengingat nikmat, persis seperti disebutkan dalam hadits. Sesudah ibunya wafat, ia berhijrah ke Kufah. 'Umar — menjalankan wasiat Nabi — mencarinya bertahun-tahun di musim haji, bertanya kepada rombongan Yaman: adakah Uwais di antara kalian? Ketika akhirnya berjumpa dan mencocokkan tanda-tandanya, 'Umar memohon: mintakanlah ampun untukku. Amirul mukminin penakluk dua imperium meminta doa seorang penggembala tak dikenal — dan Uwais memenuhinya, lalu memohon satu hal: jangan sebarkan namaku.\n\nIa menghilang kembali ke tengah keramaian Kufah, hidup dari kerja, bersedekah dari lebihnya, dikira gila oleh sebagian orang karena kesendiriannya. Riwayat-riwayat menyebut akhir hidupnya di barisan 'Ali: gugur pada perang Shiffin (±37 H) — sang tersembunyi menutup hidupnya di tempat yang paling tak tersembunyi: membela imam yang sah, lalu lenyap dalam daftar syuhada yang panjang, tanpa nisan yang pasti — konsisten sampai akhir.",
+      karya: [
+        "Tidak meninggalkan kitab, murid resmi, ataupun tarekat — dan justru ketiadaan jejak itu adalah 'karya'-nya: bukti kewalian tak butuh lembaga",
+        "Istilah 'uwaisi' dalam khazanah tarekat — jalur ruhani tanpa tatap muka yang memakai namanya",
+        "Kisahnya dalam Shahih Muslim — salah satu dari sedikit 'biografi wali' yang bersanad hadits sahih",
+      ],
+      ajaran: [
+        { j: "Bakti sebagai jalan tercepat", i: "Ia menukar peluang bertemu manusia paling mulia dengan merawat ibunya — dan pertukaran itu dimenangkannya. Amal wajib yang ditunaikan penuh cinta mengalahkan amal istimewa yang menelantarkan yang wajib." },
+        { j: "Khumul — bersembunyi dari sorot", i: "Menolak surat rekomendasi 'Umar, memohon namanya tak disebarkan: ia menjaga amalnya dari racun paling halus — dikenal. Di zaman yang menyembah tayangan, ajarannya makin tajam: yang tak diunggah tidak berarti tak tercatat." },
+        { j: "Kedekatan tanpa jarak", i: "Cinta yang jujur menembus ruang: ia 'bertemu' Nabi tanpa bertemu. Bagi para perindu yang terlahir jauh dari guru dan zaman emas: jarakmu bukan penghalang; kepalsuanmu yang penghalang." },
+        { j: "Doa orang tersembunyi", i: "Nabi sendiri mengarahkan 'Umar meminta doanya — pelajaran bagi umat sampai kiamat: jangan remehkan doa orang kecil yang tak dikenal; bisa jadi dialah yang paling didengar." },
+      ],
+      kalimat: [
+        { t: "Sebaik-baik tabi'in adalah seorang bernama Uwais; ia punya ibu (yang dirawatnya), dan padanya ada bekas belang. Bila kalian menjumpainya, mintalah ia memohonkan ampun untuk kalian.", k: "HR Muslim — sabda Nabi ﷺ kepada 'Umar; kesaksian langit atas orang yang bumi tak mengenalnya." },
+        { t: "Aku lebih menyukai keadaan tak dikenal.", k: "Saripati jawabannya kepada 'Umar yang menawarkan rekomendasi — piagam maqam khumul." },
+        { t: "Banyak orang kusut berdebu yang ditolak di pintu-pintu — namun bila ia bersumpah atas nama Allah, niscaya Allah penuhi sumpahnya.", k: "HR Muslim — sabda Nabi yang oleh para ulama disandingkan dengan kisah Uwais: penampilan bukan ukuran kedudukan." },
+      ],
+      warisan: "Setiap tarekat yang mengenal jalur uwaisi menyebut namanya di awal silsilah gagasan itu; setiap kitab tentang ikhlas dan khumul menjadikannya bab pembuka; dan setiap anak yang memilih menunggui orang tuanya ketimbang mengejar panggung punya pelindung kehormatan pada kisahnya. Warisannya adalah pembalikan ukuran yang menetap dalam nurani umat: sejak Uwais, tak ada lagi alasan menganggap orang kecil itu kecil — sebab yang paling tersembunyi bisa jadi yang paling terkenal di langit.",
+    },
+    rujukan: ["HR Muslim — hadits Uwais al-Qarani ('Umar & rombongan Yaman)", "'Attar, Tadzkiratul Auliya — bab Uwais", "Riwayat Shiffin: Thabari"],
+  },
+  {
+    id: "bayazid",
+    istilah: "Bayazid al-Bisthami — Sultan Para Arif",
+    asal: "Abu Yazid Thayfur bin 'Isa, Bistham, w. ±261 H",
+    kategori: "arif",
+    alias: ["bayazid", "abu yazid", "bistami", "al bisthami", "thayfur", "sultanul arifin", "subhani"],
+    kunci: ["mikraj ruhani", "ular", "kulit", "fana", "mabuk", "ibu"],
+    ringkas: "Digelari sultan para arif: yang menanggalkan dirinya 'sebagaimana ular menanggalkan kulitnya' — dan menemukan bahwa penghalang terakhir adalah dirinya sendiri.",
+    tingkat: {
+      syariat: "Cucu seorang Majusi yang masuk Islam; sejak muda tekun syariat dan berbakti luar biasa kepada ibunya — kisah masyhurnya: semalaman berdiri memegang gelas air menunggu ibunya terbangun, hingga tangannya kaku, karena sang ibu sempat meminta minum lalu tertidur. Ia sendiri menegaskan timbangan lahir: jangan tertipu kesaktian sebelum kau lihat bagaimana orangnya menjaga perintah dan larangan.",
+      tarekat: "Tiga puluh tahun, katanya, ia menjadi 'pandai besi bagi dirinya sendiri' — menempa nafsu di perapian riyadhah hingga jiwanya menjadi cermin. Lakunya keras dan sadar: lapar, jaga malam, muraqabah tanpa henti; dan setiap kali merasa sampai, ia temukan lapisan diri yang lebih halus untuk ditempa lagi. Kesabarannya pada proses itulah yang membedakan arif sejati dari pemburu pengalaman sesaat.",
+      hakikat: "Ia pelopor bahasa fana' yang paling berani: dalam penglihatan mi'raj ruhaninya, ia terbang melintasi langit-langit makna hingga sebuah seruan menghentikannya — dan di sana ia mendapati bahwa yang menghalanginya bukan langit, melainkan 'Bayazid' itu sendiri. Ucapan-ucapan mabuknya (subhani — 'Maha Suci aku') digolongkan para imam sebagai syathahat: luapan keadaan, bukan ajaran (selami: Ana al-Haqq); Junayd yang menerjemahkan keadaan-keadaannya berkata: Abu Yazid tenggelam, dan lautan itu benar adanya.",
+      makrifat: "Warisan intinya satu kalimat yang didengarnya dalam munajat: 'Tinggalkan dirimu, dan kemarilah.' Bukan tinggalkan dosa saja — itu tahap awal; bukan tinggalkan dunia — itu pertengahan; tinggalkan diri: klaim, prestasi ruhani, bahkan kesadaran sedang meninggalkan. Ia menyebut pencapaian-pencapaian yang dibanggakan manusia sebagai kulit-kulit ular yang harus terus ditanggalkan — dan Yang di balik semua kulit tidak ditemukan dengan menambah, melainkan dengan habis.",
+    },
+    seharihari: "Pendaki yang membawa terlalu banyak tas tak akan sampai puncak; anehnya, tas terakhir yang paling sulit dilepas justru berisi piala-piala pendakian sebelumnya. Bayazid mengajarkan melepas tas itu juga — bahkan melepas rasa bangga sudah melepas. Kalau hari ini kau merasa 'sudah lumayan saleh', persis di situ kulit ular berikutnya menunggu ditanggalkan.",
+    lengkap: {
+      riwayat: "Lahir di Bistham, Persia utara, dari keluarga yang baru satu generasi memeluk Islam — kakeknya Majusi. Konon ibunyalah pintu keberkahannya: sejak kandungan sang ibu merasa janin ini menolak yang syubhat, dan Bayazid dewasa berkata bahwa seluruh perjalanan ruhaninya terbayar lunas oleh satu malam menunggui gelas air itu — 'yang kucari bertahun-tahun kutemukan di ambang pintu ibuku.' Ia belajar dari banyak guru; tradisi tarekat menyebut hubungan ruhaninya (jalur uwaisi) dengan Imam Ja'far ash-Shadiq meski terpaut zaman.\n\nHidupnya nyaris tak beranjak dari Bistham — ia tidak menulis kitab, tidak membangun lembaga; kata-katanya yang menyala dikumpulkan para perawi dan kelak dibukukan orang lain. Berkali-kali diusir dari kotanya karena ucapan-ucapan yang tak dipahami zamannya, ia selalu kembali dengan tenang. Wafat ±261 H (sebagian menyebut 234 H) di Bistham; kubahnya dibangun berabad kemudian dan diziarahi hingga kini. Junayd — generasi sesudahnya — menjadi 'penerjemah' resminya: menjelaskan kepada umat mana dari ucapan Bayazid yang keadaan dan mana yang tak boleh ditiru.",
+      karya: [
+        "Tidak menulis kitab — ucapannya dihimpun murid dan perawi; sebagian besar sampai lewat Tadzkiratul Auliya 'Attar dan kitab-kitab thabaqat sufi",
+        "Kisah mi'raj ruhaninya — naratif pendakian batin yang menjadi genre tersendiri dalam sastra sufi (dikaji hingga sarjana modern)",
+        "'Madrasah Bisthamiyah' — jalur sukr (mabuk ruhani) yang kelak disandingkan dengan jalur sahw (sadar) Junayd sebagai dua kutub peta tasawuf",
+      ],
+      ajaran: [
+        { j: "Menanggalkan diri seperti ular", i: "'Aku menanggalkan diriku sebagaimana ular menanggalkan kulitnya, lalu aku menatap diriku: ternyata aku adalah Dia' — syathahat yang oleh para imam dibaca dengan pagar: yang tersisa sesudah semua kulit tanggal bukanlah klaim ketuhanan si hamba, melainkan lenyapnya si pengaku (selami: Fana'; Manunggaling)." },
+        { j: "Ujian kesaktian dengan syariat", i: "Warisannya yang paling sering dikutip para fuqaha: jangan tertipu orang yang bisa terbang atau berjalan di atas air sebelum kau timbang ia dengan perintah dan larangan. Sang sultan ekstase justru penjaga gerbang syariat — paradoks yang meruntuhkan tuduhan bahwa makrifat melonggarkan hukum." },
+        { j: "Bakti ibu sebagai jalan pintas", i: "Puncak-puncak yang didakinya bertahun-tahun, katanya, terbuka oleh keridhaan ibunya. Pintu tercepat sering yang paling dekat — dan paling diremehkan." },
+        { j: "Lapar dan sunyi sebagai guru", i: "Ditanya dengan apa ia memperoleh makrifat, jawabnya: 'dengan perut lapar dan badan telanjang' — bukan romantisme kemiskinan, melainkan disiplin mengurangi asupan ego dalam segala bentuknya." },
+      ],
+      kalimat: [
+        { t: "Tinggalkan dirimu, dan kemarilah.", k: "Jawaban yang didengarnya dalam munajat ketika bertanya bagaimana sampai kepada-Nya (Tadzkiratul Auliya) — satu kalimat yang memuat seluruh peta jalan." },
+        { t: "Jika kalian melihat seseorang diberi keramat hingga duduk bersila di udara, jangan tertipu — sampai kalian melihat bagaimana ia pada perintah dan larangan serta menjaga batas-batas syariat.", k: "Diriwayatkan darinya dalam kitab-kitab thabaqat — timbangan emas yang dipakai umat hingga kini menilai setiap 'orang sakti'." },
+        { t: "Yang kucari bertahun-tahun dalam ibadah, kutemukan di ambang pintu ibuku.", k: "Saripati kisah malam gelas air — pengakuan sang sultan arif tentang jalan yang paling diremehkan orang." },
+        { t: "Subhani, ma a'zhama sya'ni — Maha Suci aku, alangkah agung urusanku.", k: "Syathahat-nya yang paling masyhur — dikutip di sini bukan untuk ditiru melainkan dipahami: ucapan lisan yang sedang dipinjam keadaan, sebagaimana besi membara berkata 'aku api' (selami: Ana al-Haqq)." },
+      ],
+      warisan: "Bersama Junayd ia menjadi salah satu dari dua kutub peta tasawuf klasik: sukr dan sahw, mabuk dan sadar — hampir setiap sufi sesudahnya berdiri di antara dua titik itu. Rumi menyebut-nyebutnya penuh takzim dalam Matsnawi; 'Attar menjadikannya salah satu bab terpanjang Tadzkirah; dan pertanyaan Syams kepada Rumi yang mengubah sejarah — membandingkan 'subhani' Bayazid dengan kehambaan Nabi ﷺ — menjadikan Bayazid poros percakapan terpenting dalam tasawuf Persia. Warisan praktisnya dua sisi yang harus dipegang serentak: keberanian menanggalkan diri sampai habis, dan timbangan syariat yang tak boleh lepas — ia mengajarkan keduanya dengan sama kerasnya.",
+    },
+    rujukan: ["'Attar, Tadzkiratul Auliya — bab Bayazid", "As-Sarraj, al-Luma' (tentang syathahat)", "Junayd — tafsir atas keadaan-keadaan Bayazid"],
+  },
+  {
+    id: "junayd",
+    istilah: "Junayd al-Baghdadi — Penghulu Kaum Sufi",
+    asal: "Abul Qasim al-Junayd bin Muhammad, Baghdad, w. 297 H",
+    kategori: "arif",
+    alias: ["junayd", "junaid", "al junaid", "junaid al baghdadi", "sayyid ath thaifah", "sahw"],
+    kunci: ["sadar", "waras", "quran sunnah", "pedagang", "wadah", "warna air"],
+    ringkas: "Penghulu kaum sufi: pedagang sutra Baghdad yang menjahit ekstase dan kewarasan menjadi satu jalan — 'madzhab kami terikat Al-Qur'an dan Sunnah.'",
+    tingkat: {
+      syariat: "Keponakan dan murid sufi besar Sari as-Saqathi, sekaligus faqih didikan Abu Tsaur — ia berfatwa di majelis fiqh pada usia dua puluh. Sehari-hari berdagang kain sutra di pasar Baghdad: tokonya dibuka, tirainya diturunkan untuk shalat ratusan rakaat, lalu dagang lagi. Ia menolak tasawuf yang meninggalkan pasar dan mimbar — jalannya lengkap: ilmu, kerja, laku.",
+      tarekat: "Ditanya dari mana kaum sufi mengambil ilmu ini, jawabnya: bukan dari kata-kata, melainkan dari lapar, meninggalkan dunia, dan memutus kesenangan-kesenangan yang biasa. Tapi lakunya berpagar rapat: ia mensyaratkan hafal Qur'an dan menulis hadits sebelum orang bicara tasawuf — 'sebab ilmu kami ini terikat oleh Kitab dan Sunnah.' Murid yang ingin terbang sebelum berakar ia turunkan dulu ke bumi.",
+      hakikat: "Rumusan tauhidnya menjadi definisi standar: 'mengesakan Yang Maha Qadim dari yang baru' — memisahkan Yang Abadi dari segala yang kemarin belum ada, termasuk dirimu. Dan kaidah makrifatnya paling banyak dikutip: warna air adalah warna wadahnya — Yang Esa menampak sesuai kesiapan setiap hati; maka jangan mutlakkan pengalamanmu dan jangan hakimi pengalaman orang (selami: Tajalli; Wahdatul Wujud).",
+      makrifat: "Ia kutub sahw — kesadaran sesudah mabuk: fana' yang sejati, ajarnya, justru disempurnakan dengan baqa' — kembali waras, kembali berdagang, kembali mengajar, dalam keadaan telah berubah total di dalam (selami: Baqa'). 'Akhir perjalanan adalah kembali ke permulaan': hamba kembali jadi hamba — tapi kini sungguh-sungguh hamba. Terhadap Hallaj muridnya yang meluap di depan umum, sikapnya menjadi hikmah abadi tentang tragedi kebenaran yang salah panggung: keadaannya bisa benar, mengumumkannya yang mencelakakan.",
+    },
+    seharihari: "Ada orang yang 'naik' sebentar lalu hidupnya berantakan — kerja kacau, keluarga telantar, bicara melangit. Junayd adalah penawarnya: kedalaman yang sehat justru membuatmu makin rapi berdagang, makin sabar di rumah, makin waras bermasyarakat. Ekstase itu tamu; kewarasan itu rumah. Tamu boleh datang semalam — rumah harus tetap berdiri.",
+    lengkap: {
+      riwayat: "Lahir dan besar di Baghdad — pusat dunia saat itu — dari keluarga pedagang kaca (qawarir); ia sendiri berdagang khazz, kain sutra. Yatim sejak kecil, diasuh pamannya Sari as-Saqathi, murid Ma'ruf al-Karkhi — maka pada dirinya dua sungai bertemu: sanad ruhani Karkhi-Saqathi dan sanad fiqh Abu Tsaur. Ia menyaksikan zaman ketika tasawuf mulai dicurigai penguasa dan fuqaha: inkuisisi terhadap sufi Baghdad (peristiwa Ghulam Khalil, ±264 H) menyeret kawan-kawannya ke pengadilan — Junayd selamat, kata riwayat, karena menjawab dengan bahasa fiqh: 'aku faqih madzhab Abu Tsaur.' Sejak itu kian teguh pendiriannya: jalan ini harus berbicara dengan bahasa yang bisa dipertanggungjawabkan.\n\nMajelisnya di Baghdad menjadi kiblat: para sufi, fuqaha, dan mutakallimun duduk bersama — ia bicara tentang fana' dengan ketelitian ahli hukum. Ratusan murid mengalir darinya, termasuk Hallaj muda yang kelak berpisah jalan penyampaian. Menjelang wafat (297 H) ia terus membaca Al-Qur'an; ditegur agar mengasihani diri, jawabnya: 'tak ada yang lebih kubutuhkan saat ini — inilah saat lembaran-lembaranku digulung.' Ia wafat sesudah menamatkan bacaan, dimakamkan di Syuniziyyah, Baghdad, di samping pamannya Sari.",
+      karya: [
+        "Rasa'il (surat-surat) — kumpulan suratnya kepada para sufi zamannya: prosa tauhid paling padat dalam tasawuf awal; termasuk Kitab al-Fana' dan risalah tentang mitsaq (perjanjian azali)",
+        "Dawa' al-Arwah — 'obat ruh-ruh': risalah pendek terapi jiwa",
+        "Rumusan-rumusan definisinya — tauhid, tasawuf, makrifat — yang dikutip hampir semua kitab sesudahnya (Qusyairi, Sarraj, Hujwiri)",
+      ],
+      ajaran: [
+        { j: "Sahw — kewarasan sebagai puncak", i: "Melampaui mabuk: keadaan tertinggi bukan hilang kesadaran melainkan kesadaran yang telah dibeningkan. Yang mabuk masih dikuasai anggur; yang sadar sesudah mabuk memiliki anggur dan kewarasan sekaligus (selami: Baqa')." },
+        { j: "Terikat Kitab dan Sunnah", i: "'Madzhab kami ini terikat oleh ushul: Al-Qur'an dan Sunnah' — bukan slogan pencitraan, melainkan pagar yang ia pasang di zaman tasawuf mulai diadili. Berkat pagarnya, jalan ini selamat melewati inkuisisi dan diterima umat lintas mazhab." },
+        { j: "Warna air, warna wadah", i: "Pengalaman ruhani setiap orang diwarnai wadahnya — maka arif sejati tidak memutlakkan rasa pribadinya menjadi hukum untuk semua, dan tidak menghakimi rasa orang lain yang wadahnya berbeda." },
+        { j: "Mitsaq — kembali ke perjanjian azali", i: "Tasawufnya berporos pada QS 7:172: 'alastu birabbikum' — jalan ruhani adalah kembali kepada keadaan saat ruh menjawab 'balaa': ada bagi-Nya sebelum ada bagi dunia. Akhir yang kembali ke awal." },
+        { j: "Diam yang menjaga", i: "Menghadapi luapan Hallaj, ia memilih bahasa yang menjaga umat dan tidak mengkhianati hakikat — teladan komunikasi bertakaran: tidak semua yang benar untuk dirasakan benar untuk diumumkan (selami: Adab)." },
+      ],
+      kalimat: [
+        { t: "Madzhab kami ini terikat oleh ushul Al-Qur'an dan Sunnah. Barang siapa tidak hafal Al-Qur'an dan tidak menulis hadits, tidak layak diikuti dalam urusan ini.", k: "Diriwayatkan dalam ar-Risalah al-Qusyairiyyah — konstitusi tasawuf sunni yang dikutip setiap generasi." },
+        { t: "Warna air adalah warna wadahnya.", k: "Kaidah makrifatnya yang paling masyhur — tentang bagaimana Yang Satu menampak beragam sesuai kesiapan hati; dikutip hingga kitab-kitab wujudiyah." },
+        { t: "Kami tidak mengambil tasawuf dari kata-kata, melainkan dari lapar, meninggalkan dunia, dan memutus kebiasaan-kebiasaan yang disenangi.", k: "Jawabannya tentang sumber ilmu kaum sufi — dzauq sebelum definisi (selami: Al-Ghazali)." },
+        { t: "Akhir perjalanan adalah kembali ke permulaan.", k: "Rumusannya tentang baqa': hamba yang telah sampai kembali menjadi hamba — dan justru di situ kesempurnaannya." },
+      ],
+      warisan: "Gelarnya Sayyid ath-Thaifah — penghulu golongan ini — dan hampir semua silsilah tarekat besar (Qadiriyah, Naqsyabandiyah jalur tertentu, Suhrawardiyah, dan lainnya) mencantumkan namanya sebagai simpul: dialah muara yang darinya tasawuf mengalir sebagai arus utama umat, bukan sekte pinggiran. Pilihannya berdiri di sahw membuat al-Ghazali dua abad kemudian punya fondasi untuk menikahkan syariat dan hakikat secara resmi. Warisannya bagi kelas ini adalah keseimbangan yang menyelamatkan: silakan menyelam sedalam-dalamnya — dengan tali Qur'an dan Sunnah tetap terikat di pinggang; sebab yang menyelam tanpa tali jarang kembali membawa mutiara: kebanyakan hanya tak kembali.",
+    },
+    rujukan: ["Al-Qusyairi, ar-Risalah — ucapan-ucapan Junayd", "Rasa'il al-Junayd (ed. modern)", "Abu Nashr as-Sarraj, al-Luma'"],
+  },
+
+  {
+    id: "hallaj",
+    istilah: "Al-Hallaj — Syahid Cinta",
+    asal: "Husain bin Manshur al-Hallaj, 244–309 H",
+    kategori: "arif",
+    alias: ["hallaj", "husain bin manshur", "mansur al hallaj", "syahid cinta", "thawasin", "hallaj baghdad"],
+    kunci: ["tiang gantungan", "cinta", "rahasia terbuka", "memaafkan", "penjara"],
+    ringkas: "Pemintal rahasia yang membukanya di pasar — dieksekusi Baghdad 922 M sambil memaafkan para pembunuhnya; kisahnya jadi cermin abadi tentang kebenaran dan panggungnya.",
+    tingkat: {
+      syariat: "Kalimatnya Ana al-Haqq sudah dibedah di pintu tersendiri (selami: Ana al-Haqq); di sini manusianya. Secara lahir ia hafizh Qur'an sejak belia, murid para syaikh besar — Sahl at-Tustari, 'Amr al-Makki, lalu Junayd — tiga kali berhaji, dan syariatnya rapi hingga akhir: di penjara ia shalat, puasa, dan mengajar sesama tahanan. Vonis atasnya berlapis politik; para ulama sepanjang zaman berbeda menilai — sebagian mengecam, sebagian mengudzurkan, sebagian memuliakannya.",
+      tarekat: "Lakunya keras sejak muda: setahun duduk diam di depan Ka'bah dalam segala cuaca; riyadhah yang membuat gurunya sendiri khawatir. Tapi pembeda jalannya bukan kerasnya laku — melainkan pilihannya membawa rahasia ke tengah pasar: berdakwah ke Ahwaz, Khurasan, hingga (kata riwayat) India dan Turkistan, bicara tentang cinta Ilahi kepada rakyat jelata dengan bahasa telanjang. Para syaikh menahan rahasia di majelis khusus; Hallaj menumpahkannya di jalanan — dan di situlah perkaranya dimulai.",
+      hakikat: "Ajaran intinya adalah cinta sebagai penyaliban ego: 'isyq yang membakar habis si pencinta hingga yang tersisa hanya Yang Dicinta. Ana al-Haqq-nya lahir dari keadaan fana' itu — bukan klaim jabatan ketuhanan (selami: Ana al-Haqq; Fana'). Dalam Thawasin ia menulis perumpamaan laron dan nyala: laron yang puas dengan cahaya dari jauh baru tahu kabar; yang mendekat merasakan panas; yang masuk ke nyala itulah yang tahu — tapi ia tak kembali untuk bercerita.",
+      makrifat: "Kematiannya adalah pelajaran ganda yang harus dipegang bersama: pertama, tentang maqam — di tiang gantungan ia berdoa memohonkan ampun bagi para algojonya; kebenaran keadaannya dibuktikan bukan oleh kesaktian melainkan oleh kasih di puncak siksa. Kedua, tentang adab — Junayd dan para imam tidak menyalahkan lautannya, melainkan pembukaannya di depan yang belum siap: susu murni menyakiti perut yang belum sanggup (selami: Adab; Manunggaling). Ia dikenang kaum arif sebagai syahid cinta sekaligus peringatan abadi: tidak semua yang benar dirasakan, benar diumumkan.",
+    },
+    seharihari: "Ada orang yang menemukan kebenaran besar lalu tak tahan membaginya kepada semua orang — dan hancur oleh kegaduhannya sendiri. Hallaj adalah kisah itu dalam skala paling agung: isinya benar bagi para ahlinya, panggungnya keliru bagi zamannya. Maka warisannya untukmu dua-duanya: beranilah selam sedalam-dalamnya, dan bijaklah memilih kepada siapa cerita — mutiara tidak dijajakan di kaki lima, bukan karena mutiara itu palsu, tapi karena kaki lima bukan tempatnya.",
+    lengkap: {
+      riwayat: "Lahir 244 H di Baidha, Persia; cucu seorang Majusi. Ayahnya pemintal kapas (hallaj) — nama yang kelak dibaca orang sebagai isyarat: pemintal rahasia-rahasia. Muda belajar pada Sahl at-Tustari di Tustar, lalu 'Amr al-Makki di Bashrah, lalu Junayd di Baghdad — dan dengan ketiganya akhirnya renggang: jalannya terlalu menyala untuk wadah mana pun. Tiga kali berhaji — yang pertama dengan laku setahun penuh di pelataran Ka'bah. Ia berkelana berdakwah amat luas, dijuluki pengikutnya Hallaj al-Asrar — pemintal rahasia — dan ditakuti penguasa justru karena dicintai rakyat kecil: bahasanya tentang Tuhan yang dekat dan cinta yang membakar menembus kelas-kelas sosial.\n\nDi Baghdad yang sedang bergolak (intrik wazir, pemberontakan Zanj dan Qaramithah masih segar), popularitasnya dibaca sebagai ancaman. Ia ditangkap, lolos, bersembunyi, tertangkap lagi, dan dipenjara sembilan tahun (301–309 H) — di sana menulis dan mengajar. Persidangannya berlarut; fatwa yang mengesahkan hukuman akhirnya diteken di tengah tarik-menarik dua wazir yang berseberangan. 24 Dzulqa'dah 309 H (26 Maret 922 M) ia dieksekusi di gerbang Baghdad: dicambuk, dipotong, disalib, dibakar, abunya dibuang ke Tigris. Para saksi mencatat ia berangkat ke tiang dengan wajah berseri 'seperti pengantin' — dan kalimat-kalimat terakhirnya menjadi mahkota kisah para pecinta.",
+      karya: [
+        "Kitab ath-Thawasin — risalah-risalah pendek dari penjara: laron dan nyala, dialog-dialog tentang tauhid dan cinta; teks paling penting yang selamat",
+        "Diwan al-Hallaj — himpunan syair-syairnya: 'aku adalah Yang kucinta, dan Yang kucinta adalah aku…' (dibaca dengan pagar syathahat)",
+        "Akhbar al-Hallaj — kumpulan riwayat ucapannya yang dihimpun sesudah wafatnya",
+      ],
+      ajaran: [
+        { j: "'Isyq — cinta yang menghanguskan", i: "Ia mengangkat kata 'isyq (rindu-membakar) ke pusat bahasa tasawuf: cinta bukan hiasan jalan melainkan api yang menghabiskan si pejalan — dan hanya yang habis yang sampai (selami: Fana'; Rabi'ah)." },
+        { j: "Laron dan nyala", i: "Tiga derajat pengetahuan dalam Thawasin: kabar cahaya (ilmu), rasa panas (pengalaman), dan masuk ke nyala (fana' — yang tahu tak kembali bercerita). Peta yang sejajar dengan 'ilmul-yaqin, 'ainul-yaqin, haqqul-yaqin." },
+        { j: "Kebenaran dan panggungnya", i: "Dari tragedinya para arif menyuling kaidah: keadaan boleh benar, pengumumannya bisa keliru. Ia sendiri, kata sebagian riwayat, sadar dan memilih jalan itu — merindukan kematian sebagai jalan pulang tercepat: 'bunuhlah aku, dalam terbunuhku itulah hidupku.'" },
+        { j: "Memaafkan di puncak aniaya", i: "Doa eksekusinya adalah ajarannya yang paling tak terbantah: memohonkan ampun bagi yang membunuhnya. Ukuran kebenaran batin seseorang bukan kesaktiannya — melainkan kasihnya saat dizalimi." },
+      ],
+      kalimat: [
+        { t: "Uqtuluni ya tsiqati, inna fi qatli hayati — bunuhlah aku, wahai sahabat-sahabat tepercayaku; sesungguhnya dalam terbunuhku itulah hidupku.", k: "Diwan al-Hallaj — syair yang dibacanya jauh sebelum eksekusi; rindu pulang yang memilih jalan paling pintas." },
+        { t: "Ya Allah, mereka ini hamba-hamba-Mu berkumpul membunuhku karena fanatik kepada agama-Mu dan ingin mendekat kepada-Mu — maka ampunilah mereka.", k: "Doa di tiang eksekusi (Akhbar al-Hallaj) — memaafkan para algojo dengan menyebut alasan terbaik bagi mereka; puncak futuwwah." },
+        { t: "Hasbul-wajidi ifradul-Wahidi lahu — cukuplah bagi sang pecinta: mengesakan Yang Esa bagi diri-Nya.", k: "Kalimat yang diriwayatkan sebagai ucapan akhirnya — tauhid murni sebagai kata penutup hidup yang gaduh." },
+        { t: "Ana man ahwa, wa man ahwa ana — aku adalah Yang kucinta, dan Yang kucinta adalah aku.", k: "Diwan — bait syathahat termasyhur; dibaca sebagaimana besi membara berkata 'aku api': kesaksian keadaan, bukan akidah untuk ditiru (selami: Ana al-Haqq)." },
+      ],
+      warisan: "Abunya dibuang ke Tigris agar tak berbekas — dan sejarah menertawakan usaha itu: seribu seratus tahun kemudian namanya justru salah satu yang paling dikenang. Rumi dan 'Attar membelanya dalam syair; Iqbal menjadikannya lambang keberanian ruhani; para peneliti Barat (Massignon menghabiskan seumur hidup meneliti hidupnya) membawanya ke panggung dunia; dan di Jawa, kisahnya bergema dalam perkara Siti Jenar — dua tragedi yang saling menerangi (selami: Manunggaling; Syekh Siti Jenar). Kaum arif mengenangnya dengan dua kalimat sekaligus: semoga Allah merahmati keadaannya, dan menjaga kita dari panggungnya — sebab tidak setiap zaman diberi Hallaj, dan tidak setiap Hallaj diberi zaman yang sanggup menanggungnya.",
+    },
+    rujukan: ["Al-Hallaj, Kitab ath-Thawasin; Diwan", "Akhbar al-Hallaj (himpunan riwayat)", "'Attar, Tadzkiratul Auliya — bab al-Hallaj"],
+    peringatan: "Entri ini melengkapi pintu Ana al-Haqq: kalimat puncaknya bukan untuk ditiru lisan yang sadar — dan panggungnya bukan untuk diulang. Ambil cintanya, ambil maafnya; serahkan kalimatnya kepada keadaannya.",
+  },
+  {
+    id: "jailani",
+    istilah: "Abdul Qadir al-Jailani — Sang Ghauts",
+    asal: "Muhyiddin Abu Muhammad Abdul Qadir, Jilan 470 H — Baghdad 561 H",
+    kategori: "arif",
+    alias: ["abdul qadir", "abdul qodir", "jailani", "jaelani", "al jilani", "syekh abdul qadir", "ghauts", "ghautsul azham", "qadiriyah", "manaqib"],
+    kunci: ["jujur", "perampok", "mimbar", "hanbali", "manaqiban", "futuh"],
+    ringkas: "Anak Jilan yang tak mau bohong pada perampok karena pesan ibunya — dan menjadi Ghautsul A'zham: penolong agung yang tarekatnya sampai ke surau-surau Nusantara.",
+    tingkat: {
+      syariat: "Faqih besar madzhab Hanbali — madzhab yang paling ketat menjaga nash — sekaligus wali yang paling luas dikenang karamahnya: perpaduan yang membungkam tuduhan bahwa tasawuf melonggarkan hukum. Kitabnya al-Ghunyah adalah fiqh dan akhlak untuk orang biasa; mimbarnya di Baghdad menggetarkan ribuan orang hingga banyak yang bertaubat di tempat — termasuk, kata riwayat, para penyamun dan pembegal.",
+      tarekat: "Jalannya ditempa lapar: datang ke Baghdad usia 18 tepat ketika kota dilanda paceklik, bertahun-tahun belajar sambil kelaparan, lalu 25 tahun mengembara sebagai zahid di reruntuhan dan gurun sekitar Baghdad — sendirian menempa jiwa sebelum satu kata pun diucapkan di mimbar. Ia baru naik mimbar usia 50: setengah abad mengisi bejana sebelum menuangkannya. Khirqah (ijazah ruhani) diterimanya dari Abu Sa'id al-Mukharrimi, yang madrasah kecilnya kelak tumbuh menjadi pusat tarekat Qadiriyah.",
+      hakikat: "Kitab-kitab wejangannya (Futuh al-Ghaib, Fathur Rabbani) berporos satu hal: fana' 'anil-khalq — lepas dari makhluk: jangan bergantung pada manusia, jangan takut pada manusia, jangan berharap pada manusia; lalu fana' dari hawa nafsu; lalu fana' dari kehendak sendiri — hingga hamba bergerak dengan kehendak-Nya. Ia menyebut hati yang sampai sebagai 'anak pintu-Nya': diam di ambang, tak beranjak, apa pun yang dilempar kepadanya.",
+      makrifat: "Gelar Ghautsul A'zham dan kalimat-kalimat agungnya (yang paling masyhur: 'telapak kakiku ini di atas leher setiap wali Allah') dibaca dengan takaran: kaum tarekat memahaminya sebagai pernyataan qutb zamannya — kedudukan yang diyakini dalam ilmu kewalian — bukan kesombongan pribadi; dan yang menakjubkan justru kebalikannya: makin tinggi kedudukannya, makin keras ia menekankan syariat, adab, dan kerendahan di hadapan Allah. Pesan pembuka Futuh al-Ghaib merangkum seluruh hidupnya: ikuti sunnah dan jangan membuat-buat; taatlah dan jangan menyimpang.",
+    },
+    seharihari: "Bocah dengan empat puluh dinar dijahit ibunya di balik baju, dihadang perampok: 'punya harta, nak?' — dan ia menjawab jujur, dua kali, hingga kepala perampok membongkar jahitan dan menemukan dinar itu. 'Mengapa mengaku?' — 'Aku berjanji pada ibuku untuk tidak berdusta; masa kularang lidahku demi dunia sekeping.' Kepala perampok itu menangis dan bertaubat bersama seluruh gerombolannya. Satu kejujuran anak kecil menaklukkan yang tak bisa ditaklukkan pedang — dan itulah seluruh rahasia sang Ghauts: tidak ada karamah yang lebih besar dari istiqamah.",
+    lengkap: {
+      riwayat: "Lahir 470 H di Jilan (Gilan), pesisir selatan Laut Kaspia; dari jalur ibu dan ayah, silsilahnya disebut bersambung kepada Hasan dan Husain. Pesan ibunya saat melepasnya ke Baghdad — 'berjanjilah untuk selalu jujur' — menjadi kisah pembuka manaqibnya di seluruh dunia. Di Baghdad ia belajar fiqh Hanbali, sastra, dan hadits pada para imam zamannya; bertemu jalan ruhani lewat Hammad ad-Dabbas sang zahid, dan menerima khirqah dari al-Mukharrimi. Lalu babak yang jarang dimiliki ulama besar: seperempat abad menghilang — reruntuhan Madain, gurun, riyadhah yang nyaris melampaui batas manusia — sebelum kembali dan naik mimbar pada usia 50.\n\nEmpat dekade berikutnya (511–561 H) adalah masa mengalirnya: madrasah dan ribath-nya meluap oleh murid dari segala penjuru; majelisnya dihadiri fuqaha, sufi, Yahudi dan Nasrani yang kemudian masuk Islam; anak-anaknya meneruskan madrasahnya. Ia menikah baru pada usia 51 — sesudah selesai urusannya dengan dirinya — dan wafat tenang pada 561 H di Baghdad. Kata-kata terakhirnya yang diriwayatkan anak-anaknya: talqin tauhid — 'Allah, Allah, Allah' — hingga napas penghabisan. Makamnya di Baghdad hingga kini salah satu yang paling diziarahi di dunia Islam.",
+      karya: [
+        "Futuh al-Ghaib — 'Pembukaan-Pembukaan Gaib': ±78 wejangan pendek; dibuka dengan perintah mengikuti sunnah dan meninggalkan bid'ah",
+        "Al-Fath ar-Rabbani — 62 majelis wejangannya yang dicatat: suara mimbarnya yang paling hidup",
+        "Al-Ghunyah li Thalibi Thariq al-Haqq — fiqh, akhlak, dan aqidah untuk pencari jalan: bukti tasawufnya berdiri di atas syariat yang rapi",
+        "Tarekat Qadiriyah — 'karya kelembagaan'-nya: salah satu tarekat tertua dan terluas di dunia",
+      ],
+      ajaran: [
+        { j: "Jujur sebagai fondasi segala maqam", i: "Kisah perampok itu bukan dongeng anak — ia doktrin: seluruh bangunan kewalian berdiri di atas shidq. Yang berdusta 'demi kebaikan dakwah' sudah keliru sejak fondasinya." },
+        { j: "Fana' dari makhluk, hawa, dan kehendak", i: "Tiga tahap Futuh al-Ghaib: berhenti bersandar dan berharap pada manusia; berhenti diperintah hawa nafsu; lalu menyerahkan kehendak — hingga hamba menjadi 'bayi di pangkuan takdir' yang dirawat langsung oleh Pemiliknya." },
+        { j: "Diam di ambang pintu-Nya", i: "'Jadilah bersama Allah seakan tak ada makhluk, dan bersama makhluk seakan tak ada nafsu' — hati diminta menetap di ambang pintu-Nya: tidak pergi saat diberi cobaan, tidak lupa saat diberi nikmat." },
+        { j: "Syariat sebagai badan karamah", i: "Ia faqih Hanbali yang paling keras menolak menggampangkan hukum — dan justru dialah yang paling dilimpahi karamah dalam kenangan umat: bukti bahwa keajaiban adalah buah ketaatan, bukan penggantinya." },
+        { j: "Mendidik dengan cinta yang tegas", i: "Wejangannya keras kepada ego dan lembut kepada pendosa: pintu taubatnya terbuka bagi penyamun dan pemabuk — sebab ia sendiri menyaksikan bagaimana satu kejujuran mengubah kepala perampok menjadi murid." },
+      ],
+      kalimat: [
+        { t: "Ikutilah (sunnah) dan jangan membuat-buat bid'ah; taatlah dan jangan menyimpang; bertauhidlah dan jangan menyekutukan.", k: "Kalimat pembuka Futuh al-Ghaib — wasiat pertama sang Ghauts justru pagar syariat: bantahan abadi bagi yang memakai namanya untuk melonggarkan agama." },
+        { t: "Aku telah berjanji kepada ibuku untuk selalu jujur — dan aku tidak akan mengkhianati janjinya demi dunia.", k: "Saripati kisah empat puluh dinar (manaqib) — kejujuran kanak-kanak yang menjadi fondasi kewalian." },
+        { t: "Keluarlah dari dirimu sendiri, dan menjauhlah darinya; lepaskan kepemilikan — dan serahkan semuanya kepada Allah.", k: "Futuh al-Ghaib — perintah tajrid dalam bahasa paling langsung (selami: Tajrid; Fana')." },
+        { t: "Telapak kakiku ini berada di atas leher setiap wali Allah.", k: "Kalimat masyhur yang diriwayatkan kaum tarekat — dipahami sebagai pengumuman kedudukan qutb zamannya atas isyarat Ilahi, dan diimbangi seluruh hidupnya yang menunduk pada syariat; bukan lisensi kesombongan bagi siapa pun." },
+      ],
+      warisan: "Qadiriyah mengalir ke hampir setiap negeri muslim — dan di Nusantara ia hadir dengan keakraban yang khas: manaqiban (pembacaan riwayat hidupnya) menjadi tradisi surau dan pesantren dari Aceh sampai Lombok; namanya melekat di doa-doa, dan gabungan Qadiriyah wa Naqsyabandiyah (TQN) yang dirintis Syekh Ahmad Khatib Sambas menjadi salah satu tarekat terbesar di Indonesia hingga kini. Gelar Muhyiddin — penghidup agama — disandangnya karena zamannya yang lesu ruhani dihidupkannya kembali dari satu mimbar. Warisan intinya bagi kelas ini: bukti paling masyhur bahwa puncak karamah dan puncak kepatuhan syariat bukan dua gunung — satu gunung, dilihat dari dua lembah.",
+    },
+    rujukan: ["Abdul Qadir al-Jailani, Futuh al-Ghaib; al-Fath ar-Rabbani; al-Ghunyah", "Adz-Dzahabi, Siyar A'lam an-Nubala — biografi", "Tradisi manaqiban Nusantara; TQN Syekh Ahmad Khatib Sambas"],
+  },
+
   // ---------------------------------------------------------- JAWA
   {
     id: "sunan-kalijaga",
@@ -767,6 +1001,123 @@ const TOKOH = [
       warisan: "Hasil kerja mereka adalah kenyataan demografis terbesar dalam sejarah Islam: komunitas muslim terbesar dunia berdiri di kepulauan yang tak pernah didatangi pasukan penakluk Arab — dimenangkan oleh petani, tabib, seniman, dan pedagang yang menahan diri. Jaringan pesantren mereka menjadi tulang punggung keilmuan Nusantara sampai hari ini; ziarah Wali Songo menjadi 'kurikulum perjalanan' jutaan orang tiap tahun; dan metode mereka — mengisi wadah tanpa memecah — kini dipelajari sebagai model dakwah dan bahkan model manajemen perubahan. Warisan terdalamnya satu kalimat: peradaban tidak diubah dengan teriakan, melainkan dengan kesabaran sembilan orang yang tahu persis perannya masing-masing.",
     },
     rujukan: ["Babad Tanah Jawi; Serat Walisana", "Hikayat hasanah Sunan Ampel (moh limo)", "Tradisi Menara Kudus & Sekaten"],
+  },
+
+  {
+    id: "siti-jenar",
+    istilah: "Syekh Siti Jenar",
+    asal: "Syekh Lemah Abang / San Ali / Abdul Jalil (tradisi); Jawa abad 15–16",
+    kategori: "jawa",
+    alias: ["siti jenar", "syekh siti jenar", "sitijenar", "lemah abang", "lemahbang", "syekh lemah abang", "abdul jalil", "san ali"],
+    kunci: ["sidang wali", "rahasia", "eksekusi", "tanah merah", "pengging"],
+    ringkas: "Wali yang membuka rahasia di panggung yang salah — atau yang benar terlalu awal; sejarahnya kabur, gaungnya tak pernah padam.",
+    tingkat: {
+      syariat: "Kejujuran pertama tentang Siti Jenar: sejarahnya gelap. Sumber-sumber sezaman nyaris tak ada; yang sampai kepada kita adalah babad dan serat yang ditulis berabad kemudian, saling berbeda tentang asal-usulnya (Cirebon? Persia? murid Sunan Giri? nama aslinya San Ali? Abdul Jalil?), tentang ajarannya, bahkan tentang cara wafatnya. Maka setiap kalimat tentangnya wajib diberi kata 'menurut tradisi' — dan yang menjadikannya bendera tanpa memeriksa sumber sedang mengibarkan kain yang tak ia kenal tenunannya.",
+      tarekat: "Menurut serat-serat itu, ajarannya berporos pada penolakan terhadap agama yang berhenti di kulit: shalat yang hanya gerak badan, ilmu yang hanya hafalan, kesalehan yang hanya seragam. Lakunya menekankan langsung ke inti: mengenal diri, mengenal Yang Hidup dalam diri — dan diajarkannya bukan di lingkaran khusus melainkan terbuka, kepada rakyat pinggiran, para petani Pengging dan Krendhasawa: pilihan panggung yang menjadi inti perkaranya.",
+      hakikat: "Inti yang dinisbatkan kepadanya adalah manunggaling kawula Gusti dalam bentuk paling telanjang (selami: Manunggaling Kawula Gusti), dengan satu ajaran khas yang menggetarkan: pembalikan hidup dan mati. Dunia ini, katanya dalam serat-serat itu, adalah alam kematian — di sinilah manusia dikurung jasad, diperbudak lapar dan takut; hidup yang sejati justru sesudah lepas dari kurungan ini. Maka ia menyebut dirinya sedang mati, dan kematian badannya kelak sebagai awal urip sejati — hidup sejati.",
+      makrifat: "Sidang para wali memutus perkaranya — dan di titik ini kelas ini menahan diri dari dua kegampangan: menjadikannya martir yang memusuhi para wali, atau bidat yang layak dibenci. Yang lebih jujur: ini tragedi dua kebenaran — kebenaran isi (yang para wali sendiri tak menolaknya; selisihnya soal takaran) dan kebenaran tanggung jawab menjaga umat yang baru tumbuh. Persis perkara Hallaj dua abad sebelumnya (selami: Al-Hallaj). Dan sejarah mencatat ironinya dengan senyum getir: yang dieksekusi agar ajarannya berhenti, lima abad kemudian justru paling banyak ditulis, didiskusikan, dan dicari — rahasia yang ditutup dengan darah menjadi rahasia yang paling terbuka.",
+    },
+    seharihari: "Di setiap kampung ada satu orang yang bicara terlalu jujur terlalu cepat — dan kampung belum siap. Ia disingkirkan, lalu dua generasi kemudian orang-orang mengutip kata-katanya. Pelajaran Siti Jenar bukan 'beranilah bicara apa saja' dan bukan pula 'diamlah selamanya' — pelajarannya: kebenaran itu amanah dengan dua sisi, isi dan waktu. Salah isi, sesat; salah waktu, celaka. Dan bila kau diberi kedalaman, kau sedang diberi dua ujian sekaligus.",
+    lengkap: {
+      riwayat: "Versi-versi tradisinya beragam dan jujurnya harus dipaparkan sebagai versi: sebagian babad menyebutnya kelahiran Cirebon, putra seorang ulama; versi lain menyebut asal Persia atau Malaka; kisah yang paling terkenal — dan paling jelas legendanya — menuturkan ia semula cacing yang berubah menjadi manusia karena mencuri dengar wejangan rahasia Sunan Bonang di perahu: dongeng yang oleh pembaca bijak dibaca sebagai lambang (yang paling rendah pun bisa naik oleh setetes rahasia), bukan berita. Yang lebih bisa dipegang: ia hidup di zaman peralihan Majapahit–Demak, mengajar di wilayah Pengging/Krendhasawa, punya banyak pengikut dari kalangan bawah, dan bersinggungan dengan lingkaran elit lama yang kalah oleh Demak — murid-mengikutnya termasuk Ki Ageng Pengging, yang anaknya kelak menjadi Jaka Tingkir, sultan Pajang: garis yang membuat perkaranya tak pernah murni agama, selalu juga politik.\n\nAkhir hidupnya pun berversi-versi: diadili sidang wali di Masjid Demak lalu dieksekusi (oleh Sunan Kudus, kata sebagian serat); atau memilih 'pulang' sendiri di hadapan sidang — menunjukkan kuasa atas hidup-matinya; jasadnya berubah harum, dimakamkan diam-diam dengan nama lain agar tak dikultuskan. Semua versi sepakat pada satu hal: para wali menutup perkara dengan hormat yang aneh bagi seorang 'terhukum' — seakan mereka menghukum panggungnya sambil memuliakan isinya.",
+      karya: [
+        "Tidak ada karya yang bisa dipastikan dari tangannya — seluruh 'ajaran Siti Jenar' yang beredar berasal dari serat-serat abad 19–20 (Serat Siti Jenar, Suluk Malang Sumirang yang dinisbatkan, Babad Demak, dll.)",
+        "Serat Siti Jenar (antara lain gubahan pujangga-pujangga Surakarta) — teks yang membentuk citra modernnya",
+        "Suluk Malang Sumirang — suluk 'melintang-menyimpang' yang tradisinya dikaitkan dengan lingkaran ajarannya: nyanyian orang yang sudah tak peduli penilaian",
+      ],
+      ajaran: [
+        { j: "Urip tan kena pati — hidup sejati tak terkena mati", i: "Yang mati hanyalah kurungan; Sang Hidup di dalam tak tersentuh. Ajaran yang sejalan dengan entri Mati Sajroning Urip — bedanya Siti Jenar (menurut serat) mengumumkannya sebagai pembalikan total: dunia inilah alam kematian." },
+        { j: "Menolak agama kulit", i: "Kritiknya (dalam serat-serat) bukan kepada syariat itu sendiri melainkan kepada syariat yang kehilangan isi: shalat tanpa hadir, ilmu tanpa laku, jubah tanpa hati. Kritik yang setiap zaman membutuhkannya — dan setiap zaman menyalahpahaminya." },
+        { j: "Kesetaraan di hadapan kebenaran", i: "Ia mengajar rakyat jelata hal-hal yang biasanya disimpan untuk kalangan istana dan pesantren elit — keyakinannya (menurut tradisi): rahasia bukan milik kasta. Sisi inilah yang membuatnya dicintai kaum pinggiran hingga kini." },
+        { j: "Konsekuensi sebagai bayaran", i: "Apa pun versinya, ia tidak lari, tidak menyangkal, tidak menawar. Bagi yang menimbangnya sebagai wali: ia membayar harga panggungnya dengan penuh — dan penerimaan atas konsekuensi adalah bagian dari kejujuran ajarannya." },
+      ],
+      kalimat: [
+        { t: "Dunia ini alam kematian; yang kalian sebut hidup inilah mati — kelak kutinggalkan bangkai ini, dan aku hidup sebenar hidup.", k: "Saripati ajaran pembalikan hidup-mati dalam Serat Siti Jenar (parafrase; teksnya berversi-versi) — dibaca sebagai radikalisasi mati sajroning urip." },
+        { t: "Malang sumirang — melintang dan menyimpang: biarlah dicela orang sejagad, yang kutuju hanya Yang Satu.", k: "Semangat Suluk Malang Sumirang yang dikaitkan dengan lingkarannya — nyanyian maqam malamatiyah: berhenti mengurus penilaian manusia; berbahaya bila ditiru ego yang sekadar ingin beda." },
+        { t: "Yang kalian hukum hanyalah wadah; yang berkata tak tersentuh pedang.", k: "Parafrase adegan sidang dalam babad-babad — apa pun keaslian riwayatnya, kalimat ini merangkum bagaimana tradisi Jawa memaknai kematiannya." },
+      ],
+      warisan: "Secara kelembagaan ia tak mewariskan apa-apa — tak ada tarekat Siti Jenar yang bersanad; secara kebudayaan warisannya raksasa: ratusan buku, sandiwara, debat pesantren dan kampus, dan kedudukannya sebagai lambang abadi ketegangan antara kedalaman dan tatanan. Bersama Hallaj ia menjadi 'kasus batas' yang memaksa setiap generasi menjawab ulang: di mana batas membuka rahasia? Dan bagi kelas ini warisannya sudah dipakai sejak gerbang: aplikasi ini sunyi, bertirai, dan beradab — justru karena belajar dari harga yang ia bayar. Menghormatinya bukan dengan meniru panggungnya, melainkan dengan menjaga apinya tetap menyala di tempat yang tak membakar rumah orang.",
+    },
+    rujukan: ["Serat Siti Jenar (pelbagai versi); Babad Demak; Babad Tanah Jawi", "Suluk Malang Sumirang (dinisbatkan)", "Selami juga: Manunggaling Kawula Gusti; Al-Hallaj; Adab"],
+    peringatan: "Hampir semua 'kutipan Siti Jenar' yang beredar berasal dari teks berabad sesudahnya — pegang isinya dengan timbangan, dan jangan jadikan tragedi ini alasan membuang syariat ataupun membenci para wali: keduanya pengkhianatan atas kedua belah pihak.",
+  },
+  {
+    id: "bonang",
+    istilah: "Sunan Bonang — Guru Para Penjaga",
+    asal: "Raden Makdum Ibrahim, putra Sunan Ampel; Tuban, abad 15–16",
+    kategori: "jawa",
+    alias: ["sunan bonang", "makdum ibrahim", "raden makdum", "bonang tuban", "tombo ati bonang", "suluk wujil"],
+    kunci: ["gamelan", "tombo ati", "wujil", "tuban", "guru kalijaga"],
+    ringkas: "Putra Ampel yang menabuh bonang untuk memanggil hati — guru yang menaklukkan perampok Lokajaya dengan satu kalimat, dan menulis suluk untuk seorang kerdil.",
+    tingkat: {
+      syariat: "Putra Sunan Ampel dari Ampeldenta — dididik langsung di jantung pesantren pertama Jawa, lalu (menurut tradisi) memperdalam ilmu bersama Raden Paku (Sunan Giri) hingga ke Pasai, pusat keilmuan Melayu. Ilmu syariatnya kokoh sebagaimana garis ayahnya; naskah tertua yang dikaitkan dengannya (dikenal sarjana sebagai 'Het Boek van Bonang') berisi wejangan akidah dan tasawuf yang berpagar rapi, mengutip para imam — bukti dakwah Jawa awal bersandar kitab.",
+      tarekat: "Metodenya bunyi: ia memesan seperangkat gamelan dengan bonang yang ditabuhnya sendiri — konon begitu merdu hingga orang berbondong datang, dan di sela gending ia menyisipkan dzikir serta tembang ajaran. Tombo Ati — lima obat hati — dinisbatkan kepada lingkarannya: kurikulum tazkiyah lengkap yang dilagukan, dihafal rakyat sebelum mereka bisa membaca kitab. Ia mengislamkan telinga dulu, baru mata.",
+      hakikat: "Kedalamannya terekam dalam Suluk Wujil: wejangannya kepada Wujil, bekas abdi kerdil istana Majapahit yang bertahun mengaji namun merasa belum menemukan inti. Kepada si kecil yang diremehkan dunia itulah Bonang membuka rahasia — bahwa ilmu sejati tak selesai di huruf, bahwa yang dicari lebih dekat dari sangkaan, bahwa shalat sejati adalah shalat yang hadir Yang Disembahnya. Pemilihan muridnya sendiri adalah ajaran: rahasia diberikan kepada yang lapar, bukan kepada yang tinggi.",
+      makrifat: "Perannya yang paling menentukan justru tersembunyi di balik murid: dialah yang mematahkan Lokajaya dengan kalimat 'yang haram tetap haram walau niat baik', lalu menempanya bertahun di tepi kali menjadi Sunan Kalijaga (selami: Sunan Kalijaga) — dan dialah pula, menurut banyak serat, yang paling keras menjaga takaran dalam perkara Siti Jenar. Satu guru, dua ujung tanggung jawab: membuka rahasia kepada Wujil yang siap, menahan rahasia dari panggung yang belum siap. Itulah makrifat seorang pendidik: tahu persis kapan membuka dan kapan menutup.",
+    },
+    seharihari: "Guru terbaik di kampung bukan yang paling keras suaranya — tapi yang tahu cara membuat anak-anak datang sendiri: lewat lagu, lewat permainan, lalu diam-diam menitipkan isi. Dan guru terbaik juga tahu murid mana yang diberi rumus lengkap, mana yang cukup diberi contoh dulu. Bonang adalah guru seperti itu: musiknya memanggil, kalimatnya menusuk, dan takarannya presisi — kepada perampok satu kalimat, kepada si kerdil satu suluk penuh.",
+    lengkap: {
+      riwayat: "Lahir di Ampeldenta (tradisi menyebut ±1465 M), putra Sunan Ampel dengan Nyai Ageng Manila putri adipati Tuban — maka Tuban adalah tanah ibunya, dan ke sanalah kelak ia kembali berdakwah. Bersama sahabat seperjalanannya Raden Paku ia menuntut ilmu (tradisi menyebut hingga Pasai, Aceh — pintu ilmu Nusantara ke jaringan ulama sedunia); pulang, keduanya berbagi medan: Paku menjadi Sunan Giri sang penata pesantren dan pemerintahan, Makdum Ibrahim menjadi Sunan Bonang sang penata hati dan kebudayaan.\n\nWilayah dakwahnya pesisir utara: Tuban, Lasem, Rembang — kawasan pelabuhan yang ramai dan keras. Di sinilah eksperimen besarnya: gamelan sebagai media dakwah, tembang sebagai kitab rakyat, dan — puncak kisahnya — penaklukan Lokajaya di hutan Jatiwangi yang mengubah perampok menjadi wali terbesar tanah Jawa. Ia juga duduk di dewan wali yang menegakkan Demak dan Masjid Agungnya, serta terlibat dalam perkara-perkara besar dewan termasuk urusan Siti Jenar. Wafat (tradisi: 1525 M) — dan bahkan jenazahnya menjadi kisah dakwah: beberapa daerah mengaku memakamkannya, hingga kini makamnya diziarahi di Tuban (dan petilasannya di tempat-tempat lain), tanda cinta banyak negeri kepada satu guru.",
+      karya: [
+        "Suluk Wujil — wejangan kepada Wujil si kerdil: salah satu teks suluk Jawa tertua dan terdalam; ilmu sejati melampaui huruf",
+        "Naskah wejangan Bonang ('Het Boek van Bonang', tersimpan di Leiden) — salah satu naskah Islam Jawa tertua yang sampai ke tangan kita",
+        "Tombo Ati — lima obat hati (dinisbatkan pada lingkarannya): dilagukan lima abad sampai panggung musik modern",
+        "Gamelan & gending dakwah — perangkat bonang dan tradisi tembang yang memberi nama dirinya",
+      ],
+      ajaran: [
+        { j: "Islamkan telinga sebelum mata", i: "Rakyat yang belum bisa membaca dipanggil lewat bunyi yang mereka cintai — lalu bunyi itu diisi. Strategi yang menghormati orang kecil: tidak menunggu mereka 'pantas', menjemput mereka di tempat mereka berada." },
+        { j: "Lima obat hati", i: "Membaca Qur'an dengan makna, shalat malam, berkumpul dengan orang saleh, memperbanyak lapar (puasa), dzikir malam panjang — resep tazkiyah lengkap dalam satu tembang; entri Khalwat dan Dzikir adalah syarah panjangnya." },
+        { j: "Ilmu sejati melampaui huruf", i: "Pesan Suluk Wujil: bertahun mengaji bisa tetap kosong bila yang dikaji tak diturunkan ke dada. Huruf adalah wadah; isinya harus dituang ke laku — dan yang paling dekat sering yang paling tak terlihat." },
+        { j: "Takaran adalah kasih", i: "Satu kalimat untuk perampok, satu suluk untuk si kerdil, dan penjagaan ketat atas rahasia di dewan wali: Bonang mengajarkan bahwa menakar bukan pelit — menakar adalah bentuk paling tinggi dari kasih seorang guru." },
+      ],
+      kalimat: [
+        { t: "Yang haram tetap haram, walau niatnya menolong — mencuci pakaian dengan air kencing tidak membuatnya bersih.", k: "Tegurannya kepada Lokajaya (babad) — satu kalimat yang melahirkan Sunan Kalijaga; fondasi fiqh untuk semua 'kebaikan' yang salah jalan." },
+        { t: "Tombo ati iku limo perkarane: maca Qur'an sak maknane, shalat wengi lakonana, wong kang sholeh kumpulana, kudu weteng ingkang luwe, dzikir wengi ingkang suwe.", k: "Tembang Tombo Ati (dinisbatkan pada lingkaran Bonang/Ampel) — lima obat hati yang dihafal lintas generasi." },
+        { t: "Sing sapa weruh ing dhewekne, iku wus weruh marang Pangerane — siapa mengenal dirinya, sungguh telah mengenal Tuhannya.", k: "Gema man 'arafa nafsahu dalam bahasa suluk Jawa sebagaimana diwedarkan tradisi Bonang kepada Wujil — rahasia yang diberikan justru kepada yang paling diremehkan dunia." },
+      ],
+      warisan: "Dari tangannya lahir Sunan Kalijaga — dan lewat Kalijaga, seluruh wajah Islam kultural Jawa; sedikit guru dalam sejarah yang 'karya terbesarnya' berupa satu murid yang mengubah satu pulau. Tombo Ati-nya masih dinyanyikan dari surau sampai konser; Suluk Wujil dikaji para filolog dan salik; makam Tuban-nya hidup oleh peziarah. Dan warisan halusnya menetes ke aplikasi ini juga: menjemput orang lewat yang mereka cintai — dulu bonang dan tembang, kini layar dan bahasa sehari-hari — lalu diam-diam menuangkan isi. Metodenya tak pernah tua; hanya alat musiknya yang berganti.",
+    },
+    rujukan: ["Suluk Wujil", "Naskah wejangan Bonang (Leiden); kajian filologi Islam Jawa awal", "Babad Tanah Jawi; tradisi Tombo Ati"],
+  },
+  {
+    id: "fansuri",
+    istilah: "Hamzah Fansuri — Penyair Perahu",
+    asal: "Barus (Fansur), Aceh; abad 16 — awal 17 M",
+    kategori: "jawa",
+    alias: ["hamzah fansuri", "fansuri", "syair perahu", "penyair melayu", "wujudiyah aceh", "barus"],
+    kunci: ["perahu", "syair", "melayu", "ombak", "laut", "aceh"],
+    ringkas: "Sufi Barus yang menjadikan bahasa Melayu bahasa makrifat — 'wahai muda, kenali dirimu: ialah perahu tamsil tubuhmu.'",
+    tingkat: {
+      syariat: "Kelahiran Fansur — nama Arab untuk Barus, bandar kapur barus purba di pantai barat Sumatera yang sejak berabad terhubung ke jaringan dagang dunia. Ia ulama terpelajar: menguasai Arab dan Persia, menyebut pengembaraannya hingga Syahr Nawi (Ayutthaya/Siam), semenanjung, dan tanah Arab; bertarekat Qadiriyah — dalam syairnya ia menyebut mengambil jalan Syekh Abdul Qadir al-Jailani (selami: Abdul Qadir al-Jailani). Prosa-prosanya penuh kutipan Qur'an, hadits, dan para imam tasawuf: penyair ini berdiri di atas kitab, bukan di atas angan.",
+      tarekat: "Karyanya sendiri adalah tarekatnya: ia memindahkan seluruh peta suluk ke dalam syair Melayu berbentuk empat baris — dan dengan itu menciptakan genre 'syair' dalam sastra Melayu. Laut, perahu, ombak, dagang, kapur barus: seluruh kosa kata pelaut dan pedagang Nusantara dipinjamnya menjadi kosa kata jalan ruhani, supaya orang pesisir bisa mengaji makrifat dengan bahasa pekerjaannya sendiri.",
+      hakikat: "Pahamnya wujudiyah — kesatuan wujud sealiran Ibn 'Arabi (selami: Wahdatul Wujud): yang ada hanya Wujud Yang Esa; alam adalah penampakan-Nya. Tamsil agungnya justru dari lautnya sendiri: ombak dan laut — ombak muncul, bergulung, pecah, lenyap; laut tak bertambah dan tak berkurang. 'Ombak itulah yang bernama aku; laut itulah Yang Empunya nama.' Hamba dan Tuhan tak bercampur dan tak berpisah — sebagaimana ombak bukan laut, namun tak sekejap pun berada di luar laut.",
+      makrifat: "Sesudah wafatnya, pahamnya diperkarakan: di masa Sultan Iskandar Tsani, Syekh Nuruddin ar-Raniri memfatwakan sesat ajaran wujudiyah Fansuri dan muridnya Syamsuddin as-Sumatrani — buku-buku dibakar di depan Masjid Baiturrahman, pengikutnya dikejar; kemudian Syekh Abdurrauf as-Singkili datang menengahi dengan jalan yang lebih teduh. Perkara Aceh itu adalah perkara Hallaj dan Siti Jenar dalam babak Melayu (selami: Al-Hallaj; Syekh Siti Jenar) — dan pelajarannya sama: yang dibakar bukunya, tak terbakar pengaruhnya; yang perlu ditakar bukan kebenarannya saja, tapi kesiapan pembacanya.",
+    },
+    seharihari: "Nelayan tahu: ombak yang paling gagah pun tak pernah membawa air sendiri — semuanya air laut yang sedang berdiri sebentar. Fansuri hanya menuliskan pengetahuan nelayan itu sampai ke akarnya: kau ini ombak; gagah, bernama, berbentuk — sebentar. Yang bijak bukan ombak yang menolak pecah, melainkan yang sadar dirinya laut sedang berombak. Dan mumpung masih berdiri: perbaiki perahumu — muatan hidupmu — sebelum menyeberang.",
+    lengkap: {
+      riwayat: "Tarikh hidupnya diperdebatkan para sarjana: pandangan lama menempatkannya di masa Sultan Iskandar Muda (w. ±1630-an), temuan-temuan lebih baru (nisan 'syekh Hamzah' di Makkah bertarikh 1527) mendorong sebagian ahli menariknya lebih awal — kelas ini mencatat perbedaan itu apa adanya. Yang tak diperdebatkan: ia orang Fansur/Barus, kota kapur barus yang namanya harum sampai ke kitab-kitab Arab; ia berkelana jauh — 'Hamzah nin asalnya Fansuri, mendapat wujud di tanah Syahr Nawi' tulisnya sendiri — mencari 'Yang Esa' dari negeri ke negeri sebelum menemukan-Nya 'di dalam rumah': di dalam diri.\n\nDi Aceh ia menulis dan mengajar; muridnya (atau penerus pahamnya) Syamsuddin as-Sumatrani naik menjadi ulama istana Iskandar Muda — masa jaya wujudiyah Aceh. Badai datang sesudah keduanya tiada: fatwa ar-Raniri, pembakaran kitab, pengejaran pengikut; lalu rekonsiliasi ala as-Singkili. Makamnya sendiri tak pasti — Barus? Banda Aceh? Makkah? — seakan sang penyair perahu menolak berlabuh di satu dermaga. Karyanya selamat lewat salinan-salinan yang kini tersebar dari Jakarta sampai Leiden.",
+      karya: [
+        "Syair Perahu (dinisbatkan) — tubuh sebagai perahu menyeberangi laut kematian; syair Melayu paling termasyhur sepanjang zaman",
+        "Syair Burung Pingai; Syair Dagang; Syair Sidang Fakir — dinisbatkan pada tradisinya: jiwa sebagai burung, hidup sebagai dagang di negeri orang",
+        "Asrar al-'Arifin ('Rahasia Para Arif') — prosa: syarah atas syairnya sendiri, huruf demi huruf",
+        "Syarab al-'Asyiqin ('Minuman Para Pecinta') — prosa: tangga suluk empat tahap — syariat, tarekat, hakikat, makrifat (persis papat tataran kelas ini)",
+        "Al-Muntahi — prosa ringkas untuk yang sudah jauh berjalan: kitab 'inti dari inti'-nya",
+      ],
+      ajaran: [
+        { j: "Bahasa rakyat untuk rahasia tertinggi", i: "Sebelum Fansuri, bahasa ilmu adalah Arab; sesudahnya, Melayu sanggup memikul makrifat. Ia membuktikan tak ada bahasa yang terlalu rendah untuk kebenaran — asal penuturnya sudi turun dan menata." },
+        { j: "Ombak dan laut", i: "Rumus wujudiyahnya yang paling selamat dari salah paham: ombak bukan laut (maka hamba jangan mengaku Tuhan), ombak tak di luar laut (maka jangan bayangkan Tuhan jauh). Dua kesalahan besar tauhid dipatahkan satu tamsil nelayan (selami: Wahdatul Wujud; Manunggaling)." },
+        { j: "Perbaiki perahu selagi di darat", i: "Syair Perahu bukan filsafat mengawang: ia manual — muatan (amal), kemudi (akal yang dibimbing), sauh (iman), bekal (takwa) — disiapkan sebelum laut lepas (maut) yang pasti datang." },
+        { j: "Mencari jauh, menemukan dekat", i: "Ia berkelana lintas negeri lalu bersaksi menemukan-Nya 'di dalam rumah' — di dalam diri. Seluruh entri Aku Sejati dan Hijab adalah syarah pengembaraannya." },
+      ],
+      kalimat: [
+        { t: "Wahai muda, kenali dirimu: ialah perahu tamsil tubuhmu; tiadalah berapa lama hidupmu — ke akhirat jua kekal diammu.", k: "Syair Perahu (dinisbatkan) — man 'arafa nafsahu dalam pantun pesisir: kenali diri, siapkan perahu, ingat pelabuhan terakhir." },
+        { t: "Hamzah nin asalnya Fansuri, mendapat wujud di tanah Syahr Nawi; beroleh khilafat ilmu yang 'ali, daripada Abdul Qadir Jailani.", k: "Bait pengenalan dirinya dalam syairnya — otobiografi empat baris: asal, pengembaraan, dan sanad Qadiriyah-nya." },
+        { t: "Laut itulah yang bernama Ahad; ombaknya sekalian alam. Ombak lenyap, laut tiada berkurang.", k: "Saripati tamsil ombak-lautnya (Asrar al-'Arifin / syair-syairnya) — wujudiyah dalam tiga kalimat nelayan." },
+        { t: "Hamzah Fansuri di dalam Makkah, mencari Tuhan di Baitul Ka'bah; dari Barus ke Kudus terlalu payah — akhirnya dijumpa di dalam rumah.", k: "Bait masyhur yang dinisbatkan kepadanya — ringkasan seluruh pengembaraan setiap pencari: jauh-jauh berlayar, Yang Dicari menunggu di dalam." },
+      ],
+      warisan: "Ia bapak puisi Melayu: bentuk 'syair' yang dipakainya menjadi wadah sastra Melayu berabad-abad — artinya, setiap penyair berbahasa Indonesia berutang bentuk kepadanya, dan bahasa Indonesia sendiri berutang kepadanya bukti awal bahwa bahasa ini sanggup memikul pikiran terdalam. Jalur pahamnya mengalir ke Syamsuddin as-Sumatrani, diperkarakan ar-Raniri, dijernihkan as-Singkili — dan perdebatan wujudiyah Nusantara itu menjadi salah satu percakapan intelektual paling kaya di kawasan ini. Sastrawan modern menggali syairnya kembali; para salik tetap menghafalnya. Warisannya bagi kelas ini paling akrab: aplikasi ini — makna terdalam, bahasa sehari-hari — berlayar di lunas perahu yang ia tukangi lima abad lalu.",
+    },
+    rujukan: ["Syair Perahu; Asrar al-'Arifin; Syarab al-'Asyiqin; al-Muntahi", "Kajian filologi: Syed M. Naguib al-Attas dkk. tentang Hamzah Fansuri", "Sejarah polemik wujudiyah Aceh: ar-Raniri & as-Singkili"],
   },
 
   // ---------------------------------------------------------- TIMUR
@@ -890,6 +1241,48 @@ const TOKOH = [
       warisan: "Warisannya kau pakai setiap hari tanpa sadar: separuh kosakata ruhani bahasa Indonesia (agama, puasa, dosa, surga, neraka, dewa, semadi) adalah titipannya; wayang yang dipakai Kalijaga berdakwah adalah panggungnya; semboyan negaramu dipetik dari kakawinnya; dan kepekaan batin Jawa — rasa, eling, keselarasan — matang di pangkuannya sebelum disempurnakan tauhid. Prambanan tetap menjulang dan Bali tetap bersembahyang: pengingat bahwa di tanah ini perbedaan puncak-puncak keyakinan dikelola dengan adab, bukan dengan api. Bagi kelas ini ia adalah pelajaran tentang lapisan: kenali fondasi rumahmu — supaya kau bersyukur dengan sadar atas atap yang sekarang menaungimu.",
     },
     rujukan: ["QS Fathir 24; ar-Rahman 29; al-Hajj 17", "Brihadaranyaka Upanishad (neti neti)", "Sejarah Prambanan–Borobudur & dakwah para wali"],
+  },
+
+  {
+    id: "laotzu",
+    istilah: "Lao Tzu & Tao Te Ching",
+    asal: "Laozi — 'Guru Tua'; Tiongkok, ±abad 6–4 SM",
+    kategori: "timur",
+    alias: ["lao tzu", "laozi", "lao tse", "tao", "tao te ching", "taoisme", "dao", "wu wei", "guru tua"],
+    kunci: ["air", "kosong", "lembut", "tanpa nama", "kerbau", "gerbang"],
+    ringkas: "Penjaga arsip yang pergi ke barat menunggang kerbau — dicegat penjaga gerbang dan menuliskan 81 bab tentang Jalan yang tak bisa dinamai.",
+    tingkat: {
+      syariat: "Sejarahnya samar dan kelas ini jujur mengatakannya: tradisi (catatan Sima Qian, abad 2 SM) menyebutnya Li Er, penjaga arsip istana Zhou, yang muak pada kebusukan zaman lalu pergi ke barat menunggang kerbau; di gerbang perbatasan, penjaga bernama Yin Xi memohonnya menuliskan ajarannya sebelum menghilang — lahirlah Tao Te Ching: 81 bab pendek, ±5.000 huruf. Para sarjana berdebat apakah ia satu orang atau himpunan kearifan; kitabnya sendiri tak ikut berdebat — ia terus dibaca dua setengah milenium.",
+      tarekat: "Lakunya wu wei — sering disalahartikan 'tidak berbuat'; makna kerjanya: bertindak tanpa memaksa, mengalir tanpa menggenggam, menyelesaikan tanpa mengklaim. Gurunya air: 'kebaikan tertinggi seperti air — memberi hidup pada segala tanpa bersaing, dan rela menempati tempat rendah yang dibenci orang' (bab 8). Bandingkan dengan isqath at-tadbir Ibn 'Atha'illah dan nrima yang bekerja keras: satu kearifan, tiga bahasa.",
+      hakikat: "Bab pertamanya adalah tanzih paling ringkas di luar khazanah wahyu: 'Tao yang bisa dijalankan sebagai nama, bukanlah Tao yang kekal; nama yang bisa dinamakan, bukanlah Nama yang kekal.' Yang Mutlak tak termuat kata — orang Jawa berkata tan kena kinaya ngapa (selami: Suwung). Dan pujian terbesarnya kepada kosong: tiga puluh jari-jari bertemu di satu lubang poros — justru lubangnya yang membuat roda berguna; bejana berguna karena rongganya, kamar karena kosongnya. Yang penuh dirinya tak bisa dipakai Tuhan maupun manusia.",
+      makrifat: "Adab batasnya sama dengan entri Buddha: Tao Te Ching tidak menyebut nama Allah, dan kelas ini tidak menyulapnya jadi kitab tauhid. Yang dicatat adalah pertemuan-pertemuan yang tak terbantah: 'belajar: setiap hari bertambah; Tao: setiap hari berkurang — berkurang dan berkurang hingga sampai pada tanpa-pemaksaan' (bab 48) — itulah takhalli dan tajrid dalam aksara Tionghoa; 'mengenal orang lain itu cerdas, mengenal diri itu terang' (bab 33) — itulah man 'arafa nafsahu; dan kelembutan yang mengalahkan kekerasan adalah akhlak para wali di setiap negeri. Hikmah adalah barang hilang orang beriman — termasuk yang tercecer di gerbang barat Tiongkok.",
+    },
+    seharihari: "Air itu paling lembut sedunia — tapi tanyakan pada batu karang siapa yang menang dalam seribu tahun. Orang yang paling berpengaruh di kampung sering bukan yang paling keras bicaranya, melainkan yang seperti air: menolong semua orang, tak berebut panggung, mengalir ke tempat-tempat yang orang gengsi mendatanginya. Lao Tzu hanya minta kau meniru barang yang tiap hari kau minum: memberi hidup, tanpa ribut.",
+    lengkap: {
+      riwayat: "Yang bisa dituturkan adalah tradisinya, dan itu pun berlapis legenda: Li Er ('Telinga Panjang'), arsiparis perpustakaan kerajaan Zhou — pekerjaan yang membuatnya membaca segala dan menyaksikan dari dekat busuknya kekuasaan. Tradisi Tionghoa juga menuturkan Konfusius muda pernah menemuinya bertanya tentang tata krama, dan pulang terguncang: 'burung kutahu terbangnya, ikan kutahu renangnya… tapi naga yang mengendarai angin dan awan — hari ini aku melihat Laozi, dan ia seperti naga.' Dua arus besar Tiongkok — Konfusius yang menata masyarakat, Laozi yang melampaui tatanan — bertemu dalam satu kamar arsip.\n\nUsia lanjut, ia meninggalkan segalanya: menunggang kerbau ke barat, ke arah pegunungan, hendak menghilang tanpa jejak. Di gerbang Hangu, penjaga Yin Xi — yang konon telah membaca tanda di langit tentang datangnya orang suci — menahannya dengan satu permintaan: tuliskan dulu ajaranmu. Lima ribu huruf kemudian, ia menyerahkan gulungan itu dan berlalu ke barat — 'tak seorang pun tahu di mana akhirnya,' tutup Sima Qian. Kitab kecil itu kini salah satu teks paling banyak diterjemahkan dalam sejarah manusia; sang penulis berhasil dalam dua hal yang jarang digabungkan orang: meninggalkan warisan raksasa, dan benar-benar menghilang.",
+      karya: [
+        "Tao Te Ching (Daodejing) — 'Kitab tentang Jalan dan Kebajikannya': 81 bab pendek; salah satu kitab paling banyak diterjemahkan di dunia",
+        "Taoisme — arus ruhani-falsafi yang tumbuh dari kitabnya (kelak bercabang ke Zhuangzi yang jenaka dan ke Taoisme keagamaan rakyat)",
+        "Jejaknya di Nusantara — lewat komunitas Tionghoa berabad-abad: klenteng, kearifan dagang, dan pertemuan sunyi dengan kebatinan Jawa yang sama-sama mencintai keselarasan",
+      ],
+      ajaran: [
+        { j: "Tao — Jalan yang tak bernama", i: "Sumber segala yang tak bisa didefinisikan: setiap nama terlalu sempit, setiap gambaran meleset. Metodenya sama dengan neti neti dan tanzih: mendekati Yang Mutlak dengan menanggalkan, bukan menumpuk gambaran (selami: Suwung)." },
+        { j: "Wu wei — bertindak tanpa memaksa", i: "Bukan malas: petani tak menarik-narik batang padi agar cepat tinggi — ia mengairi, menyiangi, lalu percaya pada musim. Kerja penuh tanpa kejang kendali; kembaran Timur dari tawakkal sesudah ikhtiar dan isqath at-tadbir (selami: Ibn 'Atha'illah)." },
+        { j: "Kekuatan kelembutan", i: "'Yang paling lembut di dunia mengendarai yang paling keras' — air mengalahkan batu, bayi menaklukkan rumah, gigi tanggal lebih dulu dari lidah. Kekerasan itu rapuh justru karena kaku; para wali Jawa memenangkan pulau dengan kearifan yang sama (selami: Wali Songo)." },
+        { j: "Kosong yang berguna", i: "Roda, bejana, kamar — semuanya berguna karena rongganya. Manusia pun: yang penuh oleh dirinya tak bisa dituangi apa-apa. Pujian tertinggi bagi suwung dari luar khazanah suluk (selami: Suwung; Fana')." },
+        { j: "Berkurang sebagai jalan", i: "Belajar menambah; Jalan mengurangi — kurangi keinginan, kurangi kepura-puraan, kurangi klaim, sampai yang tersisa bergerak selaras tanpa dipaksa. Takhalli dalam satu ayat Tionghoa." },
+        { j: "Memimpin dari bawah", i: "Lautan menjadi raja seratus lembah karena rela di bawah semuanya; pemimpin terbaik adalah yang rakyatnya berkata 'kami melakukannya sendiri'. Etika kekuasaan yang menggemakan 'Umar dan para wali: makin tinggi, makin menunduk." },
+      ],
+      kalimat: [
+        { t: "Tao yang dapat dikatakan, bukanlah Tao yang kekal; nama yang dapat dinamakan, bukanlah Nama yang kekal.", k: "Tao Te Ching bab 1 — kalimat pembuka yang langsung meletakkan batas bahasa; kembaran tan kena kinaya ngapa dan laisa kamitslihi syai'." },
+        { t: "Kebaikan tertinggi bagaikan air: memberi manfaat kepada segala sesuatu tanpa bersaing, dan menempati tempat rendah yang dibenci orang banyak — karena itulah ia dekat kepada Tao.", k: "Bab 8 — kurikulum akhlak dalam satu tarikan napas; guru yang tersedia gratis di setiap sungai." },
+        { t: "Mengenal orang lain itu cerdas; mengenal diri sendiri itu terang. Menaklukkan orang lain itu bertenaga; menaklukkan diri sendiri itulah kuat sejati.", k: "Bab 33 — dua kaidah yang para arif kenal sebagai man 'arafa nafsahu dan jihadun-nafs, tiba dari jalur sutra." },
+        { t: "Dalam belajar, setiap hari bertambah; dalam Tao, setiap hari berkurang.", k: "Bab 48 — peta dua gerakan ilmu: menumpuk dan menanggalkan; kelas makrifat mana pun berjalan di ayat keduanya." },
+        { t: "Perjalanan seribu li dimulai dari satu langkah di bawah telapak kaki.", k: "Bab 64 — nasihat paling praktis dalam kitab paling metafisik: mulai; hari ini; dari yang ada." },
+      ],
+      warisan: "Tao Te Ching membentuk separuh jiwa peradaban Tionghoa (berpasangan dengan Konfusius yang membentuk separuh lainnya) dan terus diterjemahkan tanpa henti ke bahasa-bahasa dunia. Di Nusantara, kearifannya berlayar bersama para perantau Tionghoa dan bertemu diam-diam dengan kebatinan Jawa — dua tradisi yang sama-sama memuja keselarasan, kelembutan, dan eling; klenteng dan langgar bertetangga di kota-kota pesisir yang sama. Bagi kelas ini warisannya adalah cermin dari jalur paling jauh: bahwa di gerbang barat Tiongkok pun, seorang tua di atas kerbau menuliskan hal yang sama — Yang Sejati tak ternamai, kosong itu berguna, lembut itu menang, dan jalan pulang ditempuh dengan berkurang, bukan bertambah.",
+    },
+    rujukan: ["Lao Tzu, Tao Te Ching (bab 1, 8, 11, 33, 48, 64, 78)", "Sima Qian, Shiji — biografi Laozi", "QS al-Hajj 17; Fathir 24 — adab menimbang khazanah luar"],
   },
 
   // ---------------------------------------------------------- FILSAFAT
