@@ -920,6 +920,45 @@ const TOKOH = [
     rujukan: ["Abdul Qadir al-Jailani, Futuh al-Ghaib; al-Fath ar-Rabbani; al-Ghunyah", "Adz-Dzahabi, Siyar A'lam an-Nubala — biografi", "Tradisi manaqiban Nusantara; TQN Syekh Ahmad Khatib Sambas"],
   },
 
+  {
+    id: "wali-perempuan",
+    istilah: "Para Wali Perempuan — Separuh Langit yang Tersembunyi",
+    asal: "Dari Nafisah guru asy-Syafi'i hingga para sultanah Aceh",
+    kategori: "arif",
+    alias: ["wali perempuan", "wali wanita", "perempuan sufi", "sayyidah nafisah", "nafisah", "karima", "sultanah", "safiatuddin", "nyai ageng pinatih"],
+    kunci: ["perempuan", "tersembunyi", "guru", "sanad", "ibu"],
+    ringkas: "Imam asy-Syafi'i berguru kepada Nafisah; Bukhari tersambung ke dunia lewat Karima; Ibn 'Arabi ditempa dua perempuan sepuh — separuh sanad umat ini mengalir lewat tangan yang jarang disebut.",
+    tingkat: {
+      syariat: "Fakta sanadnya tak terbantah: Sayyidah Nafisah binti al-Hasan — cicit Hasan bin 'Ali — dihadiri majelisnya oleh Imam asy-Syafi'i di Mesir, dan sang imam berwasiat agar jenazahnya dishalatkan olehnya; Karima al-Marwaziyyah adalah periwayat Shahih al-Bukhari yang paling tepercaya di zamannya — para ulama besar mengantre mendengar Bukhari dari lisannya; dan ribuan muhadditsah tercatat dalam kamus-kamus periwayat dengan satu keistimewaan yang dicatat para ahli: nyaris tak ada perempuan periwayat yang divonis pendusta.",
+      tarekat: "Jalan mereka sering jalan khumul — tersembunyi bukan karena rendah, melainkan karena tak butuh panggung (selami: Uwais). Rabi'ah membelokkan seluruh arus tasawuf dari takut ke cinta (selami: Rabi'ah); Fathimah dari Cordoba dan Syams Ummul Fuqara menempa Ibn 'Arabi muda — ia menyebut diri 'pelayan' Fathimah bertahun-tahun; Fathimah dari Nisyapur disebut-sebut para syaikh zamannya sebagai yang terdepan dalam makrifat. Rumah, dapur, dan majelis sunyi adalah khanqah mereka.",
+      hakikat: "Di Nusantara jejak mereka menopang tiang-tiang sejarah: Nyai Ageng Pinatih, saudagar besar Gresik, memungut bayi terapung dari laut dan membesarkannya menjadi Sunan Giri; Nyai Ageng Manila melahirkan dan mendidik Sunan Bonang serta Sunan Drajat; dan Aceh — negeri serambi — diperintah empat sultanah berturut-turut selama setengah abad, di antaranya Safiatuddin yang majelis ilmunya menaungi as-Singkili menulis tafsir Melayu pertama (selami: Sumatrani & Singkili). Separuh bangunan Islam Nusantara berdiri di atas fondasi yang dikerjakan perempuan.",
+      makrifat: "Inti pintunya: jalan ini tidak mengenal jenis kelamin — yang naik adalah ruh, dan ruh bukan lelaki bukan perempuan. Ibn 'Arabi menegaskannya tanpa ragu: perempuan bisa mencapai seluruh maqam hingga qutb; 'Attar membelanya di pembuka bab Rabi'ah; dan kenyataannya lebih fasih dari semua fatwa: dari kamar 'Aisyah mengalir separuh sunnah, dari majelis Nafisah mengalir fiqh, dari tangan para nyai mengalir para wali Jawa. Yang menghalangi perempuan dari kedalaman bukan langit — melainkan tatanan bumi yang lupa sejarahnya sendiri.",
+    },
+    seharihari: "Tanya siapa yang pertama mengajarimu mengaji, menuntunmu shalat, mencontohkan sabar dan ikhlas tanpa teori — hampir semua orang menjawab: ibu, nenek, bibi, guru ngaji perempuan. Lalu buka daftar 'tokoh agama' yang dipajang — hampir semua lelaki. Pintu ini memperbaiki daftar itu: separuh silsilah cahayamu perempuan; kenali mereka, dan muliakan yang masih hidup di rumahmu sebelum menziarahi yang di makam.",
+    lengkap: {
+      riwayat: "Rantainya bermula dari rumah kenabian sendiri: Khadijah — orang pertama yang beriman, yang hartanya dan pelukannya menopang tahun-tahun paling rapuh wahyu; Fathimah az-Zahra — belahan jiwa Nabi, ibu para penghulu pemuda surga, poros ahlul bait; 'Aisyah — madrasah separuh agama (selami: 'Aisyah). Generasi berikutnya: Nafisah binti al-Hasan hijrah ke Mesir dan rumahnya menjadi mercusuar — asy-Syafi'i muda yang baru tiba berguru dan meminta doanya; hingga kini makamnya di Kairo tak pernah sepi. Rabi'ah di Bashrah mengubah peta tasawuf; Fathimah Nisaburiyah dipuji para syaikh Khurasan; Karima al-Marwaziyyah di Makkah menjadi simpul sanad Bukhari.\n\nDi Nusantara, kisahnya kisah para nyai dan sultanah: Nyai Ageng Pinatih (syahbandar-saudagar Gresik) dan Nyai Ageng Manila (putri adipati Tuban) membesarkan tiga sunan; para nyai pesantren dari abad ke abad mengasuh separuh santri republik ini; dan Aceh dipimpin Sultanah Safiatuddin, Naqiatuddin, Zakiatuddin, dan Kamalat Syah (1641–1699) — masa ketika ilmu justru berbunga: tafsir Melayu pertama lahir di bawah naungan takhta perempuan. Sejarah panjang itu sering ditulis sebagai catatan kaki; pintu ini menaikkannya kembali ke batang tubuh.",
+      karya: [
+        "Sanad hadits — ribuan muhadditsah dalam kamus periwayat; karya monumental modern yang mendokumentasikannya: al-Muhaddithat (40 jilid riset Akram Nadwi)",
+        "Majelis Nafisah di Kairo — 'madrasah' yang dihadiri asy-Syafi'i; wasiat sang imam dishalatkan olehnya",
+        "Riwayat Shahih al-Bukhari jalur Karima al-Marwaziyyah — salah satu jalur naskah terpenting kitab hadits paling sahih",
+        "Jaringan pesantren putri Nusantara — dari asuhan para nyai hingga pesantren-pesantren perempuan modern",
+      ],
+      ajaran: [
+        { j: "Ruh tidak berjenis kelamin", i: "Maqam dicapai oleh kesungguhan, bukan oleh kelamin — ditegaskan Ibn 'Arabi dan dibuktikan sejarah. Yang membatasi perempuan dari ilmu sedang menutup pintu yang Allah buka." },
+        { j: "Rumah sebagai khanqah", i: "Mereka membuktikan dapur dan kamar bisa menjadi tempat suluk setara gua dan zawiyah (selami: 'Aisyah): kedalaman tidak menunggu kesempatan menyepi — ia menyusup di sela mengasuh dan bekerja." },
+        { j: "Kejujuran sanad perempuan", i: "Catatan para ahli hadits: para periwayat perempuan nyaris tak pernah tertuduh dusta. Amanah ilmu pernah — dan selalu — aman di tangan mereka." },
+        { j: "Mendidik satu perempuan, mendidik silsilah", i: "Pinatih membesarkan Giri; Manila melahirkan Bonang; para nyai mengasuh para kiai. Investasi pada ilmu perempuan adalah investasi pada tiga generasi sekaligus." },
+      ],
+      kalimat: [
+        { t: "Bila boleh mengambil dua pertiga agama dari 'Aisyah, boleh pula mengambil agama dari seorang hamba perempuan Allah.", k: "'Attar, pembuka bab Rabi'ah dalam Tadzkiratul Auliya — pembelaan klasik yang menutup perdebatan sebelum dimulai." },
+        { t: "Perempuan dan lelaki setara dalam seluruh maqam, hingga maqam qutb.", k: "Saripati penegasan Ibn 'Arabi dalam Futuhat — dari otoritas tertinggi ilmu kewalian." },
+        { t: "Doakan aku, wahai Sayyidah.", k: "Adab asy-Syafi'i kepada Nafisah (manaqib) — imam mazhab dunia merendah kepada guru perempuannya; ukuran adab bagi setiap penuntut ilmu." },
+      ],
+      warisan: "Warisannya adalah koreksi atas ingatan umat: setiap kali daftar tokoh ditulis tanpa perempuan, sejarah sedang dipalsukan diam-diam. Pesantren-pesantren putri, majelis taklim ibu-ibu yang menjaga agama di kampung-kampung, para muhadditsah yang kembali diteliti dunia — semuanya sambungan rantai ini. Dan warisan praktisnya untuk pembaca pintu ini: sanad cahayamu yang paling awal hampir pasti perempuan; berterimakasihlah selagi tangannya masih bisa dicium (selami: Uwais — yang menemukan segalanya di ambang pintu ibunya).",
+    },
+    rujukan: ["Akram Nadwi, al-Muhaddithat", "'Attar, Tadzkiratul Auliya — pembuka bab Rabi'ah", "Sejarah sultanah Aceh; manaqib Sayyidah Nafisah"],
+  },
+
   // ---------------------------------------------------------- JAWA
   {
     id: "sunan-kalijaga",
@@ -1120,6 +1159,84 @@ const TOKOH = [
     rujukan: ["Syair Perahu; Asrar al-'Arifin; Syarab al-'Asyiqin; al-Muntahi", "Kajian filologi: Syed M. Naguib al-Attas dkk. tentang Hamzah Fansuri", "Sejarah polemik wujudiyah Aceh: ar-Raniri & as-Singkili"],
   },
 
+  {
+    id: "sumatrani-singkili",
+    istilah: "Syamsuddin as-Sumatrani & Abdurrauf as-Singkili",
+    asal: "Aceh, abad 17 — dari polemik wujudiyah ke jalan tengah",
+    kategori: "jawa",
+    alias: ["syamsuddin sumatrani", "sumatrani", "abdurrauf singkili", "as singkili", "singkili", "syiah kuala", "tarjuman al mustafid", "syattariyah", "tafsir melayu"],
+    kunci: ["aceh", "mufti", "tafsir", "jalan tengah", "syattariyah", "kuala"],
+    ringkas: "Dua babak Aceh sesudah Fansuri: sang mufti yang menyistemkan wujudiyah, dan sang penengah yang menjahit luka polemiknya — sambil menulis tafsir Melayu pertama.",
+    tingkat: {
+      syariat: "Syamsuddin as-Sumatrani (w. 1630 M) adalah mufti dan orang kepercayaan Sultan Iskandar Muda di puncak kejayaan Aceh — ulama istana yang ilmunya diakui pengunjung asing sekalipun. Abdurrauf as-Singkili (±1615–1693) menimba ilmu sembilan belas tahun di Haramain kepada para guru besar (Ahmad al-Qusyasyi, Ibrahim al-Kurani), pulang membawa sanad fiqh Syafi'i, hadits, tafsir, dan tarekat Syattariyah — lalu menjadi qadhi kerajaan. Keduanya membuktikan tradisi Aceh: kedalaman selalu berpasangan dengan kitab.",
+      tarekat: "Sumatrani meneruskan dan menata paham Fansuri (selami: Hamzah Fansuri) dalam kerangka martabat tujuh — tujuh tingkat penampakan Wujud yang diambil dari kitab at-Tuhfah al-Mursalah: peta turunnya Yang Esa hingga alam nyata, yang kelak menjadi kerangka favorit suluk Nusantara (gemanya sampai ke serat-serat Jawa). Singkili membawa laku Syattariyah: dzikir dan wirid yang tertata, diijazahkan berantai — dan dari tangannya tarekat itu menyebar ke Minangkabau lewat Burhanuddin Ulakan dan ke Jawa Barat lewat Abdul Muhyi Pamijahan.",
+      hakikat: "Sesudah Sumatrani dan Fansuri tiada, datang badai: ar-Raniri memfatwakan sesat, kitab dibakar, pengikut dikejar (selami: Hamzah Fansuri). Singkili pulang ke tanah yang masih menyimpan abu itu — dan memilih jalan yang paling sulit: tidak membalas mengkafirkan, tidak pula menelan semua klaim; ia menulis bahwa kaum wujudiyah keliru bila dipahami menyatukan makhluk dengan Tuhan secara kasar, namun para penuduhnya pun tergesa bila mengkafirkan — luruskan pahamnya, jaga kehormatan orangnya. Polemik diubahnya menjadi kurikulum.",
+      makrifat: "Karya penyatunya justru yang paling membumi: Tarjuman al-Mustafid — tafsir lengkap Al-Qur'an pertama dalam bahasa Melayu. Sesudah dua generasi bertengkar tentang puncak-puncak wujud, Singkili menunduk dan mengerjakan fondasi: membuka Kitab bagi rakyat yang tak berbahasa Arab. Itulah makrifat seorang penengah — tahu bahwa umat yang bertengkar soal atap sering belum punya lantai; dan bahwa membukakan Qur'an bagi orang banyak lebih menyembuhkan daripada memenangkan debat.",
+    },
+    seharihari: "Dua tetangga bertengkar hebat soal warisan — lalu datang orang ketiga yang tidak ikut memihak: ia memperbaiki jembatan kampung yang rusak, yang tiap hari dilewati kedua pihak. Lama-lama yang bertengkar berjalan di jembatan yang sama dan lupa alasan bertengkarnya. Singkili adalah orang ketiga itu: ketika Aceh terbelah soal wujudiyah, ia membangun 'jembatan' — tafsir yang bisa dibaca semua pihak. Kalau kau berada di tengah komunitas yang bertengkar, tirulah: berhenti menambah argumen, mulai bangun jembatan.",
+    lengkap: {
+      riwayat: "Syamsuddin — dinisbatkan ke Pasai atau Sumatera — muncul dalam catatan sejarah sebagai orang kuat istana Aceh: penasihat Sultan Iskandar Muda, penerima tamu-tamu asing (utusan Inggris mencatat kewibawaannya), sekaligus syaikh yang karyanya (antara lain Mir'atul Mu'minin) menata paham wujudiyah dengan bahasa yang lebih sistematis daripada syair-syair Fansuri. Ia wafat 1630; sesudah Iskandar Muda mangkat, angin istana berbalik: ar-Raniri yang datang dari Gujarat menjadi mufti Sultan Iskandar Tsani dan melancarkan pembersihan wujudiyah — buku dibakar di halaman masjid, dan babak paling kelam polemik intelektual Nusantara pun terjadi.\n\nAbdurrauf lahir di Singkil, pesisir barat Aceh, sekitar 1615. Ia berangkat ke tanah Arab (±1642) dan selama 19 tahun berpindah dari guru ke guru — daftar gurunya yang ia catat sendiri mencapai puluhan nama, berpuncak pada Ahmad al-Qusyasyi (guru ruhaninya, yang mengijazahkan Syattariyah) dan Ibrahim al-Kurani (guru ilmunya, pembela wujudiyah moderat kelas dunia). Pulang ±1661, ia diangkat qadhi oleh Sultanah Safiatuddin — dan mengabdi di bawah empat sultanah berturut-turut, sambil menulis: tafsir, fiqh (Mir'atut Thullab), hadits, tasawuf. Wafat ±1693, dimakamkan di muara sungai Aceh — kuala — sehingga rakyat memanggilnya Syiah Kuala: nama yang kini disandang universitas terbesar Aceh.",
+      karya: [
+        "Tarjuman al-Mustafid (Singkili) — tafsir lengkap 30 juz pertama dalam bahasa Melayu; dicetak berulang dari Istanbul sampai Kairo, dipakai berabad-abad se-Nusantara",
+        "Mir'atut Thullab (Singkili) — fiqh mu'amalah & tata hukum untuk masyarakat Melayu: bukti sang sufi mengurus juga soal dagang dan pengadilan",
+        "Mir'atul Mu'minin & risalah-risalah martabat tujuh (Sumatrani) — sistematisasi wujudiyah Aceh",
+        "Jaringan Syattariyah Nusantara — 'karya hidup' Singkili: Ulakan (Minangkabau), Pamijahan (Jawa Barat), dan seterusnya",
+      ],
+      ajaran: [
+        { j: "Martabat tujuh — peta turunnya Wujud", i: "Dari ahadiyah (Esa mutlak) menurun bertingkat hingga alam manusia: kerangka Sumatrani yang menjadi bahasa baku suluk Nusantara untuk membicarakan wahdatul wujud secara tertib (selami: Wahdatul Wujud) — peta yang menertibkan apa yang pada Fansuri masih berupa nyanyian." },
+        { j: "Meluruskan tanpa mengkafirkan", i: "Prinsip Singkili dalam polemik: kesalahan paham diluruskan dengan ilmu, bukan dengan pembakaran dan pengkafiran. Ia mewarisi sikap gurunya al-Kurani: bela makna yang benar dari kaum arif, tolak pemahaman kasarnya, jaga darah dan kehormatan." },
+        { j: "Fondasi sebelum atap", i: "Tafsir Melayu pertama lahir bukan dari zaman damai melainkan dari zaman polemik — pilihan sadar: umat diberi akses ke sumber, supaya tak lagi bergantung pada kutipan para pihak yang bertengkar." },
+        { j: "Ilmu berpasangan dengan pengabdian", i: "Sembilan belas tahun belajar ditutup dengan tiga puluh tahun mengabdi — di pengadilan, di majelis, di tulisan. Kedalaman yang tak diturunkan menjadi pelayanan, kata jalur ini, belum selesai perjalanannya." },
+      ],
+      kalimat: [
+        { t: "Kaum itu tidaklah kafir; namun pemahaman yang keliru atas kata-kata mereka itulah yang membinasakan.", k: "Saripati sikap Singkili (dan gurunya al-Kurani) atas polemik wujudiyah — rumus jalan tengah yang menyelamatkan Aceh dari lingkaran pengkafiran." },
+        { t: "Kususun tafsir ini dengan bahasa Jawi (Melayu) agar mudah bagi orang yang tiada mengetahui bahasa Arab.", k: "Saripati pengantar Tarjuman al-Mustafid — niat yang merangkum seluruh proyek hidupnya: membuka, bukan memonopoli." },
+        { t: "Adapun segala yang maujud ini tiada lain melainkan kenyataan Wujud Yang Esa jua.", k: "Saripati ajaran martabat tujuh Sumatrani (Mir'atul Mu'minin, diparafrase) — wujudiyah dalam satu kalimat, yang membaca lengkapnya butuh seluruh peta dan pagarnya." },
+      ],
+      warisan: "Dari dua tokoh ini Nusantara mewarisi dua hal yang masih dipakainya setiap hari: bahasa dan jalan tengah. Tarjuman al-Mustafid membuka tradisi tafsir berbahasa Melayu yang bermuara pada tafsir-tafsir Indonesia modern; Syattariyah Singkili tumbuh menjadi salah satu jaringan tarekat terbesar Nusantara — Ulakan dan Pamijahan menjadi poros ziarah hingga kini; nama Syiah Kuala menaungi kampus; dan cara Singkili menyelesaikan polemik — meluruskan paham sambil menjaga kehormatan orang — menjadi cetak biru keulamaan Nusantara yang ramah namun berilmu. Sesudah tiga tragedi (Hallaj, Siti Jenar, pembakaran kitab Aceh), pintu ini adalah kabar baiknya: perkara serupa bisa berakhir tanpa darah — bila yang di tengah cukup dalam ilmunya dan cukup lapang dadanya.",
+    },
+    rujukan: ["Abdurrauf as-Singkili, Tarjuman al-Mustafid; Mir'atut Thullab", "Syamsuddin as-Sumatrani, Mir'atul Mu'minin", "Kajian sejarah: Azyumardi Azra, Jaringan Ulama Timur Tengah & Kepulauan Nusantara"],
+  },
+  {
+    id: "ronggowarsito",
+    istilah: "Ronggowarsito — Pujangga Penutup",
+    asal: "R.Ng. Ronggawarsita, Surakarta 1802–1873",
+    kategori: "jawa",
+    alias: ["ronggowarsito", "ranggawarsita", "ronggawarsita", "pujangga terakhir", "kalatidha", "zaman edan", "serat kalatidha", "sabda jati"],
+    kunci: ["zaman edan", "eling", "waspada", "pujangga", "keraton", "tegalsari"],
+    ringkas: "Santri nakal Tegalsari yang menjadi pujangga penutup tanah Jawa — pendiagnosis 'zaman edan' yang wasiatnya satu: eling lan waspada.",
+    tingkat: {
+      syariat: "Bagus Burham — nama kecilnya — cucu pujangga keraton Yasadipura II, dititipkan mondok di Pesantren Gebang Tinatar, Tegalsari, Ponorogo, kepada Kiai Kasan Besari. Babad muridnya menuturkan masa nakalnya yang legendaris — kabur, berjudi, menghabiskan bekal — hingga titik taubatnya di sungai; sesudah itu Qur'an dan kitab-kitab pesantren diserapnya deras. Maka pada dirinya dua sanad menyatu: sanad pesantren dan sanad kapujanggan keraton — santri yang menjadi pujangga.",
+      tarekat: "Karyanya adalah suluk yang dilagukan: ia menulis dalam tembang macapat — ilmu berat dimuat wadah yang bisa dinyanyikan tukang becak. Wirid Hidayat Jati menata laku kebatinan Jawa-Islam (martabat tujuh yang datang lewat jalur Aceh pun bergema di dalamnya); Serat Kalatidha lahir dari kegetiran pribadi — karier yang dikecewakan intrik istana — dan diolah bukan menjadi dendam melainkan menjadi renungan zaman yang abadi.",
+      hakikat: "Diagnosisnya termasyhur: amenangi zaman edan — mengalami zaman gila; yang tak ikut gila tak kebagian, tapi... dan di sinilah hakikatnya: sak beja-bejane kang lali, isih beja kang eling lan waspada — seberuntung-beruntungnya yang lupa, masih lebih beruntung yang ingat dan waspada. Eling adalah dzikir dalam bahasa Jawa (selami: Dzikir); waspada adalah muraqabah. Satu bait Kalatidha memuat seluruh kitab tazkiyah.",
+      makrifat: "Puncak kesaksiannya ada di Serat Sabda Jati: ia mengumumkan hari wafatnya sendiri — dan menurut catatan tradisi, wafat tepat pada hari yang ditulisnya, dalam tenang. Terlepas perdebatan sejarahnya, makna yang dipegang orang Jawa jelas: pujangga penutup ingin menutup dengan pelajaran penutup — kematian bukan kejutan bagi yang sudah selesai berkemas (selami: Mati Sajroning Urip). Ia menyebut dirinya hanya nitipke sabda — menitipkan kata; pemilik kata dijemputnya pulang.",
+    },
+    seharihari: "Baca berita hari ini: yang jujur kalah tender, yang viral jadi panutan, yang waras dibilang aneh — persis 'zaman edan' yang ditulis 1860. Resepnya tidak berubah: kau tidak wajib memenangkan zaman, kau wajib tetap ingat dan awas. Ikut arus boleh sekadar badan — eling jangan dilepas; sebab seberuntung apa pun orang yang lupa diri, masih lebih beruntung yang tetap sadar sedang di mana dan mau ke mana.",
+    lengkap: {
+      riwayat: "Lahir di Surakarta 1802 dalam trah pujangga (Yasadipura I–II adalah kakek-buyutnya), diasuh Ki Tanujoyo, lalu dikirim ke Tegalsari — pesantren paling berwibawa di Jawa masa itu. Kisah taubatnya menjadi legenda pendidikan: setelah segala kenakalan, ia 'kalah' oleh kesabaran kiainya dan berbalik total; konon Kiai Kasan Besari kelak menyebut bekas santri bengalnya ini akan menjadi lautan ilmu. Pulang ke Surakarta, ia meniti jenjang abdi dalem kepujanggan, berguru pula ke berbagai daerah (tradisi menyebut pengembaraannya hingga Bali mempelajari kakawin), dan diangkat menjadi pujangga keraton — yang kelak digelari orang: pujangga panutup, pujangga terakhir.\n\nHidupnya tidak manis: gaji kecil, intrik istana, kariernya dipentok, anak-cucunya ia saksikan hidup pas-pasan, dan zaman berubah — mesin cetak, koran (ia sempat menjadi redaktur Bramartani, koran Jawa pertama!), kolonialisme yang kian mencengkeram. Justru dari gesekan itu karyanya menyala: Kalatidha (zaman keraguan), Sabda Tama, Jaka Lodhang, dan wirid-wirid kebatinan. Ia wafat 24 Desember 1873 — hari yang menurut tradisi telah ditulisnya sendiri dalam Sabda Jati — dimakamkan di Palar, Klaten. Kata orang Jawa: pujangga sesudahnya banyak; pujangga seperti dia, ditutup.",
+      karya: [
+        "Serat Kalatidha — 12 bait tentang zaman edan; bait ketujuhnya bait paling terkenal dalam sastra Jawa",
+        "Wirid Hidayat Jati — sistematika kebatinan Jawa-Islam: martabat, Guru Sejati, sedulur papat (rujukan entri-entri Jawa kelas ini)",
+        "Serat Sabda Jati — 'sabda sejati' penutup: renungan kematian dan pengumuman kepulangannya",
+        "Serat Cemporet, Sabda Tama, Jaka Lodhang, Pustaka Raja — puluhan serat sastra, babad, dan ramalan zaman",
+        "Bramartani — kiprah jurnalistiknya: pujangga keraton yang juga wartawan koran Jawa pertama",
+      ],
+      ajaran: [
+        { j: "Eling lan waspada", i: "Dua kata yang memuat dzikir dan muraqabah: ingat asal-tujuan, awas terhadap tipuan zaman dan tipuan diri. Seluruh tasawuf praktis dalam bahasa yang dipahami petani." },
+        { j: "Zaman edan sebagai ujian, bukan alasan", i: "Ia tidak menyuruh lari dari zaman gila — ia menyuruh waras di dalamnya. Melu edan nora tahan (ikut gila tak tahan), tapi yang dipuji bukan yang menang tender: yang tetap eling." },
+        { j: "Sastra sebagai suluk", i: "Ilmu tertinggi dimuat tembang yang bisa dilagukan siapa saja — meneruskan jalan Bonang dan Kalijaga ke era cetak (selami: Sunan Bonang; Sunan Kalijaga). Kandang Ndalem meneruskannya ke era layar." },
+        { j: "Menutup dengan berkemas", i: "Sabda Jati mengajarkan kematian sebagai kepulangan yang disiapkan — bukan kecelakaan yang ditakuti. Pujangga penutup menutup justru dengan pelajaran tentang penutup." },
+      ],
+      kalimat: [
+        { t: "Amenangi zaman edan, ewuh aya ing pambudi; melu edan nora tahan, yen tan melu anglakoni, boya kaduman melik…", k: "Kalatidha bait 7 — 'mengalami zaman gila, serba sulit menentukan sikap; ikut gila tak tahan, tak ikut tak kebagian…' Diagnosis sosial paling awet dalam sastra Nusantara." },
+        { t: "…ndilalah karsa Allah: sak beja-bejane kang lali, luwih beja kang eling lan waspada.", k: "Penutup bait yang sama — 'namun atas kehendak Allah: seberuntung-beruntungnya yang lupa, lebih beruntung yang ingat dan waspada.' Wasiat satu kalimat untuk semua zaman edan, termasuk zamanmu." },
+        { t: "Aku iki mung nitipke sabda — aku ini hanya menitipkan kata.", k: "Saripati sikap kepengarangannya (tradisi kapujanggan) — pujangga sejati tahu kata-katanya pinjaman; Pemiliknya yang menitipkan, Pemiliknya yang menjemput." },
+      ],
+      warisan: "Bait zaman edan-nya dikutip presiden, kiai, dalang, dan warganet tanpa henti — sedikit karya sastra yang setiap krisis nasional dipanggil kembali seperti Kalatidha. Wirid Hidayat Jati menjadi rujukan baku kebatinan Jawa (dan sumber sejumlah entri kelas ini); gelar pujangga panutup menjadikannya penanda berakhirnya satu era peradaban aksara Jawa — sekaligus jembatannya ke era modern lewat korannya. Warisan intinya sederhana dan tak bisa ditawar zaman mana pun: boleh kalah karier, boleh sempit rezeki, boleh hidup di zaman gila — eling lan waspada jangan dijual.",
+    },
+    rujukan: ["Serat Kalatidha; Serat Sabda Jati; Wirid Hidayat Jati", "Babad Cariyos Lelampahanipun R.Ng. Ronggawarsita", "Kajian sastra Jawa: karya-karya tentang sang pujangga panutup"],
+  },
+
   // ---------------------------------------------------------- TIMUR
   {
     id: "siddharta",
@@ -1285,6 +1402,47 @@ const TOKOH = [
     rujukan: ["Lao Tzu, Tao Te Ching (bab 1, 8, 11, 33, 48, 64, 78)", "Sima Qian, Shiji — biografi Laozi", "QS al-Hajj 17; Fathir 24 — adab menimbang khazanah luar"],
   },
 
+  {
+    id: "konfusius",
+    istilah: "Konfusius & Analek",
+    asal: "Kong Fuzi (Kongzi), negeri Lu, 551–479 SM",
+    kategori: "timur",
+    alias: ["konfusius", "confucius", "kong fuzi", "kongzi", "kong hu cu", "khonghucu", "analek", "analects", "lun yu", "tepa selira"],
+    kunci: ["tata krama", "kemanusiaan", "junzi", "belajar", "nama", "bakti"],
+    ringkas: "Guru yang gagal berpolitik dan menang atas dua puluh lima abad — pengajar tepa selira: jangan lakukan pada orang lain apa yang kau tak ingin dilakukan padamu.",
+    tingkat: {
+      syariat: "Pasangan Lao Tzu dalam jiwa Tiongkok (selami: Lao Tzu): bila Lao Tzu jalan yang melampaui tatanan, Konfusius adalah tatanannya — li, tata krama dan ritus yang menata keluarga, negeri, dan diri. Ia tidak mengaku membawa yang baru: 'aku meneruskan, bukan mencipta' — menghidupkan kembali jalan para raja bijak purba. Di Indonesia ajarannya hidup sebagai agama Khonghucu, salah satu dari enam yang diakui negara.",
+      tarekat: "Lakunya belajar dan pembiasaan: 'belajar lalu mengulangnya pada waktunya — bukankah itu kegembiraan?' adalah kalimat pembuka Analek; kebajikan baginya bukan bakat melainkan latihan harian (bandingkan riyadhah dan kaidah Aristoteles: kita adalah yang kita ulangi). Porosnya ren — rasa kemanusiaan — yang dilatih lewat xiao (bakti pada orang tua; selami: Uwais) dan shu: timbang rasa, yang orang Jawa sebut tepa selira.",
+      hakikat: "Tentang perkara-perkara gaib ia menahan diri — 'belum sanggup melayani manusia, bagaimana melayani ruh?' — bukan penyangkalan, melainkan urutan: bereskan yang dekat sebelum berteori tentang yang jauh. Dan ajaran zhengming — pelurusan nama — menyimpan kedalaman tak terduga: kekacauan dunia bermula ketika kata tak lagi sesuai kenyataan; ayah tak menjadi ayah, pemimpin tak menjadi pemimpin, 'ulama' tak menjadi ulama. Meluruskan dunia dimulai dari meluruskan makna kata — dan makna diri.",
+      makrifat: "Peta umurnya (Analek 2:4) adalah tangga maqam versi Tiongkok: 15 tahun berniat belajar, 30 tegak berdiri, 40 bebas keraguan, 50 mengerti titah Langit (tianming), 60 telinga patuh — kabar apa pun tak menggoyahkan, dan 70: 'mengikuti kehendak hati tanpa melanggar garis.' Perhatikan ujungnya: kebebasan tertinggi bukan lepas dari aturan, melainkan hati yang telah selaras hingga kehendaknya dan aturan menjadi satu — persis rumus entri Tajrid: bentuk berhenti menjadi belenggu bagi yang sudah sampai; ia menjadi tarian.",
+    },
+    seharihari: "Tepa selira — kata yang dipakai nenekmu — adalah ajaran Konfusius yang sudah lima ratus tahun jadi orang Jawa: sebelum bertindak, rasakan jadi orang di depanmu. Ia tak butuh teori langit: cukup satu pertanyaan sebelum kau kirim pesan, tagih utang, atau balas hinaan — 'kalau aku di posisinya, ingin diperlakukan bagaimana?' Amalkan sehari penuh, dan kau paham kenapa satu kalimat ini menata peradaban dua puluh lima abad.",
+    lengkap: {
+      riwayat: "Lahir 551 SM di negeri Lu (kini Qufu, Shandong) dari keluarga bangsawan yang jatuh miskin; yatim sejak kecil, bekerja kasar — menggembala, mengurus lumbung — sambil melahap ilmu ritus, musik, dan sejarah hingga diakui sebagai ahli tata upacara. Kariernya di Lu sempat menanjak sampai jabatan menteri, dan tradisinya menuturkan negeri itu sebentar menjadi tertib — sebelum intrik (dan hadiah penari-penari dari negeri pesaing yang melalaikan sang raja) membuatnya mundur dengan kecewa. Usia 55 ia memulai bagian hidup yang paling dikenang: empat belas tahun berkelana dari negeri ke negeri menawarkan jalan pemerintahan yang lurus — dan ditolak di mana-mana, kadang diusir, kadang nyaris dibunuh, pernah terlunta kelaparan 'seperti anjing kehilangan rumah' — gambaran yang ia iyakan sambil tertawa.\n\nUsia 68 ia pulang ke Lu, berdamai dengan kegagalan politiknya, dan mengerjakan yang ternyata takdirnya: mengajar dan menyunting kitab-kitab klasik. Tujuh puluh dua murid dekat (dari tiga ribu) meneruskan ajarannya; ia wafat 479 SM merasa gagal — 'tak ada penguasa yang memakaiku' — tanpa tahu bahwa dua abad kemudian ajarannya menjadi tulang punggung kekaisaran, dan dua puluh lima abad kemudian miliaran manusia dari Seoul sampai Surabaya masih hidup dengan nilai-nilainya. Sejarah menggelarinya 'raja tanpa mahkota': kalah di semua istana, menang di semua rumah.",
+      karya: [
+        "Analek (Lun Yu) — percakapan dan ucapannya yang dihimpun para murid: kitab paling berpengaruh dalam peradaban Asia Timur",
+        "Lima Klasik (Wujing) — kitab-kitab purba (Sanjak, Dokumen, Perubahan/I Ching, Ritus, Musim Semi-Gugur) yang disunting dan diajarkannya",
+        "Tradisi Khonghucu — 'karya kelembagaan': sistem pendidikan dan etika yang menata Asia Timur; di Indonesia menjadi agama yang diakui, dengan kelenteng dan litang-nya",
+      ],
+      ajaran: [
+        { j: "Ren — kemanusiaan sebagai poros", i: "Ditanya tentang ren, jawabnya sederhana: 'mencintai manusia.' Seluruh ritus dan tatanan hanyalah wadah bagi rasa ini — li tanpa ren, katanya, hanyalah gong yang berbunyi kosong. Bandingkan: syariat tanpa hakikat kosong (selami: Papat Tataran)." },
+        { j: "Shu — tepa selira", i: "Ditanya satu kata untuk pegangan seumur hidup, jawabnya: shu — timbang rasa: 'apa yang kau sendiri tak inginkan, jangan lakukan pada orang lain.' Kaidah emas yang hadir di semua khazanah — dan di Jawa sudah menjadi kosa kata harian." },
+        { j: "Zhengming — meluruskan nama", i: "Perbaikan dunia dimulai dari kejujuran bahasa: sebut segala sesuatu dengan nama sebenarnya, jadilah sesuai namamu. Korupsi peradaban selalu diawali korupsi kata — 'damai' untuk perang, 'pembangunan' untuk perampasan, 'ulama' untuk pedagang agama." },
+        { j: "Junzi — manusia unggul yang dilatih", i: "Junzi bukan bangsawan darah melainkan bangsawan budi: siapa pun bisa, lewat belajar dan pembiasaan. Ia mendemokratisasi kemuliaan — pendidikan untuk semua, dua setengah milenium sebelum jargon itu ada." },
+        { j: "Bakti sebagai akar", i: "Xiao — bakti pada orang tua — adalah akar semua kebajikan: yang gagal berterima kasih pada akar hidupnya tak akan tulus pada siapa pun (selami: Uwais). Rumah adalah madrasah pertama negara." },
+      ],
+      kalimat: [
+        { t: "Apa yang dirimu sendiri tidak inginkan, jangan lakukan kepada orang lain.", k: "Analek 15:24 — jawaban atas 'satu kata untuk seumur hidup'; kaidah emas dalam rumusan negatifnya yang rendah hati: tak menuntut jadi pahlawan, cukup berhenti menzalimi." },
+        { t: "Belajar dan mengulangnya pada waktunya — bukankah itu kegembiraan?", k: "Analek 1:1 — kalimat pembuka kitabnya: peradaban besar dibuka bukan dengan genderang perang melainkan dengan kegembiraan belajar." },
+        { t: "Usia lima belas aku berniat belajar; tiga puluh tegak; empat puluh tak ragu; lima puluh mengerti titah Langit; enam puluh telingaku patuh; tujuh puluh kuikuti kehendak hatiku tanpa melanggar garis.", k: "Analek 2:4 — otobiografi enam baris yang menjadi peta maqam: kebebasan sejati adalah hati yang telah selaras dengan aturan, bukan yang lepas darinya." },
+        { t: "Tiga orang berjalan bersamaku — pasti ada yang bisa kujadikan guru.", k: "Analek 7:22 — kerendahan hati epistemik: yang baik ditiru, yang buruk jadi cermin; dunia seluruhnya madrasah bagi yang mau." },
+        { t: "Belum sanggup melayani manusia, bagaimana hendak melayani para ruh?", k: "Analek 11:12 — urutan prioritas yang menjaga dari lari ke langit sambil menelantarkan bumi; gema 'buah di dapur kehidupan' yang jadi timbangan kelas ini (selami: Adab)." },
+      ],
+      warisan: "Separuh Asia menata rumah, sekolah, dan kantornya dengan nilai-nilainya — kerja keras, hormat guru, bakti orang tua, ujian sebagai jalan naik — hingga para ekonom menyebut 'etos Konfusian'. Di Nusantara ia hadir dua lapis: resmi lewat agama Khonghucu dan kelenteng-kelentengnya, dan diam-diam lewat kosa kata luhur yang sudah tak terasa asalnya — tepa selira, hormat pada yang tua, keutamaan belajar. Bersama Lao Tzu ia melengkapi pasangan abadi yang kelas ini kenali dari khazanahnya sendiri: tatanan dan jalan, li dan Tao, syariat dan hakikat — dua sayap yang hanya bila keduanya mengepak, burung peradaban terbang.",
+    },
+    rujukan: ["Analek (Lun Yu) 1:1; 2:4; 7:22; 11:12; 15:24", "Sima Qian, Shiji — biografi Kongzi", "Sejarah agama Khonghucu di Indonesia"],
+  },
+
   // ---------------------------------------------------------- FILSAFAT
   {
     id: "socrates-plato",
@@ -1408,6 +1566,85 @@ const TOKOH = [
       warisan: "Dua peradaban meminum dari sumurnya tanpa selalu tahu nama sumurnya: di Barat, lewat Augustinus dan mistikus-mistikus Kristen; di Timur, lewat Utsulujiya yang salah label — al-Kindi mengkajinya, al-Farabi dan Ibn Sina membangun kosmologi akal-akal di atasnya, Suhrawardi meneruskan bahasanya menjadi hikmah cahaya, dan gemanya berkelindan dalam perbincangan wahdatul wujud hingga suluk-suluk Nusantara. Baru para filolog modern membuktikan buku itu Enneads — dan justru di situ pelajarannya: Sang Pengatur menjahit kafilah hikmah-Nya bahkan lewat kesalahan katalog perpustakaan. Warisannya bagi kelas ini: kosmologi cahaya yang kau baca di entri Nur Muhammad dan Tajalli pernah singgah di mejanya — dan pesan pribadinya tetap segar: pahat terus patungmu; Keindahan menunggu di bawah serpihan yang kau buang.",
     },
     rujukan: ["Plotinus, Enneads (khususnya I.6 tentang keindahan; VI.9 penutup)", "Porphyrius, Kehidupan Plotinus", "Sejarah Utsulujiya / Teologi Aristoteles dalam filsafat Islam"],
+  },
+  {
+    id: "failasuf-muslim",
+    istilah: "Para Failasuf Muslim — Al-Farabi, Ibn Sina, Ibn Rusyd",
+    asal: "Guru Kedua, Syaikh ar-Rais, dan Sang Komentator; abad 9–12 M",
+    kategori: "filsafat",
+    alias: ["failasuf", "filsafat islam", "al farabi", "farabi", "ibn sina", "ibnu sina", "avicenna", "ibn rusyd", "ibnu rusyd", "averroes", "asy syifa", "qanun"],
+    kunci: ["akal", "wahyu", "kedokteran", "logika", "wajib wujud", "kordoba"],
+    ringkas: "Tiga raksasa yang membuktikan akal dan iman bisa serumah: penata ilmu, tabib segala tabib, dan hakim yang membela nalar — jembatan Baghdad–Bukhara–Cordoba ke seluruh dunia.",
+    tingkat: {
+      syariat: "Ketiganya muslim yang taat ilmu sekaligus taat agama: al-Farabi (w. 339 H) hidup zuhud bergaji minim di istana Aleppo; Ibn Sina (370–428 H) hafal Al-Qur'an usia sepuluh tahun dan setiap kali buntu masalah ilmiah pergi ke masjid shalat memohon dibukakan; Ibn Rusyd (520–595 H) adalah qadhi agung Cordoba dari keluarga para qadhi — kitab fiqh perbandingannya, Bidayatul Mujtahid, dikaji di pesantren hingga hari ini. Yang mengira filsafat identik meninggalkan agama belum membaca hidup mereka.",
+      tarekat: "Tarekat mereka adalah disiplin akal yang nyaris asketik: Ibn Sina muda membaca Metafisika Aristoteles empat puluh kali hingga hafal tanpa paham — sampai risalah kecil al-Farabi membuka kuncinya, dan ia bersedekah besar sebagai syukur. Malam-malam mereka adalah malam begadang ilmu; dan al-Farabi menutup jalannya dengan kesederhanaan: cukup gaji kecil, jubah sufi, dan kitab. Menuntut ilmu sampai tuntas, kata jalur ini, adalah ibadahnya para pemikir.",
+      hakikat: "Sumbangan puncaknya pada tauhid rasional: Ibn Sina merumuskan Wajib al-Wujud — Yang Wajib Ada: segala yang mungkin ada bersandar pada Yang tak mungkin tidak ada; dalil yang ia sebut burhan ash-shiddiqin — bukti para shiddiq: membuktikan Allah dari wujud itu sendiri, bukan dari makhluk (bandingkan gema entri Wahdatul Wujud: yang mumkin tak pernah berdiri sendiri). Al-Farabi memetakan seluruh ilmu dan negeri utama (al-Madinah al-Fadhilah) yang dipimpin yang paling kenal Allah; Ibn Rusyd menegaskan dalam Fashl al-Maqal: kebenaran tidak bertentangan dengan kebenaran — nalar yang lurus dan wahyu yang sahih pasti berjumpa.",
+      makrifat: "Dan inilah ujung yang jarang diceritakan: Ibn Sina menutup karya terakhirnya, al-Isyarat wat-Tanbihat, dengan bab-bab tentang maqamat al-'arifin — kedudukan para arif: sang pangeran para filsuf, di penghujung umurnya, menulis tentang dzauq, khalwat, dan kelezatan musyahadah dengan takzim seorang murid. Nalar yang jujur, bila dituntaskan, mengantar pemiliknya ke tepi yang sama: sujud (selami: Aristoteles; Sidratul Muntaha). Kritik al-Ghazali dan jawaban Ibn Rusyd kemudian bukan perang iman melawan kufur — melainkan dua penjaga yang sama-sama mengasah pisau umat: yang satu menjaga akidah dari klaim akal yang kebablasan, yang lain menjaga akal dari vonis yang kebablasan.",
+    },
+    seharihari: "Dokter yang kau datangi, obat yang kau minum, logika yang dipakai hakim menimbang perkara — jejak tiga orang ini ada di dalamnya: Qanun Ibn Sina menjadi buku wajib kedokteran Eropa enam abad; logika Farabi jadi ilmu alat pesantren; syarah Ibn Rusyd membangunkan Eropa dari tidurnya. Pesan mereka untuk anakmu yang bertanya 'boleh nggak sih orang saleh jadi ilmuwan?': bukan hanya boleh — tiga belas abad lalu orang-orang saleh itulah ilmuwan terbesar dunia.",
+    lengkap: {
+      riwayat: "Al-Farabi lahir di Farab, Turkestan (±259 H), belajar logika di Baghdad pada para penerjemah Kristen — bukti ilmu tak memandang sekat — hingga digelari al-Mu'allim ats-Tsani, Guru Kedua sesudah Aristoteles. Ia ahli musik (Kitab al-Musiqa al-Kabir, rujukan teori musik berabad-abad; konon piawai memainkan dan menggubah), memilih hidup sederhana di istana Saifuddaulah di Aleppo dengan tunjangan kecil, dan wafat di Damaskus ±339 H.\n\nIbn Sina lahir dekat Bukhara 370 H: bocah ajaib yang usia enam belas sudah dirujuk para tabib, dan mendapat akses perpustakaan istana Samaniyah sebagai upah menyembuhkan sang amir. Hidupnya kejar-kejaran antara jabatan wazir, penjara, pelarian politik, dan menulis di atas pelana — asy-Syifa (ensiklopedia filsafat terbesar satu tangan) dan al-Qanun fi ath-Thibb ditulis di sela badai itu. Wafat di Hamadan 428 H dalam perjalanan; menjelang akhir ia membebaskan budak-budaknya, menyedekahkan hartanya, dan mengkhatamkan Al-Qur'an berulang kali. Ibn Rusyd lahir di Cordoba 520 H dari dinasti qadhi; atas perintah khalifah Muwahhidun ia mensyarah seluruh Aristoteles — Eropa Latin menyebutnya The Commentator; menjadi qadhi agung dan tabib istana, difitnah dan diasingkan sebentar di masa tuanya, dipulihkan, lalu wafat di Marrakesh 595 H. Jenazahnya dibawa pulang ke Cordoba — kota yang kelak memahat patungnya.",
+      karya: [
+        "Al-Farabi: al-Madinah al-Fadhilah (negeri utama), Ihsha' al-'Ulum (peta semua ilmu), Kitab al-Musiqa al-Kabir",
+        "Ibn Sina: asy-Syifa & an-Najat (filsafat), al-Qanun fi ath-Thibb (kedokteran — kurikulum Eropa ±600 tahun), al-Isyarat wat-Tanbihat (dengan maqamat al-'arifin), Hayy ibn Yaqzan (risalah simbolik)",
+        "Ibn Rusyd: Tahafut at-Tahafut (jawaban atas al-Ghazali), Fashl al-Maqal (harmoni syariat & hikmah), Bidayatul Mujtahid (fiqh perbandingan), syarah-syarah Aristoteles",
+      ],
+      ajaran: [
+        { j: "Wajib al-Wujud — tauhid lewat analisis wujud", i: "Segala yang mungkin ada butuh penyebab keberadaannya; rantai kebutuhan harus berujung pada Yang Wajib Ada dengan sendirinya — Esa, tak tersusun, tak bergantung. Kerangka Ibn Sina ini diserap ilmu kalam dan menggema hingga perumusan wahdatul wujud." },
+        { j: "Kebenaran tak melawan kebenaran", i: "Fashl al-Maqal Ibn Rusyd: syariat justru mewajibkan nalar (perintah i'tibar dalam Qur'an); bila lahiriah nash tampak bertentangan dengan bukti nalar yang pasti, ada tafsir yang menyatukan — dan yang boleh menakwilkan hanyalah yang mendalam ilmunya. Adab dua arah yang menyelamatkan agama dari kebodohan dan akal dari kesombongan." },
+        { j: "Negeri utama dipimpin yang paling kenal", i: "Al-Madinah al-Fadhilah: masyarakat ideal al-Farabi dipimpin insan yang sempurna akal dan makrifatnya — filsuf sekaligus nabi/wali dalam kerangka Yunani-Islam; kota rusak bila dipimpin yang hanya kenal kekuasaan." },
+        { j: "Ilmu bertingkat, pembaca bertingkat", i: "Ketiganya menulis berlapis: untuk umum, untuk pelajar, untuk khawas (Ibn Rusyd bahkan merumuskannya resmi: khithabi, jadali, burhani). Kaidah yang sama dengan takaran para wali (selami: Adab): bukan menyembunyikan — menakar." },
+        { j: "Akal yang tuntas berujung takzim", i: "Maqamat al-'arifin Ibn Sina adalah kesaksiannya sendiri: sesudah seluruh silogisme, yang tersisa adalah kerinduan para arif yang ia gambarkan dengan hormat. Nalar sejati tidak berhenti pada dirinya — ia mengantar ke ambang." },
+      ],
+      kalimat: [
+        { t: "Kebenaran tidak bertentangan dengan kebenaran; ia menyaksikannya dan menguatkannya.", k: "Ibn Rusyd, Fashl al-Maqal — satu kalimat yang menjadi piagam perdamaian akal dan wahyu." },
+        { t: "Aku membaca Metafisika empat puluh kali hingga hafal dan tetap tak paham — sampai kubeli risalah kecil al-Farabi seharga tiga dirham, dan terbukalah maksudnya; esoknya aku bersedekah karena syukur.", k: "Ibn Sina, otobiografinya — adab ilmu: kejeniusan pun butuh guru, dan pembukaan disyukuri dengan sedekah." },
+        { t: "Orang arif menghendaki al-Haqq bukan karena sesuatu selain-Nya; tak ada yang ia dahulukan di atas makrifat-Nya; ibadahnya hanya karena Dia layak disembah.", k: "Ibn Sina, al-Isyarat — maqamat al-'arifin: definisi arif dari lisan pangeran para filsuf; bandingkan doa Rabi'ah (selami: Rabi'ah)." },
+        { t: "Jiwa-jiwa besar tidak disibukkan oleh kefanaan jasad.", k: "Saripati pesan penghiburan yang masyhur dinisbatkan pada tradisi Ibn Sina tentang kematian — tabib segala tabib menutup resep terakhirnya dengan tauhid: yang dirawatnya seumur hidup memang bukan sekadar badan." },
+      ],
+      warisan: "Eropa bangun dari abad gelapnya sambil membaca mereka: Avicenna dan Averroes adalah nama wajib universitas Latin; kedokteran, logika, dan metode ilmiah modern menyimpan sidik jari mereka. Di dunia Islam, kalam sesudah mereka berbahasa mereka (bahkan para pengkritiknya memakai peralatan mereka), pesantren mewarisi mantiq, dan maqamat al-'arifin Ibn Sina menjadi jembatan resmi filsafat–tasawuf yang kelak dilebarkan Suhrawardi serta Mulla Sadra. Warisan terbesar ketiganya satu pesan yang selalu perlu diulang: umat ini pernah — dan bisa lagi — menjadi umat yang shalatnya khusyuk dan laboratoriumnya menyala; keduanya tak pernah bermusuhan kecuali di kepala yang sempit.",
+    },
+    rujukan: ["Ibn Sina, al-Isyarat wat-Tanbihat — namath 8–9 (maqamat al-'arifin)", "Ibn Rusyd, Fashl al-Maqal; Tahafut at-Tahafut", "Al-Farabi, al-Madinah al-Fadhilah; sejarah Baitul Hikmah"],
+  },
+  {
+    id: "suhrawardi",
+    istilah: "Suhrawardi — Syaikh Cahaya",
+    asal: "Syihabuddin Yahya as-Suhrawardi al-Maqtul, 549–587 H",
+    kategori: "filsafat",
+    alias: ["suhrawardi", "syaikh isyraq", "hikmah isyraq", "isyraqiyah", "iluminasi", "al maqtul", "filsafat cahaya"],
+    kunci: ["cahaya", "isyraq", "aleppo", "hudhuri", "pengasingan barat"],
+    ringkas: "Filsuf-sufi yang menyatukan hikmah Yunani, Persia, dan wahyu dalam satu bahasa: cahaya — dan membayar kilaunya dengan nyawa di Aleppo pada usia 38.",
+    tingkat: {
+      syariat: "Lahir di Suhraward, Persia barat laut, 549 H; belajar fiqh dan ushul di Maraghah dan Isfahan — dasar syariatnya kokoh sebelum sayapnya tumbuh. Ia hidup zuhud sebagai darwis kelana: jubah kasar, tak peduli penampilan, sering berpuasa dan berkhalwat. Julukannya al-Maqtul — 'yang terbunuh' — sengaja dipakai para pengikutnya alih-alih asy-syahid, demi membedakannya dari dua Suhrawardi sufi besar lain; dan di balik nama itu tersimpan babak paling kelam: dieksekusi di benteng Aleppo 587 H (±1191 M) pada usia 38, atas tekanan para fuqaha kepada Salahuddin al-Ayyubi, yang memerintahkan putranya al-Malik azh-Zhahir — murid sekaligus pengagum Suhrawardi — menghukum gurunya sendiri.",
+      tarekat: "Metodenya menggabungkan dua sayap secara eksplisit: ta'alluh (penyucian dan penyaksian — jalannya para sufi) dan bahts (penelitian nalar — jalannya para failasuf); yang hanya punya satu sayap, katanya, belum hakim yang sempurna. Kitab utamanya sendiri mensyaratkan pembacanya telah ber-riyadhah dan berkhalwat: filsafatnya tak bisa dibaca sambil rebahan — ia menuntut laku, sebagaimana kelas ini menuntut laku (selami: Khalwat).",
+      hakikat: "Hikmah al-Isyraq — kearifan pancaran timur: seluruh kenyataan adalah cahaya yang bertingkat-tingkat intensitasnya, memancar dari Nur al-Anwar — Cahaya segala cahaya; kegelapan hanyalah ketiadaan pancaran, dan jarak segala maujud dari Sumbernya diukur dengan terang-redupnya (bandingkan ayat Cahaya QS 24:35 dan Misykat al-Ghazali — selami: Hijab; Nur Muhammad). Sumbangan besarnya bagi ilmu: 'ilm hudhuri — ilmu kehadiran: jiwa mengenal dirinya dan Cahaya bukan lewat gambaran-perantara, melainkan dengan hadir langsung — persis beda tahu-tentang dan kenal yang menjadi poros entri Makrifat.",
+      makrifat: "Ia memandang dirinya pewaris satu kafilah hikmah abadi yang mengalir lewat dua sungai — Hermes dan para bijak Yunani (Plato imamnya) di barat, para raja-bijak cahaya Persia purba di timur — dan bermuara pada para sufi: Bayazid dan Hallaj disebutnya penerus hikmah sejati (selami: Bayazid; Al-Hallaj). Risalah simboliknya al-Ghurbah al-Gharbiyyah — 'Pengasingan Barat' — memetakan seluruh perjalanan pulang: jiwa terpenjara di 'barat' (dunia materi, kegelapan), teringat 'timur' asalnya (alam cahaya), lalu mendaki pulang — sangkan paraning dumadi dalam aksara Persia-Arab (selami: Sangkan Paraning Dumadi). Nasibnya menggenapkan trilogi yang kelas ini catat dengan duka dan takzim: Hallaj di Baghdad, Suhrawardi di Aleppo, Siti Jenar di Jawa — cahaya yang terlalu terang untuk zamannya masing-masing.",
+    },
+    seharihari: "Semua orang sebenarnya paham bahasa cahaya: 'wajahnya bersinar', 'pikirannya terang', 'hatiku gelap akhir-akhir ini' — tak ada yang mengajari, semua mengerti. Suhrawardi hanya menyusun kamus lengkapnya: hidup ini perkara watt — makin bersih kaca jiwamu, makin terang pancarannya lewat kamu. Dan listriknya bukan milikmu; kau cuma bohlam. Bohlam yang sombong pecah sendiri; bohlam yang bersih menerangi satu kampung.",
+    lengkap: {
+      riwayat: "Dari Suhraward ia berpindah belajar: Maraghah (fiqh & hikmah pada Majduddin al-Jili — yang juga guru Fakhruddin ar-Razi, kelak pengkritik besar filsafat: dua murid satu guru, dua arah mata angin), lalu Isfahan (logika), lalu tahun-tahun pengembaraan darwis melintasi Anatolia dan Syam — bersahabat dengan para sufi, berkhalwat panjang, menulis dengan kecepatan yang menakjubkan: dalam hidup 38 tahun ia meninggalkan hampir lima puluh karya. Kecemerlangannya membuat para penguasa Seljuk Anatolia menyambutnya; kefasihannya berdebat membuat para fuqaha istana gerah di mana-mana.\n\nDi Aleppo ia menemukan pelindung sekaligus muridnya: al-Malik azh-Zhahir, putra Salahuddin. Namun kedekatan itu justru memicu kecemburuan dan ketakutan politik: para penentang melaporkannya ke Salahuddin dengan tuduhan berlapis — merusak akidah pangeran, mengklaim kenabian (tuduhan yang ditolaknya), dan yang paling dicemaskan: pengaruhnya yang membesar di titik strategis perang Salib. Salahuddin — yang negaranya sedang bertaruh nyawa melawan pasukan salib dan baru saja menumpas sisa-sisa Fathimiyah — memilih 'aman': perintah eksekusi diteken. Sang pangeran menunda-nunda dengan pedih; perintah kedua datang lebih keras. Suhrawardi wafat di benteng Aleppo 587 H — riwayat berbeda tentang caranya: dibiarkan tanpa makan, atau dicekik, atau dengan pedang. Azh-Zhahir kemudian menghukum para pelapornya — sesal yang datang, seperti biasa, terlambat.",
+      karya: [
+        "Hikmah al-Isyraq — kitab induk filsafat iluminasi: kritik atas logika kaum peripatetik lalu bangunan metafisika cahaya",
+        "At-Talwihat, al-Muqawamat, al-Masyari' wal-Mutharahat — trilogi persiapannya: jembatan dari filsafat masysya'i menuju isyraq",
+        "Risalah-risalah simbolik Persia — al-Ghurbah al-Gharbiyyah (Pengasingan Barat), 'Aql-e Sorkh (Akal Merah), Awaz-e Par-e Jebra'il (Sayap Jibril): suluk dalam bentuk dongeng-dongeng padat",
+        "Hayakil an-Nur (Bangunan-Bangunan Cahaya) — ringkasan ajarannya yang paling banyak disyarah",
+      ],
+      ajaran: [
+        { j: "Segala yang nyata adalah cahaya", i: "Kenyataan bertingkat berdasar intensitas terang: dari Nur al-Anwar hingga cahaya-cahaya redup di alam benda; gelap bukan lawan yang berdiri sendiri, hanya ketiadaan pancaran. Ontologi yang sekaligus etika: naik derajat = menambah bening, bukan menambah milik." },
+        { j: "'Ilm hudhuri — ilmu kehadiran", i: "Pengetahuan tertinggi tanpa perantara gambaran: jiwa tahu dirinya dengan hadir, bukan dengan memotret dirinya. Di sinilah filsafat dan makrifat berjabat: kenal langsung yang para sufi sebut dzauq mendapat kerangka epistemologinya (selami: Makrifat; Kasyf)." },
+        { j: "Dua sayap: penelitian dan penyucian", i: "Hakim sempurna adalah yang menggabungkan bahts (nalar teliti) dan ta'alluh (laku penyaksian). Ia menolak dua kepincangan: sufi yang membenci nalar dan failasuf yang mengejek laku." },
+        { j: "Kafilah hikmah abadi", i: "Hikmah tak pernah putus: Hermes, Plato, para raja-bijak Persia, hingga Bayazid dan Hallaj — semua meneguk dari khamir azali yang satu. Landasan sikap kelas ini terhadap khazanah-khazanah dunia: menimbang dan mengambil, bukan menutup mata (selami: Socrates & Plato; Lao Tzu)." },
+        { j: "Pengasingan Barat", i: "Jiwa adalah pangeran timur yang tertawan di sumur barat; pemulangannya ditempuh dengan ingat, surat dari Ayah (wahyu), dan pendakian. Seluruh entri Sangkan Paran dan Hijab terangkum dalam satu dongengnya." },
+      ],
+      kalimat: [
+        { t: "Kearifan ini tidak akan kau pahami selama engkau belum ber-riyadhah dan berkhalwat — sebab ia bukan ilmu yang dipindahkan, melainkan cahaya yang disaksikan.", k: "Saripati syarat pembaca dalam pengantar Hikmah al-Isyraq — filsafat yang menagih wudhu sebelum dibuka." },
+        { t: "Jiwa mengenal dirinya bukan dengan gambaran tentang dirinya, melainkan dengan kehadirannya bagi dirinya sendiri.", k: "Inti 'ilm hudhuri (Hikmah al-Isyraq) — dalil bahwa 'kenal' lebih dalam dari 'tahu-tentang'; kembaran filsafat dari man 'arafa nafsahu." },
+        { t: "Pakailah cahaya sebagai timbangan: yang menambah terang hatimu, dekatkan; yang menambah gelap, tinggalkan.", k: "Saripati etika isyraqi dari risalah-risalahnya — kompas praktis yang bisa dipakai hari ini juga." },
+        { t: "Aku pemuda yang masih menyimpan kata-kata; usiaku belum genap empat puluh.", k: "Diriwayatkan sebagai keluhannya menjelang akhir (manaqib para penulis biografinya) — kesadaran seorang yang tahu kitab-kitab besarnya belum selesai; ditulisnya hampir lima puluh, pada usia yang orang lain baru mulai." },
+      ],
+      warisan: "Dari darahnya tumbuh mazhab: hikmah isyraqiyyah disyarah Syahrazuri dan Quthbuddin Syirazi, diserap Mulla Sadra di Persia menjadi al-hikmah al-muta'aliyah, dan hidup hingga kini di hauzah-hauzah serta kajian akademik dunia — filsafat Islam tidak berhenti di Ibn Rusyd sebagaimana dongeng lama; ia berbelok lewat Suhrawardi dan terus mengalir. Kosa kata cahayanya meresap ke sastra Persia dan suluk Nusantara (nur, pancaran, terang-gelapnya hati). Dan warisannya yang paling pribadi bagi kelas ini: peringatan ketiga dalam trilogi Hallaj–Suhrawardi–Siti Jenar — kebenaran perlu takaran dan zaman perlu kelapangan; semoga zamanmu cukup lapang, dan takaranmu cukup bijak, sehingga cahayamu menerangi tanpa membakar rumahmu sendiri.",
+    },
+    rujukan: ["Suhrawardi, Hikmah al-Isyraq; Hayakil an-Nur; al-Ghurbah al-Gharbiyyah", "Syahrazuri, Nuzhatul Arwah — biografi", "Kajian: Henry Corbin & S.H. Nasr tentang mazhab isyraq"],
   },
 ];
 
