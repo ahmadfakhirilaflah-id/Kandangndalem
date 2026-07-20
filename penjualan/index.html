@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KNJ Sales OS — Bagan Otomatisasi Penjualan (Juli 2026)</title>
+<style>
+  :root{
+    --hijau:#1b4332; --hijau-tua:#122e22; --hijau-muda:#2d6a4f;
+    --emas:#d4a437; --emas-muda:#f0d9a0;
+    --krem:#faf6ee; --putih:#ffffff; --abu:#6b7268; --garis:#e2dccb;
+    --merah:#b03a2e; --biru:#2c5f8a; --oranye:#b3701e;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--krem); color:#26332c; line-height:1.5; font-size:15px;
+  }
+  header{
+    background:linear-gradient(135deg,var(--hijau-tua),var(--hijau));
+    color:var(--putih); padding:14px 16px;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+  }
+  header h1{font-size:1.05rem; letter-spacing:.5px;}
+  header h1 span{color:var(--emas);}
+  header p{font-size:.75rem; opacity:.85;}
+  .aksi-header{margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;}
+  .aksi-header button{
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3);
+    color:#fff; font-size:.75rem; padding:6px 12px; border-radius:20px; cursor:pointer;
+  }
+  .aksi-header button:hover{background:rgba(255,255,255,.25);}
+  nav{
+    display:flex; background:var(--putih); border-bottom:2px solid var(--garis);
+    position:sticky; top:0; z-index:40; overflow-x:auto;
+  }
+  nav button{
+    flex:1; min-width:0; padding:12px 4px; border:none; background:none; cursor:pointer;
+    font-size:.8rem; font-weight:600; color:var(--abu); border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav button.aktif{color:var(--hijau); border-bottom-color:var(--emas);}
+  main{max-width:1000px; margin:0 auto; padding:16px 12px 90px;}
+  h2{font-size:1.15rem; color:var(--hijau); margin:18px 0 10px;}
+  h3{font-size:.98rem; color:var(--hijau-muda); margin:16px 0 8px;}
+  h4{font-size:.85rem; color:var(--hijau); margin:12px 0 6px; text-transform:uppercase; letter-spacing:.5px;}
+  .kartu{
+    background:var(--putih); border:1px solid var(--garis); border-radius:12px;
+    padding:14px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,.05);
+  }
+  .badge{
+    display:inline-block; font-size:.72rem; font-weight:700; padding:2px 10px;
+    border-radius:20px; background:var(--emas-muda); color:#6b4e0a;
+  }
+  .badge-merah{background:#f7ddd9; color:var(--merah);}
+  .badge-biru{background:#dbe9f5; color:var(--biru);}
+  .badge-hijau{background:#dcefe4; color:var(--hijau);}
+  .badge-abu{background:#eceae2; color:var(--abu);}
+  .btn{
+    display:inline-block; background:var(--hijau); color:#fff; border:none; cursor:pointer;
+    padding:9px 16px; border-radius:8px; font-size:.85rem; font-weight:600; margin:6px 6px 0 0;
+    text-decoration:none;
+  }
+  .btn:hover{background:var(--hijau-muda);}
+  .btn-sekunder{background:#fff; color:var(--hijau); border:1.5px solid var(--hijau);}
+  .btn-sekunder:hover{background:var(--krem);}
+  .btn-emas{background:var(--emas); color:#3d2e05;}
+  .btn-kecil{padding:6px 10px; font-size:.75rem; border-radius:7px;}
+  .btn-merah{background:#fff; color:var(--merah); border:1.5px solid var(--merah);}
+  input,select,textarea{
+    font:inherit; font-size:16px; padding:7px 9px; border:1px solid #cfc9b8; border-radius:8px;
+    background:#fff; width:100%;
+  }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--hijau-muda); border-color:var(--hijau-muda);}
+  input[type=number]{text-align:right;}
+  label{font-size:.76rem; font-weight:600; color:var(--abu); display:block; margin-bottom:3px;}
+  .form-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-bottom:6px;}
+  .info{
+    background:#f2efe4; border-left:4px solid var(--emas); border-radius:0 10px 10px 0;
+    padding:10px 12px; font-size:.82rem; margin-bottom:14px; color:#4c5348;
+  }
+  table{width:100%; border-collapse:collapse; font-size:.83rem;}
+  th{
+    text-align:left; background:var(--hijau); color:#fff; padding:7px 8px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.4px;
+  }
+  th:first-child{border-radius:8px 0 0 0;} th:last-child{border-radius:0 8px 0 0;}
+  td{padding:6px 8px; border-bottom:1px solid var(--garis); vertical-align:middle;}
+  tr:nth-child(even) td{background:#fbf9f3;}
+  .tabel-gulir{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  .angka{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap;}
+
+  /* ---------- corong / funnel chips ---------- */
+  .corong{display:flex; align-items:center; gap:4px; overflow-x:auto; padding:8px 2px 12px; -webkit-overflow-scrolling:touch;}
+  .corong .chip{
+    flex:0 0 auto; background:var(--hijau); color:#fff; font-size:.72rem; font-weight:700;
+    padding:6px 12px; border-radius:20px; letter-spacing:.3px; white-space:nowrap;
+  }
+  .corong .chip.emas{background:var(--emas); color:#3d2e05;}
+  .corong .panah-kecil{flex:0 0 auto; color:var(--emas); font-weight:700;}
+
+  /* ---------- bagan tahap ---------- */
+  .tahap{position:relative;}
+  .tahap-kartu{border-left:5px solid var(--emas); padding:0; overflow:hidden;}
+  .tahap-kartu summary{
+    list-style:none; cursor:pointer; padding:13px 14px; display:block; position:relative;
+  }
+  .tahap-kartu summary::-webkit-details-marker{display:none;}
+  .tahap-kartu summary::after{
+    content:"▾"; position:absolute; right:14px; top:13px; color:var(--emas); font-size:1rem;
+    transition:transform .15s;
+  }
+  .tahap-kartu[open] summary::after{transform:rotate(180deg);}
+  .tahap-judul{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-right:24px;}
+  .tahap-nomor{
+    flex:0 0 auto; width:30px; height:30px; border-radius:50%;
+    background:var(--hijau); color:var(--emas-muda); font-weight:800; font-size:.85rem;
+    display:flex; align-items:center; justify-content:center; border:2px solid var(--emas);
+  }
+  .tahap-judul b{font-size:.95rem; color:var(--hijau);}
+  .sla{
+    font-size:.68rem; font-weight:800; background:var(--emas-muda); color:#6b4e0a;
+    padding:2px 9px; border-radius:20px; text-transform:uppercase; letter-spacing:.4px;
+  }
+  .tahap-inti{font-size:.8rem; color:var(--abu); margin-top:5px; padding-right:20px;}
+  .tahap-isi{padding:0 14px 14px; border-top:1px dashed var(--garis);}
+  .tahap-isi ul{margin:4px 0 4px 18px;}
+  .tahap-isi li{font-size:.84rem; margin-bottom:5px;}
+  .dua-jalur{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:8px; margin-top:8px;}
+  .jalur{border-radius:10px; padding:9px 11px; font-size:.8rem;}
+  .jalur-ayam{background:#f8efe0; border:1px solid #e8d5ae;}
+  .jalur-produk{background:#e9f2ec; border:1px solid #c9dfd1;}
+  .jalur b{display:block; margin-bottom:2px; font-size:.74rem; text-transform:uppercase; letter-spacing:.4px;}
+  .jalur-ayam b{color:var(--oranye);}
+  .jalur-produk b{color:var(--hijau-muda);}
+  .ref-dunia{
+    margin-top:9px; font-size:.79rem; background:#f4f1ff; border:1px solid #ddd6f0;
+    border-radius:10px; padding:8px 11px; color:#4a3f76;
+  }
+  .oto-app{
+    margin-top:7px; font-size:.79rem; background:#fff8e6; border:1px solid #efe2b5;
+    border-radius:10px; padding:8px 11px; color:#6b4e0a;
+  }
+  .panah-bawah{text-align:center; color:var(--emas); font-size:1.25rem; line-height:1; padding:2px 0 8px;}
+  .loop-kartu{
+    border:2px dashed var(--emas); background:#fffdf5; border-radius:14px; padding:14px;
+    text-align:center; margin-bottom:14px;
+  }
+  .loop-kartu b{color:var(--hijau);}
+  .loop-kartu p{font-size:.83rem; margin-top:5px; color:#4c5348;}
+
+  /* ---------- kartu aturan ---------- */
+  .grid-aturan{display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:12px;}
+  .aturan-kartu{border-top:4px solid var(--emas);}
+  .aturan-kartu .no-aturan{
+    font-size:.68rem; font-weight:800; color:var(--emas); letter-spacing:1px; text-transform:uppercase;
+  }
+  .aturan-kartu h3{margin:2px 0 4px; font-size:.95rem; color:var(--hijau);}
+  .aturan-kartu .perusahaan{
+    display:inline-block; font-size:.7rem; font-weight:700; background:#eceae2; color:#4c5348;
+    border-radius:20px; padding:2px 10px; margin-bottom:7px;
+  }
+  .aturan-kartu p{font-size:.82rem; margin-bottom:6px;}
+  .aturan-kartu ul{margin:0 0 6px 17px;}
+  .aturan-kartu li{font-size:.8rem; margin-bottom:3px;}
+  .metrik{
+    font-size:.75rem; font-weight:700; color:var(--biru); background:#eef4fa;
+    border-radius:8px; padding:5px 9px; display:inline-block;
+  }
+
+  /* ---------- pipeline ---------- */
+  .ring-pipeline{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;}
+  .stat-kotak{
+    flex:1 1 100px; background:var(--putih); border:1px solid var(--garis); border-radius:12px;
+    padding:10px 12px; text-align:center;
+  }
+  .stat-kotak .nilai{font-size:1.25rem; font-weight:800; color:var(--hijau);}
+  .stat-kotak .label-stat{font-size:.68rem; text-transform:uppercase; letter-spacing:.4px; color:var(--abu); font-weight:700;}
+  .stat-kotak.perlu .nilai{color:var(--merah);}
+  .lead-kartu{border-left:5px solid var(--garis);}
+  .lead-kartu.perlu-fu{border-left-color:var(--merah);}
+  .lead-kartu.aman{border-left-color:var(--hijau-muda);}
+  .lead-kartu.tidur-k{border-left-color:#b9b4a4; opacity:.8;}
+  .lead-atas{display:flex; justify-content:space-between; gap:8px; align-items:flex-start; flex-wrap:wrap;}
+  .lead-nama{font-weight:800; color:var(--hijau); font-size:.95rem;}
+  .lead-meta{font-size:.75rem; color:var(--abu); margin-top:2px;}
+  .lead-badges{display:flex; gap:5px; flex-wrap:wrap; margin-top:6px;}
+  .lead-aksi{display:flex; gap:6px; flex-wrap:wrap; margin-top:9px; align-items:center;}
+  .lead-aksi select{width:auto; font-size:.8rem; padding:6px 8px;}
+  .fu-info{font-size:.78rem; font-weight:700; margin-top:6px;}
+  .fu-telat{color:var(--merah);}
+  .fu-aman{color:var(--hijau-muda);}
+  .filter-baris{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;}
+  .filter-baris button{
+    background:#fff; border:1.5px solid var(--garis); border-radius:20px; padding:5px 12px;
+    font-size:.75rem; font-weight:700; color:var(--abu); cursor:pointer;
+  }
+  .filter-baris button.aktif{border-color:var(--emas); color:var(--hijau); background:var(--emas-muda);}
+  .catatan-lead{font-size:.8rem; background:#fbf9f3; border-radius:8px; padding:6px 9px; margin-top:7px; color:#4c5348;}
+
+  /* ---------- KPI ---------- */
+  .grid-kpi{display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; margin-bottom:14px;}
+  .kpi-kotak{background:var(--putih); border:1px solid var(--garis); border-radius:12px; padding:12px;}
+  .kpi-kotak .label-stat{font-size:.66rem; text-transform:uppercase; letter-spacing:.4px; color:var(--abu); font-weight:700;}
+  .kpi-kotak .nilai{font-size:1.1rem; font-weight:800; color:var(--hijau); margin-top:2px; word-break:break-word;}
+  .kpi-kotak .sub{font-size:.7rem; color:var(--abu);}
+  .bar-luar{background:#eceae2; border-radius:20px; height:9px; margin-top:7px; overflow:hidden;}
+  .bar-dalam{background:linear-gradient(90deg,var(--hijau-muda),var(--emas)); height:100%; border-radius:20px; transition:width .3s;}
+  .funnel-baris{display:flex; align-items:center; gap:8px; margin-bottom:7px;}
+  .funnel-label{flex:0 0 120px; font-size:.76rem; font-weight:700; color:var(--abu);}
+  .funnel-batang{flex:1; background:#eceae2; border-radius:8px; height:26px; position:relative; overflow:hidden;}
+  .funnel-isi{
+    background:linear-gradient(90deg,var(--hijau),var(--hijau-muda)); height:100%; border-radius:8px;
+    min-width:2px; transition:width .3s;
+  }
+  .funnel-angka{position:absolute; right:8px; top:3px; font-size:.78rem; font-weight:800; color:var(--hijau);}
+
+  /* ---------- ritme ---------- */
+  .ritme-kartu{border-top:4px solid var(--hijau-muda);}
+  .ritme-kartu.mingguan{border-top-color:var(--emas);}
+  .ritme-kartu.bulanan{border-top-color:var(--biru);}
+  .cek-item{display:flex; gap:9px; align-items:flex-start; padding:7px 0; border-bottom:1px dashed var(--garis);}
+  .cek-item:last-child{border-bottom:none;}
+  .cek-item input[type=checkbox]{width:20px; height:20px; flex:0 0 auto; margin-top:1px; accent-color:var(--hijau-muda);}
+  .cek-item span{font-size:.86rem;}
+  .cek-item.selesai span{text-decoration:line-through; color:var(--abu);}
+  .reset-info{font-size:.7rem; color:var(--abu); margin-top:6px;}
+  .progres-ritme{font-size:.75rem; font-weight:700; color:var(--hijau-muda);}
+
+  .toast{
+    position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+    background:var(--hijau-tua); color:#fff; padding:11px 18px; border-radius:12px;
+    font-size:.83rem; box-shadow:0 4px 16px rgba(0,0,0,.3); z-index:99;
+    opacity:0; pointer-events:none; transition:opacity .25s; max-width:92vw; text-align:center;
+  }
+  .toast.tampil{opacity:1;}
+  .sembunyi{display:none !important;}
+  footer{
+    text-align:center; font-size:.72rem; color:var(--abu); padding:20px 12px 30px;
+  }
+  @media print{
+    header .aksi-header, nav, .btn, .filter-baris, footer{display:none !important;}
+    body{background:#fff;}
+    main{max-width:none; padding:0;}
+    .kartu{box-shadow:none; page-break-inside:avoid;}
+    section.sembunyi{display:block !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>KNJ <span>SALES OS</span> — Bagan Otomatisasi Penjualan</h1>
+  <p>Kandang Ndalem · Sistem Aturan Juli 2026 · Lini Ayam &amp; Lini Produk KNJ · data tersimpan di perangkat Anda</p>
+  <div class="aksi-header">
+    <button onclick="eksporData()">⬇ Ekspor Data</button>
+    <button onclick="document.getElementById('fileImpor').click()">⬆ Impor Data</button>
+    <button onclick="window.print()">🖨 Cetak Bagan</button>
+  </div>
+</header>
+
+<nav id="navTab">
+  <button data-tab="bagan" class="aktif">🗺 Bagan</button>
+  <button data-tab="pipeline">📇 Pipeline</button>
+  <button data-tab="aturan">📜 Aturan 2026</button>
+  <button data-tab="kpi">🎯 Target &amp; KPI</button>
+  <button data-tab="ritme">⏰ Ritme</button>
+</nav>
+
+<main>
+
+<!-- ====================== TAB BAGAN ====================== -->
+<section id="tab-bagan">
+  <div class="info">
+    <b>Cara membaca bagan:</b> penjualan KNJ berjalan sebagai <b>satu mesin 9 tahap</b> —
+    dari konten sampai pelanggan setia yang membawa pembeli baru. Ketuk tiap tahap untuk
+    membuka aturan mainnya, jalur khusus <b>🐓 Ayam</b> dan <b>🧴 Produk</b>, referensi
+    perusahaan dunia, serta bagian mana yang sudah diotomatiskan aplikasi ini.
+  </div>
+
+  <div class="corong" aria-label="ringkasan corong penjualan">
+    <span class="chip">KONTEN</span><span class="panah-kecil">→</span>
+    <span class="chip">LEAD</span><span class="panah-kecil">→</span>
+    <span class="chip">KUALIFIKASI</span><span class="panah-kecil">→</span>
+    <span class="chip">PENAWARAN</span><span class="panah-kecil">→</span>
+    <span class="chip">FOLLOW-UP</span><span class="panah-kecil">→</span>
+    <span class="chip emas">CLOSING</span><span class="panah-kecil">→</span>
+    <span class="chip">KIRIM</span><span class="panah-kecil">→</span>
+    <span class="chip">AFTER-SALES</span><span class="panah-kecil">→</span>
+    <span class="chip emas">REPEAT ↺</span>
+  </div>
+
+  <button class="btn btn-sekunder btn-kecil" onclick="bukaSemuaTahap(true)">Buka semua tahap</button>
+  <button class="btn btn-sekunder btn-kecil" onclick="bukaSemuaTahap(false)">Tutup semua</button>
+  <div style="height:10px"></div>
+
+  <div id="wadahBagan"></div>
+
+  <div class="loop-kartu">
+    <b>↺ FLYWHEEL KNJ — RODA YANG MEMBESAR SENDIRI</b>
+    <p>
+      Pelanggan puas → testimoni &amp; cerita nyata → jadi konten (Tahap 0) → lead baru masuk →
+      penjualan naik → modal untuk indukan &amp; bahan yang lebih baik → produk &amp; anakan makin
+      unggul → pelanggan makin puas. <b>Tugas kita satu: jangan biarkan rodanya berhenti.</b>
+      Ala Amazon: roda diputar oleh pengalaman pelanggan, bukan oleh diskon.
+      Ala Toyota: tiap minggu roda diperiksa 30 menit dan diberi satu perbaikan kecil (kaizen).
+    </p>
+  </div>
+</section>
+
+<!-- ====================== TAB PIPELINE ====================== -->
+<section id="tab-pipeline" class="sembunyi">
+  <div class="info">
+    <b>Aturan emas:</b> <i>"tidak tercatat = tidak terjadi."</i> Setiap orang yang bertanya —
+    dari WA, IG, TikTok, Facebook, marketplace, atau kenalan — dicatat di sini <b>hari itu juga</b>.
+    Aplikasi menghitung sendiri kapan waktunya follow-up (aturan <b>1-3-7</b>) dan menyiapkan
+    template pesan WA sesuai tahapnya — tinggal ketuk 💬.
+  </div>
+
+  <div class="ring-pipeline" id="ringPipeline"></div>
+
+  <div class="kartu" id="kartuFormLead">
+    <h3 id="judulFormLead">＋ Lead Baru</h3>
+    <div class="form-grid">
+      <div><label>Nama</label><input id="fNama" placeholder="cth: Mas Bagus — Solo"></div>
+      <div><label>No. WhatsApp</label><input id="fWa" inputmode="tel" placeholder="08xxxxxxxxxx"></div>
+      <div><label>Sumber</label>
+        <select id="fSumber">
+          <option>WhatsApp</option><option>Instagram</option><option>TikTok</option>
+          <option>Facebook</option><option>Marketplace</option><option>Referral</option>
+          <option>Datang langsung</option><option>Lainnya</option>
+        </select>
+      </div>
+      <div><label>Minat</label>
+        <select id="fMinat">
+          <option value="ayam">🐓 Ayam</option>
+          <option value="produk">🧴 Produk KNJ</option>
+          <option value="keduanya">🐓+🧴 Keduanya</option>
+        </select>
+      </div>
+      <div><label>Skor</label>
+        <select id="fSkor">
+          <option value="panas">🔥 Panas — tanya harga/ongkir, siap beli</option>
+          <option value="hangat" selected>🌤 Hangat — tanya-tanya spesifik</option>
+          <option value="dingin">❄ Dingin — baru lihat-lihat</option>
+        </select>
+      </div>
+      <div><label>Kontak terakhir</label><input id="fKontak" type="date"></div>
+    </div>
+    <label>Catatan (cari apa, budget, kapan butuh)</label>
+    <textarea id="fCatatan" rows="2" placeholder="cth: cari jantan 7 bulanan trah Baut, budget 7-8 jt, minta video"></textarea>
+    <button class="btn" onclick="simpanLead()">💾 Simpan Lead</button>
+    <button class="btn btn-sekunder sembunyi" id="btnBatalEdit" onclick="batalEditLead()">Batal</button>
+  </div>
+
+  <div class="filter-baris" id="filterPipeline"></div>
+  <div id="wadahLead"></div>
+</section>
+
+<!-- ====================== TAB ATURAN ====================== -->
+<section id="tab-aturan" class="sembunyi">
+  <div class="info">
+    <b>12 Aturan Penjualan KNJ — berlaku mulai Juli 2026.</b> Setiap aturan dicuri ilmunya dari
+    perusahaan yang sudah terbukti besar, lalu diperas menjadi bentuk yang bisa dijalankan kandang
+    kita hari ini juga — cukup dengan HP dan disiplin. Aturan ini adalah <b>undang-undang dagang KNJ</b>:
+    boleh diperbaiki lewat kaizen mingguan, tidak boleh dilanggar diam-diam.
+  </div>
+  <div class="grid-aturan" id="wadahAturan"></div>
+</section>
+
+<!-- ====================== TAB KPI ====================== -->
+<section id="tab-kpi" class="sembunyi">
+  <div class="info">
+    <b>Angka tidak berbohong.</b> Catat setiap penjualan <b>hari itu juga</b> — ayam maupun produk.
+    Aplikasi menghitung omzet, konversi, nilai rata-rata transaksi, dan membandingkannya dengan
+    target bulanan Anda. Keputusan (harga, stok, konten) diambil dari angka di halaman ini,
+    bukan dari perasaan.
+  </div>
+
+  <div class="kartu">
+    <div class="form-grid">
+      <div><label>Bulan</label><input type="month" id="kpiBulan" onchange="renderKPI()"></div>
+    </div>
+    <h3>🎯 Target Bulan Ini</h3>
+    <div class="form-grid">
+      <div><label>Target omzet ayam (Rp)</label><input type="number" id="tOmzetAyam" onchange="simpanTarget()"></div>
+      <div><label>Target omzet produk (Rp)</label><input type="number" id="tOmzetProduk" onchange="simpanTarget()"></div>
+      <div><label>Target lead masuk</label><input type="number" id="tLead" onchange="simpanTarget()"></div>
+      <div><label>Target closing (transaksi)</label><input type="number" id="tClosing" onchange="simpanTarget()"></div>
+    </div>
+  </div>
+
+  <div class="grid-kpi" id="wadahKpi"></div>
+
+  <div class="kartu">
+    <h3>🔻 Corong Bulan Ini</h3>
+    <div id="wadahFunnel"></div>
+    <p style="font-size:.75rem;color:var(--abu);margin-top:6px">
+      Lead masuk = lead baru tercatat bulan ini · Ditindak = lead bulan ini yang sudah lewat tahap
+      "Baru" · Closing = transaksi tercatat bulan ini.
+    </p>
+  </div>
+
+  <div class="kartu">
+    <h3>💰 Catat Penjualan</h3>
+    <div class="form-grid">
+      <div><label>Tanggal</label><input type="date" id="sTgl"></div>
+      <div><label>Lini</label>
+        <select id="sJenis">
+          <option value="ayam">🐓 Ayam</option>
+          <option value="produk">🧴 Produk KNJ</option>
+        </select>
+      </div>
+      <div><label>Item</label><input id="sItem" placeholder="cth: Jantan 7 bln trah Baut / Trisula paket"></div>
+      <div><label>Nilai (Rp)</label><input type="number" id="sNilai" placeholder="0"></div>
+      <div><label>Sumber</label>
+        <select id="sSumber">
+          <option>WhatsApp</option><option>Instagram</option><option>TikTok</option>
+          <option>Facebook</option><option>Marketplace</option><option>Referral</option>
+          <option>Datang langsung</option><option>Pelanggan lama</option><option>Lainnya</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-emas" onclick="simpanPenjualan()">💾 Catat Penjualan</button>
+  </div>
+
+  <div class="kartu">
+    <h3>📒 Buku Penjualan Bulan Ini</h3>
+    <div class="tabel-gulir">
+      <table>
+        <thead><tr><th>Tgl</th><th>Lini</th><th>Item</th><th class="angka">Nilai</th><th>Sumber</th><th></th></tr></thead>
+        <tbody id="tabelPenjualan"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TAB RITME ====================== -->
+<section id="tab-ritme" class="sembunyi">
+  <div class="info">
+    <b>Bisnis besar menang karena ritme, bukan karena semangat sesaat.</b> McDonald's membuka
+    ribuan gerai dengan checklist harian; Toyota memperbaiki diri lewat ritual mingguan.
+    Checklist di bawah <b>reset otomatis</b> — harian tiap ganti hari, mingguan tiap Senin,
+    bulanan tiap ganti bulan. Centang begitu selesai; kosong di malam hari artinya ada yang bolong.
+  </div>
+  <div id="wadahRitme"></div>
+</section>
+
+</main>
+
+<footer>
+  KNJ by Kandang Ndalem — Quality is Our Priority · Rawatan adalah kasih sayang, hasil adalah kebanggaan.<br>
+  Data hanya tersimpan di perangkat ini (localStorage). Ekspor Data minimal 1× per minggu sebagai cadangan.
+</footer>
+
+<input type="file" id="fileImpor" accept=".json,application/json" class="sembunyi" onchange="imporData(event)">
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+
+/* ============================================================
+   DATA STATIS — BAGAN, ATURAN, TEMPLAT WA, RITME
+   ============================================================ */
+
+var NO_WA_KNJ = '0856 4587 7778';
+
+var TAHAP = [
+  {
+    no:'0', judul:'Mesin Konten — Pintu Masuk', sla:'1 konten / hari',
+    inti:'Tanpa konten, tidak ada orang bertanya. Konten adalah iklan gratis yang bekerja 24 jam sekalipun kita sedang di kandang.',
+    aturan:[
+      'Rumus 70-20-10: 70% edukasi rawatan, 20% bukti hasil & testimoni pelanggan, 10% jualan langsung.',
+      'Minimal 1 posting per hari (TikTok / IG Reels / Facebook) + status WA sebagai etalase harian.',
+      'Tema konten direncanakan seminggu sekaligus (checklist Ritme Mingguan) — jangan mengarang tiap pagi.',
+      'Setiap konten ditutup ajakan yang sama dan konsisten: "Chat WA ' + NO_WA_KNJ + '".'
+    ],
+    ayam:'Satu ekor satu video: postur, gerak, umur, berat, dan silsilah indukan disebut jelas. Video ayam yang sudah laku diberi tanda SOLD — bukti laris adalah konten terbaik.',
+    produk:'Konten cara pakai & hasil: sebelum–sesudah, jadwal rawatan harian memakai RootCore/StemDrive, testimoni pemakai.',
+    ref:'Red Bull & GoPro menjadi raksasa lewat konten dan bukti nyata pengguna, bukan lewat perang harga. Nike menjual cerita dulu, produk kemudian.',
+    oto:'Checklist konten harian & perencanaan mingguan ada di tab Ritme.'
+  },
+  {
+    no:'1', judul:'Lead Masuk', sla:'balas ≤ 15 menit',
+    inti:'Semua pintu (WA, DM, komentar, marketplace) bermuara ke satu tempat: dicatat sebagai lead di tab Pipeline hari itu juga.',
+    aturan:[
+      'Jam layanan 08.00–21.00: setiap chat dibalas maksimal 15 menit.',
+      'Aktifkan pesan sambutan & pesan di-luar-jam otomatis di WhatsApp Business (greeting + away message) berisi salam KNJ dan price list terbaru.',
+      'Di luar jam layanan, auto-reply menjanjikan balasan besok pagi — dan janji itu ditepati sebelum jam 09.00.',
+      'Tidak tercatat = tidak terjadi: nama, nomor, sumber, dan minat wajib masuk Pipeline hari itu juga.'
+    ],
+    ayam:'Langsung tanya: cari kelas umur berapa (2–3 bln / 7 bln / betina), dan lokasi — untuk hitung ongkir sejak awal.',
+    produk:'Tanya dulu kebutuhan/keluhan ayamnya, baru rekomendasikan produk yang paling tepat — bukan yang paling mahal.',
+    ref:'Riset penjualan (InsideSales, dikutip Harvard Business Review): membalas dalam 5 menit membuat peluang closing berkali lipat dibanding membalas 30 menit. Kecepatan adalah keunggulan yang gratis.',
+    oto:'Tombol "＋ Lead Baru" di tab Pipeline. Sejak tercatat, aplikasi yang mengingat jadwal follow-up-nya.'
+  },
+  {
+    no:'2', judul:'Kualifikasi & Skor', sla:'3 pertanyaan wajib',
+    inti:'Jangan menembak semua burung dengan satu peluru. Kenali dulu siapa yang di depan kita, baru tentukan cara melayaninya.',
+    aturan:[
+      'Tiga pertanyaan wajib: (1) cari apa persisnya, (2) kapan butuhnya, (3) kisaran budget (ditanya halus).',
+      'Beri skor: 🔥 Panas (tanya harga+ongkir/siap transfer) — 🌤 Hangat (tanya-tanya spesifik) — ❄ Dingin (baru lihat-lihat).',
+      'Yang panas dilayani paling dulu dan paling cepat; yang dingin tetap dicatat — mereka pembeli 3 bulan lagi.',
+      'Skor ditulis di Pipeline dan boleh berubah kapan saja.'
+    ],
+    ayam:'Panas: minta video call / video terbaru → dorong booking DP. Hangat: kirim 2 pilihan sesuai budget. Dingin: masukkan daftar broadcast bulanan.',
+    produk:'Panas: tawarkan paket lengkap. Hangat: mulai dari 1 produk yang paling menjawab keluhannya. Dingin: kirim konten edukasi, bukan katalog.',
+    ref:'Salesforce & HubSpot membangun kerajaan CRM di atas satu ide: lead scoring — energi penjual dicurahkan ke prospek yang paling siap membeli.',
+    oto:'Kolom Skor & Catatan di Pipeline; urutan tampilan mendahulukan yang jatuh tempo follow-up.'
+  },
+  {
+    no:'3', judul:'Penawaran', sla:'maks 2 pilihan',
+    inti:'Penawaran yang baik itu jelas, bergambar, dan sedikit pilihannya. Terlalu banyak pilihan membunuh keputusan.',
+    aturan:[
+      'Selalu kirim price list resmi bulan berjalan (gambar) — jangan sebut harga telanjang tanpa gambar/video.',
+      'Tawarkan maksimal 2 pilihan yang paling cocok dengan kebutuhannya, bukan seluruh katalog.',
+      'Selalu sertakan bundling: nilai belanja naik, pelanggan merasa untung.',
+      'Harga sesuai price list — titik. Diskon hanya lewat program resmi (bundling, loyalti, referral). Jangan pernah perang harga di kolom komentar.'
+    ],
+    ayam:'Video terbaru maksimal 3 hari + silsilah (bapak–ibu) + umur & berat + ketentuan garansi kirim. Ayam trah premium ditawarkan sebagai barang terbatas (memang benar terbatas).',
+    produk:'Paket siap tawar: Trisula lengkap (RootCore+StemDrive+ApexPrime), atau "beli ayam + paket rawatan bulan pertama" — cross-sell paling alami di dunia.',
+    ref:'Apple menjual sedikit pilihan yang sangat jelas. McDonald\'s membesar dari menu paket, bukan menu satuan. Amazon menaikkan keranjang lewat "sering dibeli bersama".',
+    oto:'Tombol 💬 di Pipeline menyiapkan template penawaran sesuai minat lead (ayam/produk) — tinggal sunting angka lalu kirim.'
+  },
+  {
+    no:'4', judul:'Follow-up 1-3-7', sla:'H+1 · H+3 · H+7',
+    inti:'Sebagian besar penjualan gagal bukan karena ditolak, tapi karena penjual berhenti menyapa. Di sinilah sistem bekerja menggantikan ingatan.',
+    aturan:[
+      'H+1 sejak kontak terakhir: ingatkan halus ("kemarin sempat lihat yang mana?").',
+      'H+3: kirim bukti — testimoni, video hasil, foto pengiriman sebelumnya.',
+      'H+7: penawaran penutup + alasan bergerak sekarang (stok tinggal sekian / price list bulan depan naik).',
+      'Tiga kali tanpa balasan → status Tidur. Bukan dihapus — disapa lagi saat price list baru terbit.'
+    ],
+    ayam:'Follow-up ayam selalu bawa kabar baru: berat naik, video latihan terbaru — bukan sekadar "jadi ambil?".',
+    produk:'Follow-up produk bawa ilmu: tips rawatan singkat, lalu selipkan produknya. Memberi dulu, menjual kemudian.',
+    ref:'Cadence follow-up terjadwal adalah tulang punggung tim sales modern (praktik baku di HubSpot/Salesloft): mayoritas closing terjadi setelah kontak ke-5, sementara kebanyakan penjual menyerah di kontak pertama.',
+    oto:'Aplikasi menghitung jatuh tempo 1-3-7 tiap lead, menandai yang telat dengan merah, dan menyiapkan template WA sesuai urutan follow-up.'
+  },
+  {
+    no:'5', judul:'Closing & Pembayaran', sla:'catat hari itu juga',
+    inti:'Closing yang rapi melahirkan pelanggan yang tenang. Uang jelas, barang jelas, catatan jelas.',
+    aturan:[
+      'Ayam: DP minimal 50% untuk booking — tanpa DP, ayam tetap ditawarkan ke yang lain. Pelunasan sebelum kirim.',
+      'Produk: pembayaran penuh via transfer, atau COD kurir bila tersedia.',
+      'Setiap transaksi diberi nota/bukti tertulis (foto nota dikirim ke pembeli).',
+      'Transaksi dicatat di Buku Penjualan (tab Target & KPI) hari itu juga — angka hari ini adalah bahan keputusan besok.'
+    ],
+    ayam:'Sepakati tertulis di chat: harga, ongkir, tanggal kirim, dan ketentuan garansi — satu pesan rangkuman sebelum transfer.',
+    produk:'Konfirmasi alamat lengkap + no HP penerima sebelum bayar; kirim rekap pesanan (item, jumlah, total, ongkir).',
+    ref:'Amazon: setiap transaksi adalah data. Toyota: standar kerja tertulis membuat hasil bisa diulang siapa pun, bukan tergantung mood.',
+    oto:'Tombol 🏆 Closing di Pipeline langsung membuka form Catat Penjualan yang sudah terisi.'
+  },
+  {
+    no:'6', judul:'Pengiriman & Garansi', sla:'produk kirim maks H+1',
+    inti:'Janji kirim yang ditepati adalah iklan paling murah. Satu paket telat tanpa kabar bisa menghapus sepuluh testimoni.',
+    aturan:[
+      'Video kondisi ayam/paket sebelum dikemas, dikirim ke pembeli — bukti barang berangkat sehat & lengkap.',
+      'Produk dikirim maksimal H+1 setelah pembayaran; nomor resi langsung diteruskan tanpa diminta.',
+      'Ayam: packing standar yang aman & manusiawi, pilih jadwal/armada yang meminimalkan stres perjalanan.',
+      'Garansi tertulis dan diulang saat closing: ayam tiba sehat sesuai ketentuan, produk pecah/bocor diganti. Klaim diproses dulu, dalihnya belakangan.'
+    ],
+    ayam:'Sertakan kartu kecil berisi panduan adaptasi 3 hari pertama (air gula/vitamin, karantina, pakan) — pembeli merasa dibimbing, bukan dilepas.',
+    produk:'Selipkan bonus kecil tak terduga (sample produk lain / stiker KNJ) — biaya kecil, kesan besar, dan memperkenalkan produk lain.',
+    ref:'Amazon menang karena janji kirim yang ditepati. Zappos menjadikan layanan purna jual sebagai mesin pemasaran utamanya.',
+    oto:'Masuk checklist harian (tab Ritme): "semua pesanan lunas kemarin sudah berangkat?".'
+  },
+  {
+    no:'7', judul:'After-Sales H+2 & H+14', sla:'komplain dibalas < 1 jam',
+    inti:'Penjualan sejati dimulai setelah barang sampai. Di tahap inilah pembeli berubah menjadi pelanggan — atau hilang selamanya.',
+    aturan:[
+      'H+2 setelah barang tiba: tanya kabar — ayam sudah makan lahap? produk sudah dipakai?',
+      'H+14: tanya hasil pemakaian, lalu minta testimoni (foto/video). Testimoni disimpan rapi di album khusus.',
+      'Komplain dibalas kurang dari 1 jam pada jam layanan: selesaikan dulu, baru jelaskan.',
+      'Testimoni yang masuk = amunisi konten Tahap 0. Roda mulai berputar.'
+    ],
+    ayam:'Tawarkan konsultasi rawatan gratis lewat WA — sekaligus pintu masuk produk KNJ (aturan cross-sell).',
+    produk:'Ingatkan jadwal pemakaian yang benar; pemakai yang benar = hasil yang bagus = testimoni yang jujur.',
+    ref:'Zappos membangun merek miliaran dolar dari satu obsesi: membuat pelanggan berkata "wow" setelah membeli. Amazon menyebutnya flywheel: pengalaman baik memutar roda pertumbuhan.',
+    oto:'Lead berstatus Closing/Setia mendapat template WA after-sales & permintaan testimoni di tombol 💬.'
+  },
+  {
+    no:'8', judul:'Repeat, Upsell & Referral', sla:'broadcast tiap awal bulan',
+    inti:'Menjual ke pelanggan lama 5× lebih murah daripada mencari pembeli baru. Pelanggan setia adalah aset paling berharga KNJ.',
+    aturan:[
+      'Setiap pembeli ayam ditawari paket rawatan produk KNJ; setiap pembeli produk rutin ditawari kartu loyalti.',
+      'Loyalti: beli 10× gratis 1 (produk). Pelanggan setia mendapat akses lebih dulu ke rilis anakan trah premium.',
+      'Referral berhadiah: pelanggan yang membawa pembeli baru mendapat bonus produk/potongan resmi.',
+      'Awal bulan: broadcast price list terbaru ke pelanggan yang bersedia dihubungi (izin dulu, jangan spam).'
+    ],
+    ayam:'Anakan trah unggulan dirilis sebagai "drop" terjadwal dengan daftar tunggu — pelanggan setia dapat kesempatan pertama.',
+    produk:'Buat paket langganan bulanan (paket rawatan 30 hari) — pembelian berulang yang bisa diramal.',
+    ref:'Starbucks Rewards membuat pelanggan kembali tanpa disuruh. Dropbox & PayPal tumbuh raksasa lewat referral berhadiah. Nike membangun antrian lewat rilis terbatas yang terjadwal.',
+    oto:'Status "Setia" di Pipeline = daftar broadcast bulanan Anda. Checklist Bulanan mengingatkan jadwal broadcast & program loyalti.'
+  }
+];
+
+var ATURAN = [
+  { no:1, judul:'Respon Kilat 15 Menit', perusahaan:'Riset InsideSales / HBR',
+    prinsip:'Yang paling cepat membalas, paling sering menang — bukan yang paling murah.',
+    poin:['Jam layanan 08.00–21.00, balasan maksimal 15 menit.','Auto-reply WA Business menjaga malam hari.','Chat belum terbalas = utang yang harus lunas hari itu.'],
+    metrik:'Waktu balas rata-rata ≤ 15 menit' },
+  { no:2, judul:'Tidak Tercatat = Tidak Terjadi', perusahaan:'Salesforce',
+    prinsip:'Ingatan manusia bocor; sistem tidak. Semua lead masuk Pipeline hari itu juga.',
+    poin:['Satu lead = satu kartu di Pipeline.','Sumber lead selalu diisi — supaya tahu pintu mana yang paling ramai.','Review pipeline tiap pagi (checklist harian).'],
+    metrik:'100% lead tercatat di hari yang sama' },
+  { no:3, judul:'Follow-up 1-3-7', perusahaan:'Cadence HubSpot / Salesloft',
+    prinsip:'Mayoritas closing terjadi setelah kontak ke-5; mayoritas penjual berhenti di kontak ke-1.',
+    poin:['H+1 ingatkan, H+3 beri bukti, H+7 tawaran penutup.','3× tanpa balasan → Tidur, bukan dihapus.','Follow-up selalu membawa hal baru, bukan sekadar menagih.'],
+    metrik:'0 lead lewat jatuh tempo di malam hari' },
+  { no:4, judul:'Jaga Harga, Naikkan Nilai', perusahaan:'Apple',
+    prinsip:'Merek premium tidak ikut perang harga; ia menaikkan alasan orang membayar.',
+    poin:['Harga = price list resmi. Titik.','Nilai dinaikkan lewat kualitas, silsilah, kemasan, garansi, layanan.','Diskon hanya lewat program resmi: bundling, loyalti, referral.'],
+    metrik:'AOV (nilai rata-rata transaksi) naik tiap kuartal' },
+  { no:5, judul:'Paket & Bundling', perusahaan:'McDonald\'s / Amazon',
+    prinsip:'Paket membuat pelanggan belanja lebih banyak sambil merasa lebih untung.',
+    poin:['Trisula lengkap lebih menarik daripada tiga botol terpisah.','"Beli ayam + paket rawatan bulan pertama" = bundling khas KNJ.','Selalu ada tawaran paket di setiap penawaran (Tahap 3).'],
+    metrik:'% transaksi berisi ≥ 2 item' },
+  { no:6, judul:'Flywheel Testimoni', perusahaan:'Amazon',
+    prinsip:'Pelanggan puas → testimoni → konten → lead baru → penjualan → pelanggan puas. Roda tidak boleh berhenti.',
+    poin:['Minta testimoni H+14 — foto/video, bukan sekadar "mantap".','Simpan di album khusus; jadwalkan jadi konten 20% (aturan 70-20-10).','Testimoni ayam juara/produk berhasil = konten paling laku.'],
+    metrik:'≥ 4 testimoni baru per bulan' },
+  { no:7, judul:'Layanan Bikin Kaget', perusahaan:'Zappos',
+    prinsip:'Layanan yang melebihi harapan adalah pemasaran termurah.',
+    poin:['Bonus kecil tak terduga di tiap paket (sample/stiker).','Komplain dibalas < 1 jam; selesaikan dulu, berdalih belakangan.','Kartu panduan adaptasi 3 hari di tiap pengiriman ayam.'],
+    metrik:'Repeat order rate naik tiap kuartal' },
+  { no:8, judul:'Pelanggan Setia Punya Nama', perusahaan:'Starbucks Rewards',
+    prinsip:'Pelanggan yang dihargai kembali tanpa disuruh.',
+    poin:['Kartu loyalti: beli 10× gratis 1 (produk).','Pelanggan setia dapat akses pertama ke drop anakan premium.','Sapa dengan nama; catat ayam/produk apa yang pernah dibeli.'],
+    metrik:'% omzet dari pelanggan lama ≥ 40%' },
+  { no:9, judul:'Referral Berhadiah', perusahaan:'Dropbox / PayPal',
+    prinsip:'Pelanggan puas adalah tenaga penjual terbaik — beri mereka alasan bercerita.',
+    poin:['Bawa 1 pembeli baru = bonus produk / potongan resmi.','Umumkan program referral di broadcast bulanan.','Catat sumber "Referral" di Pipeline agar kelihatan hasilnya.'],
+    metrik:'≥ 2 lead referral per bulan' },
+  { no:10, judul:'Kaizen Mingguan', perusahaan:'Toyota',
+    prinsip:'Perbaikan kecil tiap minggu mengalahkan revolusi setahun sekali.',
+    poin:['Tiap minggu 30 menit: baca angka di tab Target & KPI.','Tulis SATU perbaikan kecil, jalankan minggu itu juga.','Yang diperbaiki: hal paling sering bikin gagal closing minggu lalu.'],
+    metrik:'1 perbaikan tercatat per minggu' },
+  { no:11, judul:'Angka Tiap Hari', perusahaan:'Amazon (data-driven)',
+    prinsip:'Keputusan diambil dari angka, bukan perasaan. Angka basi = keputusan salah.',
+    poin:['Penjualan dicatat hari itu juga di Buku Penjualan.','HPP & harga dicek di Kalkulator KNJ tiap bulan (SOP-05/06).','Target bulanan ditulis di muka, dibandingkan tiap minggu.'],
+    metrik:'Buku penjualan lengkap 100%' },
+  { no:12, judul:'Drop Terbatas Trah Premium', perusahaan:'Nike / Supreme',
+    prinsip:'Kelangkaan yang jujur menciptakan antisipasi; antisipasi menciptakan antrian.',
+    poin:['Anakan trah unggulan dirilis terjadwal (drop), bukan diecer diam-diam.','Buka daftar tunggu; pelanggan setia dapat nomor urut pertama.','Umumkan drop di konten H-7, H-3, H-1 — biarkan pasar menunggu.'],
+    metrik:'Kecepatan habis per drop & panjang daftar tunggu' }
+];
+
+/* Template WA per keadaan lead */
+function templatWa(lead){
+  var nama = (lead.nama||'').split('—')[0].split('-')[0].trim() || 'Kak';
+  var s = lead.status, fu = lead.fu||0;
+  if(s==='Baru'){
+    return 'Assalamualaikum ' + nama + ' 🙏 Terima kasih sudah menghubungi KNJ by Kandang Ndalem. ' +
+      'Boleh dibantu, sedang mencari apa nggih — ayam (umur berapa) atau produk rawatan KNJ? ' +
+      'Supaya kami carikan yang paling pas. 🐓✨';
+  }
+  if(s==='Penawaran'){
+    if(lead.minat==='produk'){
+      return 'Kak ' + nama + ', sesuai kebutuhan kemarin, kami rekomendasikan 2 pilihan produk KNJ nggih. ' +
+        'Kalau ambil paket lengkap Trisula (RootCore + StemDrive + Apex Prime) lebih hemat dibanding satuan. ' +
+        'Price list resmi terlampir. Mau kami siapkan yang mana? 🧴';
+    }
+    return 'Kak ' + nama + ', ini kami kirimkan video terbaru + silsilah indukannya nggih 🐓 ' +
+      'Umur dan berat sesuai price list resmi bulan ini. Booking cukup DP 50%, garansi tiba sehat sesuai ketentuan. ' +
+      'Kalau cocok, kami kunci untuk njenengan.';
+  }
+  if(s==='Follow-up'){
+    if(fu<=1) return 'Kak ' + nama + ', sekadar mengingatkan yang kemarin sempat dilihat 🙏 ' +
+      'Masih tersedia nggih — ada yang mau ditanyakan dulu? Kami bantu dengan senang hati.';
+    if(fu===2) return 'Kak ' + nama + ', kemarin ada pelanggan kami yang baru kirim testimoni — hasilnya bagus sekali 🙏 ' +
+      'Kami kirimkan ya sebagai gambaran. Yang kemarin njenengan lihat juga dari rawatan yang sama.';
+    return 'Kak ' + nama + ', kabar terakhir dari kami nggih 🙏 Stok yang kemarin tinggal sedikit dan price list bulan depan menyesuaikan. ' +
+      'Kalau berkenan, kami masih bisa kunci harga bulan ini untuk njenengan. Kalau belum berjodoh, tidak apa-apa — kabar KNJ tetap kami kirim tiap bulan. 🙏';
+  }
+  if(s==='Closing'){
+    return 'Kak ' + nama + ', barang sudah kami siapkan 📦 Sebelum berangkat kami videokan dulu kondisinya nggih. ' +
+      'Resi/kabar keberangkatan menyusul hari ini. Terima kasih sudah mempercayai KNJ 🙏';
+  }
+  if(s==='Setia'){
+    return 'Kak ' + nama + ' 🙏 bagaimana kabarnya — ayamnya/produknya cocok nggih? ' +
+      'Kalau berkenan, boleh sekali kirim foto/video singkat sebagai testimoni 🙏 ' +
+      'Sebagai terima kasih, pembelian berikutnya kami ikutkan program loyalti KNJ (beli 10 gratis 1).';
+  }
+  if(s==='Tidur'){
+    return 'Assalamualaikum Kak ' + nama + ' 🙏 lama tidak bertegur sapa. ' +
+      'Price list KNJ bulan ini sudah terbit — ada anakan baru dan stok produk lengkap. ' +
+      'Kami kirimkan nggih, siapa tahu sekarang waktunya pas 🐓✨';
+  }
+  return 'Assalamualaikum Kak ' + nama + ' 🙏 dari KNJ by Kandang Ndalem.';
+}
+
+var RITME = {
+  harian: {
+    judul:'☀️ Harian', kelas:'', reset:'Reset otomatis setiap ganti hari.',
+    item:[
+      'Balas semua chat masuk (target ≤ 15 menit, aturan #1)',
+      'Buka tab Pipeline → follow-up semua yang jatuh tempo 1-3-7 (aturan #3)',
+      'Posting 1 konten (70-20-10) + perbarui status WA (etalase harian)',
+      'Semua pesanan lunas kemarin sudah berangkat + resi diteruskan',
+      'Catat semua penjualan hari ini di Buku Penjualan (aturan #11)',
+      'Lead baru hari ini semua sudah tercatat di Pipeline (aturan #2)'
+    ]
+  },
+  mingguan: {
+    judul:'📅 Mingguan', kelas:'mingguan', reset:'Reset otomatis setiap hari Senin.',
+    item:[
+      'Kaizen 30 menit: baca Target & KPI, tulis & jalankan 1 perbaikan kecil (aturan #10)',
+      'Rencanakan tema konten 7 hari ke depan',
+      'Cek stok produk KNJ & daftar ayam siap jual; foto/video ulang yang baru',
+      'Sapa 5 pelanggan lama (kabar dulu, tawaran belakangan)',
+      'Ekspor Data aplikasi ini + Kalkulator KNJ (cadangan mingguan)'
+    ]
+  },
+  bulanan: {
+    judul:'🌙 Bulanan', kelas:'bulanan', reset:'Reset otomatis setiap ganti bulan.',
+    item:[
+      'Terbitkan price list bulan baru (cek HPP di Kalkulator KNJ dulu — SOP-05/06)',
+      'Broadcast price list ke pelanggan yang bersedia dihubungi + bangunkan lead Tidur',
+      'Set target bulan baru di tab Target & KPI (omzet, lead, closing)',
+      'Rekap program loyalti & referral: siapa yang berhak bonus bulan ini',
+      'Rencanakan drop anakan premium bulan ini (umumkan H-7, H-3, H-1 — aturan #12)',
+      'Bersihkan Pipeline: lead Tidur > 3 bulan diarsipkan/di-broadcast ulang'
+    ]
+  }
+};
+
+var STATUS_LEAD = ['Baru','Penawaran','Follow-up','Closing','Setia','Tidur','Batal'];
+var JADWAL_FU = [1,3,7];
+
+/* ============================================================
+   PENYIMPANAN
+   ============================================================ */
+var KUNCI = 'knjSalesOS_v1';
+var db = muatDb();
+var filterStatus = 'Semua';
+var editLeadId = null;
+
+function muatDb(){
+  try{
+    var d = JSON.parse(localStorage.getItem(KUNCI));
+    if(d && typeof d==='object'){
+      d.leads = d.leads||[]; d.sales = d.sales||[]; d.targets = d.targets||{}; d.ritme = d.ritme||{};
+      return d;
+    }
+  }catch(e){}
+  return { leads:[], sales:[], targets:{}, ritme:{}, dibuat: tglLokal() };
+}
+function simpanDb(){ localStorage.setItem(KUNCI, JSON.stringify(db)); }
+
+/* ============================================================
+   UTILITAS
+   ============================================================ */
+function pad2(n){ return String(n).padStart(2,'0'); }
+function tglLokal(d){ d = d||new Date(); return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+function bulanIni(){ return tglLokal().slice(0,7); }
+function awalMinggu(){
+  var d = new Date(); var geser = (d.getDay()+6)%7;
+  d.setDate(d.getDate()-geser); return tglLokal(d);
+}
+function selisihHari(a,b){ return Math.round((new Date(a+'T00:00:00') - new Date(b+'T00:00:00'))/86400000); }
+function rp(n){ n = Math.round(Number(n)||0); return 'Rp' + n.toLocaleString('id-ID'); }
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+function esc(s){
+  return String(s==null?'':s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function tglCantik(iso){
+  if(!iso) return '-';
+  var b = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  var p = iso.split('-'); return Number(p[2]) + ' ' + b[Number(p[1])-1] + ' ' + p[0].slice(2);
+}
+var toastTimer = null;
+function toast(pesan){
+  var t = document.getElementById('toast');
+  t.textContent = pesan; t.classList.add('tampil');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('tampil'); }, 2600);
+}
+function waNomor(no){
+  var s = String(no||'').replace(/\D/g,'');
+  if(s.slice(0,1)==='0') s = '62' + s.slice(1);
+  return s;
+}
+
+/* ============================================================
+   NAVIGASI TAB
+   ============================================================ */
+document.getElementById('navTab').addEventListener('click', function(e){
+  var b = e.target.closest('button'); if(!b) return;
+  gantiTab(b.dataset.tab);
+});
+function gantiTab(nama){
+  document.querySelectorAll('#navTab button').forEach(function(b){
+    b.classList.toggle('aktif', b.dataset.tab===nama);
+  });
+  ['bagan','pipeline','aturan','kpi','ritme'].forEach(function(t){
+    document.getElementById('tab-'+t).classList.toggle('sembunyi', t!==nama);
+  });
+  if(nama==='pipeline') renderPipeline();
+  if(nama==='kpi') renderKPI();
+  if(nama==='ritme') renderRitme();
+  window.scrollTo({top:0});
+}
+
+/* ============================================================
+   RENDER BAGAN
+   ============================================================ */
+function renderBagan(){
+  var w = document.getElementById('wadahBagan');
+  var html = '';
+  TAHAP.forEach(function(t, i){
+    html += '<div class="tahap">' +
+      '<details class="kartu tahap-kartu"' + (i===0?' open':'') + '>' +
+      '<summary>' +
+        '<div class="tahap-judul">' +
+          '<span class="tahap-nomor">' + t.no + '</span>' +
+          '<b>' + esc(t.judul) + '</b>' +
+          '<span class="sla">' + esc(t.sla) + '</span>' +
+        '</div>' +
+        '<p class="tahap-inti">' + esc(t.inti) + '</p>' +
+      '</summary>' +
+      '<div class="tahap-isi">' +
+        '<h4>Aturan main</h4><ul>' +
+        t.aturan.map(function(a){ return '<li>' + esc(a) + '</li>'; }).join('') +
+        '</ul>' +
+        '<div class="dua-jalur">' +
+          '<div class="jalur jalur-ayam"><b>🐓 Lini Ayam</b>' + esc(t.ayam) + '</div>' +
+          '<div class="jalur jalur-produk"><b>🧴 Lini Produk</b>' + esc(t.produk) + '</div>' +
+        '</div>' +
+        '<div class="ref-dunia">🌍 <b>Ilmu dari yang besar:</b> ' + esc(t.ref) + '</div>' +
+        '<div class="oto-app">⚙️ <b>Otomatisasi di aplikasi ini:</b> ' + esc(t.oto) + '</div>' +
+      '</div>' +
+      '</details>' +
+      (i < TAHAP.length-1 ? '<div class="panah-bawah">▼</div>' : '<div class="panah-bawah">⟳</div>') +
+      '</div>';
+  });
+  w.innerHTML = html;
+}
+function bukaSemuaTahap(buka){
+  document.querySelectorAll('.tahap-kartu').forEach(function(d){ d.open = buka; });
+}
+
+/* ============================================================
+   RENDER ATURAN
+   ============================================================ */
+function renderAturan(){
+  var w = document.getElementById('wadahAturan');
+  w.innerHTML = ATURAN.map(function(a){
+    return '<div class="kartu aturan-kartu">' +
+      '<div class="no-aturan">Aturan #' + a.no + '</div>' +
+      '<h3>' + esc(a.judul) + '</h3>' +
+      '<span class="perusahaan">📖 ' + esc(a.perusahaan) + '</span>' +
+      '<p><i>' + esc(a.prinsip) + '</i></p>' +
+      '<ul>' + a.poin.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
+      '<span class="metrik">📏 Ukuran: ' + esc(a.metrik) + '</span>' +
+    '</div>';
+  }).join('');
+}
+
+/* ============================================================
+   PIPELINE (CRM)
+   ============================================================ */
+function infoFu(lead){
+  if(['Closing','Setia','Batal','Tidur'].indexOf(lead.status) !== -1) return null;
+  var fu = Math.min(lead.fu||0, 3);
+  if(fu >= 3) return { saranTidur:true };
+  var target = JADWAL_FU[fu];
+  var hari = selisihHari(tglLokal(), lead.kontakTerakhir || tglLokal());
+  if(hari >= target) return { telat: hari - target, ke: fu+1 };
+  return { sisa: target - hari, ke: fu+1 };
+}
+
+function simpanLead(){
+  var nama = document.getElementById('fNama').value.trim();
+  if(!nama){ toast('Nama lead wajib diisi.'); return; }
+  var data = {
+    nama: nama,
+    wa: document.getElementById('fWa').value.trim(),
+    sumber: document.getElementById('fSumber').value,
+    minat: document.getElementById('fMinat').value,
+    skor: document.getElementById('fSkor').value,
+    kontakTerakhir: document.getElementById('fKontak').value || tglLokal(),
+    catatan: document.getElementById('fCatatan').value.trim()
+  };
+  if(editLeadId){
+    var l = db.leads.find(function(x){ return x.id===editLeadId; });
+    if(l) Object.assign(l, data);
+    toast('Lead diperbarui.');
+  } else {
+    data.id = uid(); data.status = 'Baru'; data.fu = 0; data.dibuat = tglLokal();
+    db.leads.unshift(data);
+    toast('Lead tercatat. Aplikasi akan mengingatkan follow-up-nya.');
+  }
+  simpanDb(); batalEditLead(); renderPipeline();
+}
+
+function isiFormLead(l){
+  editLeadId = l.id;
+  document.getElementById('judulFormLead').textContent = '✏️ Edit Lead — ' + l.nama;
+  document.getElementById('fNama').value = l.nama;
+  document.getElementById('fWa').value = l.wa||'';
+  document.getElementById('fSumber').value = l.sumber||'WhatsApp';
+  document.getElementById('fMinat').value = l.minat||'ayam';
+  document.getElementById('fSkor').value = l.skor||'hangat';
+  document.getElementById('fKontak').value = l.kontakTerakhir||tglLokal();
+  document.getElementById('fCatatan').value = l.catatan||'';
+  document.getElementById('btnBatalEdit').classList.remove('sembunyi');
+  document.getElementById('kartuFormLead').scrollIntoView({behavior:'smooth'});
+}
+function batalEditLead(){
+  editLeadId = null;
+  document.getElementById('judulFormLead').textContent = '＋ Lead Baru';
+  ['fNama','fWa','fCatatan'].forEach(function(id){ document.getElementById(id).value=''; });
+  document.getElementById('fSumber').value='WhatsApp';
+  document.getElementById('fMinat').value='ayam';
+  document.getElementById('fSkor').value='hangat';
+  document.getElementById('fKontak').value = tglLokal();
+  document.getElementById('btnBatalEdit').classList.add('sembunyi');
+}
+
+function ubahStatusLead(id, status){
+  var l = db.leads.find(function(x){ return x.id===id; }); if(!l) return;
+  l.status = status;
+  if(status==='Closing'){
+    simpanDb(); renderPipeline();
+    bukaFormPenjualanDariLead(l);
+    return;
+  }
+  simpanDb(); renderPipeline();
+}
+function tandaiFu(id){
+  var l = db.leads.find(function(x){ return x.id===id; }); if(!l) return;
+  l.fu = (l.fu||0)+1;
+  l.kontakTerakhir = tglLokal();
+  if(l.status==='Baru' || l.status==='Penawaran') l.status='Follow-up';
+  if(l.fu>=3) toast('Sudah 3× follow-up. Bila tetap hening, ubah status ke Tidur — nanti disapa lagi saat price list baru.');
+  else toast('Tercatat. Jadwal follow-up berikutnya dihitung otomatis.');
+  simpanDb(); renderPipeline();
+}
+function hapusLead(id){
+  var l = db.leads.find(function(x){ return x.id===id; }); if(!l) return;
+  if(!confirm('Hapus lead "' + l.nama + '"? Lebih baik status Tidur/Batal daripada dihapus.')) return;
+  db.leads = db.leads.filter(function(x){ return x.id!==id; });
+  simpanDb(); renderPipeline(); toast('Lead dihapus.');
+}
+function bukaWa(id){
+  var l = db.leads.find(function(x){ return x.id===id; }); if(!l) return;
+  var teks = templatWa(l);
+  if(!l.wa){
+    if(navigator.clipboard) navigator.clipboard.writeText(teks);
+    toast('Nomor WA belum diisi — template pesan sudah disalin ke clipboard.');
+    return;
+  }
+  window.open('https://wa.me/' + waNomor(l.wa) + '?text=' + encodeURIComponent(teks), '_blank');
+}
+function bukaFormPenjualanDariLead(l){
+  gantiTab('kpi');
+  document.getElementById('sTgl').value = tglLokal();
+  document.getElementById('sJenis').value = (l.minat==='produk') ? 'produk' : 'ayam';
+  document.getElementById('sItem').value = '';
+  document.getElementById('sNilai').value = '';
+  var pilihan = document.getElementById('sSumber');
+  var adaSumber = [].slice.call(pilihan.options).some(function(o){ return o.value===l.sumber; });
+  pilihan.value = adaSumber ? l.sumber : 'WhatsApp';
+  toast('🏆 Closing! Lengkapi item & nilai, lalu Catat Penjualan.');
+  document.getElementById('sItem').focus();
+}
+
+function renderPipeline(){
+  /* statistik ringkas */
+  var aktif = db.leads.filter(function(l){ return ['Baru','Penawaran','Follow-up'].indexOf(l.status)!==-1; });
+  var jatuhTempo = aktif.filter(function(l){ var f=infoFu(l); return f && (f.telat!==undefined || f.saranTidur); });
+  var setia = db.leads.filter(function(l){ return l.status==='Setia'; });
+  document.getElementById('ringPipeline').innerHTML =
+    '<div class="stat-kotak"><div class="nilai">' + db.leads.length + '</div><div class="label-stat">Total lead</div></div>' +
+    '<div class="stat-kotak"><div class="nilai">' + aktif.length + '</div><div class="label-stat">Sedang diproses</div></div>' +
+    '<div class="stat-kotak ' + (jatuhTempo.length? 'perlu':'') + '"><div class="nilai">' + jatuhTempo.length + '</div><div class="label-stat">Perlu follow-up</div></div>' +
+    '<div class="stat-kotak"><div class="nilai">' + setia.length + '</div><div class="label-stat">Pelanggan setia</div></div>';
+
+  /* filter */
+  var daftarFilter = ['Semua'].concat(STATUS_LEAD);
+  document.getElementById('filterPipeline').innerHTML = daftarFilter.map(function(s){
+    var jml = s==='Semua' ? db.leads.length : db.leads.filter(function(l){return l.status===s;}).length;
+    return '<button class="' + (filterStatus===s?'aktif':'') + '" onclick="setFilter(\'' + s + '\')">' + s + ' (' + jml + ')</button>';
+  }).join('');
+
+  /* daftar lead: yang jatuh tempo dulu */
+  var daftar = db.leads.slice();
+  if(filterStatus!=='Semua') daftar = daftar.filter(function(l){ return l.status===filterStatus; });
+  daftar.sort(function(a,b){
+    function skorUrut(l){
+      var f = infoFu(l);
+      if(f && f.saranTidur) return -1;
+      if(f && f.telat!==undefined) return -2 - f.telat;
+      if(['Baru','Penawaran','Follow-up'].indexOf(l.status)!==-1) return 0;
+      return 1;
+    }
+    return skorUrut(a) - skorUrut(b);
+  });
+
+  var ikonMinat = {ayam:'🐓 Ayam', produk:'🧴 Produk', keduanya:'🐓+🧴 Keduanya'};
+  var ikonSkor = {panas:'🔥 Panas', hangat:'🌤 Hangat', dingin:'❄ Dingin'};
+
+  var w = document.getElementById('wadahLead');
+  if(!daftar.length){
+    w.innerHTML = '<div class="kartu" style="text-align:center;color:var(--abu)">Belum ada lead' +
+      (filterStatus!=='Semua' ? ' berstatus ' + filterStatus : '') +
+      '. Setiap orang yang bertanya = satu lead. Catat sekarang di form di atas. 💪</div>';
+    return;
+  }
+  w.innerHTML = daftar.map(function(l){
+    var f = infoFu(l);
+    var kelas = 'lead-kartu';
+    var barisFu = '';
+    if(f){
+      if(f.saranTidur){
+        kelas += ' perlu-fu';
+        barisFu = '<div class="fu-info fu-telat">⏸ Sudah 3× follow-up tanpa hasil — saatnya status <b>Tidur</b> (disapa lagi saat price list baru).</div>';
+      } else if(f.telat!==undefined){
+        kelas += ' perlu-fu';
+        barisFu = '<div class="fu-info fu-telat">🔔 Waktunya follow-up ke-' + f.ke +
+          (f.telat>0 ? ' — terlambat ' + f.telat + ' hari!' : ' (hari ini)') + '</div>';
+      } else {
+        kelas += ' aman';
+        barisFu = '<div class="fu-info fu-aman">✅ Follow-up ke-' + f.ke + ' dalam ' + f.sisa + ' hari lagi.</div>';
+      }
+    } else if(l.status==='Tidur'){ kelas += ' tidur-k'; }
+    else if(l.status==='Setia' || l.status==='Closing'){ kelas += ' aman'; }
+
+    return '<div class="kartu ' + kelas + '">' +
+      '<div class="lead-atas"><div>' +
+        '<div class="lead-nama">' + esc(l.nama) + '</div>' +
+        '<div class="lead-meta">Masuk ' + tglCantik(l.dibuat) + ' · kontak terakhir ' + tglCantik(l.kontakTerakhir) +
+          (l.wa ? ' · ' + esc(l.wa) : ' · <i>nomor WA belum diisi</i>') + '</div>' +
+      '</div>' +
+      '<span class="badge badge-hijau">' + esc(l.status) + '</span></div>' +
+      '<div class="lead-badges">' +
+        '<span class="badge">' + (ikonMinat[l.minat]||esc(l.minat)) + '</span>' +
+        '<span class="badge badge-biru">' + esc(l.sumber) + '</span>' +
+        '<span class="badge ' + (l.skor==='panas'?'badge-merah':'badge-abu') + '">' + (ikonSkor[l.skor]||esc(l.skor)) + '</span>' +
+        '<span class="badge badge-abu">FU ' + (l.fu||0) + '×</span>' +
+      '</div>' +
+      (l.catatan ? '<div class="catatan-lead">📝 ' + esc(l.catatan) + '</div>' : '') +
+      barisFu +
+      '<div class="lead-aksi">' +
+        '<button class="btn btn-kecil" onclick="bukaWa(\'' + l.id + '\')">💬 WA (template siap)</button>' +
+        (f ? '<button class="btn btn-kecil btn-sekunder" onclick="tandaiFu(\'' + l.id + '\')">✅ Sudah dihubungi</button>' : '') +
+        '<select onchange="ubahStatusLead(\'' + l.id + '\', this.value)">' +
+          STATUS_LEAD.map(function(s){ return '<option' + (l.status===s?' selected':'') + '>' + s + '</option>'; }).join('') +
+        '</select>' +
+        '<button class="btn btn-kecil btn-sekunder" onclick="isiFormLead(db.leads.find(function(x){return x.id===\'' + l.id + '\'}))">✏️</button>' +
+        '<button class="btn btn-kecil btn-merah" onclick="hapusLead(\'' + l.id + '\')">🗑</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+function setFilter(s){ filterStatus = s; renderPipeline(); }
+
+/* ============================================================
+   KPI & BUKU PENJUALAN
+   ============================================================ */
+function bulanKpi(){ return document.getElementById('kpiBulan').value || bulanIni(); }
+
+function simpanTarget(){
+  var b = bulanKpi();
+  db.targets[b] = {
+    omzetAyam: Number(document.getElementById('tOmzetAyam').value)||0,
+    omzetProduk: Number(document.getElementById('tOmzetProduk').value)||0,
+    lead: Number(document.getElementById('tLead').value)||0,
+    closing: Number(document.getElementById('tClosing').value)||0
+  };
+  simpanDb(); renderKPI();
+}
+
+function simpanPenjualan(){
+  var nilai = Number(document.getElementById('sNilai').value)||0;
+  var item = document.getElementById('sItem').value.trim();
+  if(!item || nilai<=0){ toast('Isi item dan nilai penjualan dulu.'); return; }
+  db.sales.unshift({
+    id: uid(),
+    tgl: document.getElementById('sTgl').value || tglLokal(),
+    jenis: document.getElementById('sJenis').value,
+    item: item,
+    nilai: nilai,
+    sumber: document.getElementById('sSumber').value
+  });
+  simpanDb();
+  document.getElementById('sItem').value=''; document.getElementById('sNilai').value='';
+  toast('💰 Penjualan tercatat. Roda berputar!');
+  renderKPI();
+}
+function hapusPenjualan(id){
+  if(!confirm('Hapus catatan penjualan ini?')) return;
+  db.sales = db.sales.filter(function(s){ return s.id!==id; });
+  simpanDb(); renderKPI();
+}
+
+function renderKPI(){
+  var b = bulanKpi();
+  document.getElementById('kpiBulan').value = b;
+
+  var t = db.targets[b] || {omzetAyam:0, omzetProduk:0, lead:0, closing:0};
+  document.getElementById('tOmzetAyam').value = t.omzetAyam||'';
+  document.getElementById('tOmzetProduk').value = t.omzetProduk||'';
+  document.getElementById('tLead').value = t.lead||'';
+  document.getElementById('tClosing').value = t.closing||'';
+
+  var jual = db.sales.filter(function(s){ return (s.tgl||'').slice(0,7)===b; });
+  var omzetAyam = jual.filter(function(s){return s.jenis==='ayam';}).reduce(function(a,s){return a+s.nilai;},0);
+  var omzetProduk = jual.filter(function(s){return s.jenis==='produk';}).reduce(function(a,s){return a+s.nilai;},0);
+  var omzetTotal = omzetAyam + omzetProduk;
+  var trx = jual.length;
+  var aov = trx ? omzetTotal/trx : 0;
+
+  var leadBulan = db.leads.filter(function(l){ return (l.dibuat||'').slice(0,7)===b; });
+  var leadDitindak = leadBulan.filter(function(l){ return l.status!=='Baru' && l.status!=='Batal'; });
+  var konversi = leadBulan.length ? Math.round(trx/leadBulan.length*100) : 0;
+
+  function kotak(label, nilai, sub, target){
+    var bar = '';
+    if(target){
+      var pct = Math.min(100, Math.round((nilai.angka||0)/target*100));
+      bar = '<div class="bar-luar"><div class="bar-dalam" style="width:' + pct + '%"></div></div>' +
+            '<div class="sub">' + pct + '% dari target ' + (nilai.rp ? rp(target) : target) + '</div>';
+    }
+    return '<div class="kpi-kotak"><div class="label-stat">' + label + '</div>' +
+      '<div class="nilai">' + nilai.teks + '</div>' +
+      (sub ? '<div class="sub">' + sub + '</div>' : '') + bar + '</div>';
+  }
+
+  document.getElementById('wadahKpi').innerHTML =
+    kotak('Omzet Ayam', {teks:rp(omzetAyam), angka:omzetAyam, rp:true}, '', t.omzetAyam) +
+    kotak('Omzet Produk', {teks:rp(omzetProduk), angka:omzetProduk, rp:true}, '', t.omzetProduk) +
+    kotak('Omzet Total', {teks:rp(omzetTotal), angka:omzetTotal, rp:true},
+      (t.omzetAyam+t.omzetProduk)? '' : 'set target di atas', (t.omzetAyam+t.omzetProduk)||0) +
+    kotak('Transaksi', {teks:String(trx), angka:trx}, '', t.closing) +
+    kotak('Lead Masuk', {teks:String(leadBulan.length), angka:leadBulan.length}, '', t.lead) +
+    kotak('Konversi', {teks:konversi + '%'}, 'closing ÷ lead bulan ini') +
+    kotak('Rata-rata Transaksi (AOV)', {teks:rp(aov)}, 'aturan #4 & #5: naikkan lewat nilai & bundling');
+
+  /* corong */
+  var maks = Math.max(leadBulan.length, 1);
+  function barisFunnel(label, n){
+    var w = Math.max(4, Math.round(n/maks*100));
+    return '<div class="funnel-baris"><div class="funnel-label">' + label + '</div>' +
+      '<div class="funnel-batang"><div class="funnel-isi" style="width:' + w + '%"></div>' +
+      '<div class="funnel-angka">' + n + '</div></div></div>';
+  }
+  document.getElementById('wadahFunnel').innerHTML =
+    barisFunnel('Lead masuk', leadBulan.length) +
+    barisFunnel('Ditindak', leadDitindak.length) +
+    barisFunnel('Closing', trx);
+
+  /* tabel */
+  var tb = document.getElementById('tabelPenjualan');
+  if(!jual.length){
+    tb.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--abu)">Belum ada penjualan tercatat bulan ini.</td></tr>';
+  } else {
+    tb.innerHTML = jual.map(function(s){
+      return '<tr><td>' + tglCantik(s.tgl) + '</td>' +
+        '<td>' + (s.jenis==='ayam'?'🐓':'🧴') + '</td>' +
+        '<td>' + esc(s.item) + '</td>' +
+        '<td class="angka"><b>' + rp(s.nilai) + '</b></td>' +
+        '<td>' + esc(s.sumber) + '</td>' +
+        '<td><button class="btn btn-kecil btn-merah" onclick="hapusPenjualan(\'' + s.id + '\')">🗑</button></td></tr>';
+    }).join('') +
+    '<tr><td colspan="3"><b>Total</b></td><td class="angka"><b>' + rp(omzetTotal) + '</b></td><td colspan="2"></td></tr>';
+  }
+}
+
+/* ============================================================
+   RITME (CHECKLIST RESET OTOMATIS)
+   ============================================================ */
+function kunciPeriode(jenis){
+  if(jenis==='harian') return tglLokal();
+  if(jenis==='mingguan') return awalMinggu();
+  return bulanIni();
+}
+function stateRitme(jenis){
+  var k = kunciPeriode(jenis);
+  var r = db.ritme[jenis];
+  if(!r || r.kunci!==k){
+    r = { kunci:k, c: RITME[jenis].item.map(function(){ return false; }) };
+    db.ritme[jenis] = r; simpanDb();
+  }
+  while(r.c.length < RITME[jenis].item.length) r.c.push(false);
+  return r;
+}
+function toggleRitme(jenis, i){
+  var r = stateRitme(jenis);
+  r.c[i] = !r.c[i];
+  simpanDb(); renderRitme();
+  var selesai = r.c.filter(Boolean).length;
+  if(selesai === RITME[jenis].item.length) toast('🏆 Checklist ' + RITME[jenis].judul + ' beres semua. Begitulah cara juara bekerja.');
+}
+function renderRitme(){
+  var w = document.getElementById('wadahRitme');
+  w.innerHTML = Object.keys(RITME).map(function(jenis){
+    var def = RITME[jenis];
+    var r = stateRitme(jenis);
+    var selesai = r.c.filter(Boolean).length;
+    return '<div class="kartu ritme-kartu ' + def.kelas + '">' +
+      '<h3 style="margin-top:0">' + def.judul + ' <span class="progres-ritme">' + selesai + '/' + def.item.length + '</span></h3>' +
+      def.item.map(function(teks, i){
+        return '<label class="cek-item ' + (r.c[i]?'selesai':'') + '">' +
+          '<input type="checkbox" ' + (r.c[i]?'checked':'') + ' onchange="toggleRitme(\'' + jenis + '\',' + i + ')">' +
+          '<span>' + esc(teks) + '</span></label>';
+      }).join('') +
+      '<div class="reset-info">' + def.reset + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+/* ============================================================
+   EKSPOR / IMPOR
+   ============================================================ */
+function eksporData(){
+  var isi = JSON.stringify(db, null, 2);
+  var blob = new Blob([isi], {type:'application/json'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'knj-sales-os-' + tglLokal() + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('Data terekspor. Simpan berkasnya baik-baik.');
+}
+function imporData(e){
+  var f = e.target.files[0]; if(!f) return;
+  var r = new FileReader();
+  r.onload = function(){
+    try{
+      var d = JSON.parse(r.result);
+      if(!d || typeof d!=='object' || !Array.isArray(d.leads)) throw new Error('format salah');
+      db = d; db.sales = db.sales||[]; db.targets = db.targets||{}; db.ritme = db.ritme||{};
+      simpanDb();
+      renderPipeline(); renderKPI(); renderRitme();
+      toast('Data berhasil diimpor.');
+    }catch(err){ toast('Berkas tidak dikenali — pastikan hasil Ekspor Data aplikasi ini.'); }
+  };
+  r.readAsText(f);
+  e.target.value = '';
+}
+
+/* ============================================================
+   INISIALISASI
+   ============================================================ */
+window.addEventListener('beforeprint', function(){ bukaSemuaTahap(true); });
+document.getElementById('fKontak').value = tglLokal();
+document.getElementById('sTgl').value = tglLokal();
+document.getElementById('kpiBulan').value = bulanIni();
+renderBagan();
+renderAturan();
+renderPipeline();
+renderKPI();
+renderRitme();
+</script>
+</body>
+</html>
