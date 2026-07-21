@@ -44,6 +44,31 @@ antarperangkat.
 
 - [`SOP.md`](SOP.md) — SOP lengkap produksi & perhitungan harga (siap cetak)
 
+## KNJ Sales OS — Bagan Otomatisasi Penjualan (Juli 2026)
+
+Aplikasi web mandiri kedua: [`penjualan/index.html`](penjualan/index.html) —
+satu berkas, tanpa internet & tanpa instalasi, data tersimpan di perangkat.
+Berisi **mesin penjualan 9 tahap** untuk lini ayam dan lini produk KNJ,
+dengan ilmu yang diperas dari perusahaan kelas dunia (Amazon, Toyota, Apple,
+McDonald's, Salesforce, Zappos, Starbucks, Nike, Dropbox):
+
+- 🗺 **Bagan** — alur otomatisasi penjualan 9 tahap (konten → lead →
+  kualifikasi → penawaran → follow-up 1-3-7 → closing → kirim → after-sales
+  → repeat/referral ↺ flywheel), tiap tahap berisi aturan main, jalur khusus
+  ayam vs produk, referensi dunia, dan bagian yang diotomatiskan aplikasi
+- 📇 **Pipeline (CRM)** — catat semua lead; aplikasi menghitung sendiri
+  jadwal follow-up **1-3-7** (H+1, H+3, H+7), menandai yang jatuh tempo,
+  dan menyiapkan **template pesan WA** sesuai tahap — tinggal ketuk 💬
+- 📜 **Aturan 2026** — 12 aturan penjualan KNJ beserta ukuran keberhasilannya
+- 🎯 **Target & KPI** — buku penjualan harian, omzet per lini, konversi,
+  AOV, corong bulanan, dan progres terhadap target
+- ⏰ **Ritme** — checklist harian/mingguan/bulanan yang reset otomatis
+  (kaizen mingguan ala Toyota)
+- 💾 Ekspor–impor data (JSON), simpan otomatis (localStorage), siap cetak
+
+Dokumen pendamping: [`SOP-PENJUALAN.md`](SOP-PENJUALAN.md) — SOP penjualan
+SOP-P01 s/d SOP-P09 + 12 aturan (siap cetak).
+
 ## Kandang Ndalem — Kelas Makrifat
 
 Ruang dalam yang terpisah dari urusan dagang: [`makrifat/index.html`](makrifat/index.html).
